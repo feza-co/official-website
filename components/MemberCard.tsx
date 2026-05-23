@@ -62,17 +62,17 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
     >
       <article
         className="card-base relative flex flex-col items-center gap-5 p-6
-                   rounded-2xl overflow-hidden select-none bg-white"
+                   rounded-lg overflow-hidden select-none bg-white"
         style={{ animationDelay: `${index * 80}ms` }}
       >
         {/* ── Soft indigo radial on hover (top-right) ── */}
         <div
-          className="absolute top-0 right-0 w-28 h-28 opacity-0 group-hover:opacity-100
+            className="absolute top-0 right-0 w-28 h-28 opacity-0 group-hover:opacity-100
                      transition-opacity duration-500 pointer-events-none"
           aria-hidden
           style={{
             background:
-              "radial-gradient(circle at top right, rgba(99,102,241,0.07) 0%, transparent 70%)",
+              "radial-gradient(circle at top right, rgba(6,182,212,0.08) 0%, transparent 70%)",
           }}
         />
 
@@ -90,7 +90,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
           <div
             className="absolute -inset-3 rounded-full opacity-0 group-hover:opacity-100
                        transition-all duration-400 blur-lg pointer-events-none"
-            style={{ background: "rgba(99,102,241,0.1)" }}
+            style={{ background: "rgba(6,182,212,0.12)" }}
             aria-hidden
           />
 
@@ -108,7 +108,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
           {/* Indigo ring on hover */}
           <div
             className="absolute inset-0 rounded-full scale-110 pointer-events-none
-                       border-2 border-indigo-400/0 group-hover:border-indigo-400/35
+                       border-2 border-cyan-400/0 group-hover:border-cyan-400/35
                        transition-all duration-400"
             aria-hidden
           />
@@ -118,7 +118,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
         <div className="text-center space-y-1.5">
           <h3
             className="font-outfit font-semibold text-lg text-slate-900 leading-tight
-                       group-hover:text-indigo-900 transition-colors duration-300"
+                       group-hover:text-cyan-900 transition-colors duration-300"
           >
             {member.name}
           </h3>
@@ -160,7 +160,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
         {/* ── "Profili Gör" CTA — slides in on hover ── */}
         <div
           className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest
-                     text-indigo-600 opacity-0 group-hover:opacity-100 -mt-1 mb-1
+                    text-cyan-600 opacity-0 group-hover:opacity-100 -mt-1 mb-1
                      translate-y-1 group-hover:translate-y-0
                      transition-all duration-300"
         >
@@ -183,7 +183,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
                      group-hover:opacity-100 transition-opacity duration-400"
           style={{
             background:
-              "linear-gradient(90deg, transparent, #6366f1 40%, #6366f1 60%, transparent)",
+              "linear-gradient(90deg, transparent, #06b6d4 40%, #4f46e5 60%, transparent)",
           }}
           aria-hidden
         />

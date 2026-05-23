@@ -64,13 +64,13 @@ export default function ProjectCard({
   const status = statusConfig[project.status];
 
   return (
-    <article className="card-base group relative rounded-2xl overflow-hidden bg-white">
+    <article className="card-base group relative rounded-lg overflow-hidden bg-white">
       {/* ── Left indigo accent bar ── */}
       <div
-        className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl"
+        className="absolute left-0 top-0 bottom-0 w-1 rounded-l-lg"
         style={{
           background:
-            "linear-gradient(180deg, #818cf8 0%, #4f46e5 50%, #818cf8 100%)",
+            "linear-gradient(180deg, #06b6d4 0%, #4f46e5 52%, #10b981 100%)",
         }}
         aria-hidden
       />
@@ -81,7 +81,7 @@ export default function ProjectCard({
                    transition-opacity duration-500 pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at top right, rgba(99,102,241,0.05) 0%, transparent 65%)",
+            "radial-gradient(circle at top right, rgba(6,182,212,0.07) 0%, transparent 65%)",
         }}
         aria-hidden
       />
@@ -112,7 +112,7 @@ export default function ProjectCard({
             {/* Title */}
             <h3
               className="font-orbitron font-bold text-xl md:text-2xl text-slate-900
-                         group-hover:text-indigo-900 transition-colors duration-300 leading-tight"
+                         group-hover:text-cyan-900 transition-colors duration-300 leading-tight"
             >
               {project.title}
             </h3>
@@ -156,11 +156,11 @@ export default function ProjectCard({
         {/* ── Highlight callout ── */}
         {project.highlight && (
           <div
-            className="flex items-start gap-3 px-4 py-3 rounded-xl
-                        bg-indigo-50/70 border border-indigo-100"
-            style={{ borderLeft: "3px solid #818cf8" }}
+            className="flex items-start gap-3 px-4 py-3 rounded-lg
+                        bg-cyan-50/70 border border-cyan-100"
+            style={{ borderLeft: "3px solid #06b6d4" }}
           >
-            <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-400 mt-0.5 shrink-0">
+            <span className="font-mono text-[10px] tracking-widest uppercase text-cyan-500 mt-0.5 shrink-0">
               {"//"}
             </span>
             <p className="font-mono text-xs text-slate-600 leading-[1.75]">

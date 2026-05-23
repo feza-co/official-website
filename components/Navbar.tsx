@@ -44,7 +44,7 @@ export default function Navbar() {
                        group-hover:text-slate-700 transition-colors duration-300"
           >
             FEZA
-            <span className="text-indigo-600">—CO</span>
+            <span className="text-cyan-600">—CO</span>
           </span>
         </Link>
 
@@ -70,7 +70,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <div
             className="flex items-center gap-2 px-3.5 py-1.5 rounded-full
-                        bg-indigo-50 border border-indigo-100/80"
+                        bg-emerald-50 border border-emerald-100/80"
           >
             <span
               className="w-1.5 h-1.5 rounded-full bg-green-500"
@@ -79,7 +79,7 @@ export default function Navbar() {
                 boxShadow: "0 0 0 2px rgba(34,197,94,0.2)",
               }}
             />
-            <span className="font-mono text-[10px] tracking-widest text-indigo-600 uppercase">
+            <span className="font-mono text-[10px] tracking-widest text-emerald-700 uppercase">
               Aktif Kolektif
             </span>
           </div>

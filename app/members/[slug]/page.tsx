@@ -160,10 +160,10 @@ export default async function MemberPage({
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-mono text-[10px] tracking-widest uppercase transition-all duration-200
                              text-slate-500 border border-slate-200 bg-white
-                             hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50
+                             hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
                              hover:shadow-sm"
                 >
                   <LinkedInIcon />
@@ -175,10 +175,10 @@ export default async function MemberPage({
                   href={member.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-mono text-[10px] tracking-widest uppercase transition-all duration-200
                              text-slate-500 border border-slate-200 bg-white
-                             hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50
+                             hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
                              hover:shadow-sm"
                 >
                   <GitHubIcon />
@@ -230,10 +230,10 @@ export default async function MemberPage({
               {memberProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="relative flex items-start gap-5 px-6 py-5 rounded-2xl
+                  className="relative flex items-start gap-5 px-6 py-5 rounded-lg
                              transition-all duration-200
                              border border-slate-200 bg-white
-                             hover:border-indigo-200 hover:shadow-sm"
+                             hover:border-cyan-200 hover:shadow-sm"
                 >
                   {/* Status dot */}
                   <div className="mt-1.5 shrink-0">
@@ -290,7 +290,7 @@ export default async function MemberPage({
               {member.hackathons.map((event, i) => (
                 <div
                   key={event}
-                  className="flex items-center gap-3 px-5 py-4 rounded-xl
+                  className="flex items-center gap-3 px-5 py-4 rounded-lg
                              border border-slate-200 bg-white"
                 >
                   <span
@@ -320,10 +320,10 @@ export default async function MemberPage({
                 <Link
                   key={m.slug}
                   href={`/members/${m.slug}`}
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-outfit text-sm font-medium transition-all duration-200
                              text-slate-600 border border-slate-200 bg-white
-                             hover:border-indigo-200 hover:text-indigo-700 hover:bg-indigo-50
+                             hover:border-cyan-200 hover:text-cyan-700 hover:bg-cyan-50
                              hover:shadow-sm"
                 >
                   <div
