@@ -38,7 +38,7 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "AK",
     avatarGradient: "from-cyan-500 via-blue-600 to-indigo-700",
-    linkedin: "https://linkedin.com/in/ahmetkrkyn",
+    linkedin: "https://www.linkedin.com/in/ahmetkrkyn0/",
     github: "https://github.com/ahmetkrkyn0",
     bio: "Yazılım geliştirme ve yapay zeka sistemleri üzerine odaklanan bir kurucu ortak. Ölçeklenebilir mimari tasarımı ve modern web teknolojileri konusunda derin teknik deneyim sahibi. Feza-Co'nun vizyon ve teknik yönünün şekillenmesinde aktif rol alıyor.",
     skills: [
@@ -59,8 +59,8 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "TD",
     avatarGradient: "from-violet-500 via-purple-600 to-cyan-500",
-    linkedin: "https://linkedin.com/in/tunadeniz",
-    github: "https://github.com/tunadeniz",
+    linkedin: "https://www.linkedin.com/in/tuna-deniz1304/",
+    github: "https://github.com/tunadeniz1304",
     bio: "Dijital ikiz sistemleri ve 3D modelleme alanında akademik düzeyde altyapılar geliştiren mühendis. IoT sensör entegrasyonu ve gerçek zamanlı veri akışı konularındaki araştırmaları Feza-Co'nun teknik portföyünün temel taşını oluşturuyor.",
     skills: [
       "Digital Twin Systems",
@@ -81,8 +81,8 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "NGT",
     avatarGradient: "from-emerald-500 via-teal-500 to-cyan-600",
-    linkedin: "https://linkedin.com/in/nedimgoktugtabak",
-    github: "https://github.com/nedimgoktug",
+    linkedin: "https://www.linkedin.com/in/goktug-tabak/",
+    github: "https://github.com/goktugtabak",
     bio: "Sistem mimarisi ve backend geliştirme konularında uzmanlaşmış, ölçeklenebilir ve yüksek-performanslı altyapılar tasarlayan mühendis. DevOps ve konteyner orkestrasyonu alanındaki deneyimiyle kolektifin teknik omurgasını güçlendiriyor.",
     skills: [
       "Backend Development",
@@ -102,7 +102,7 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "IBK",
     avatarGradient: "from-orange-500 via-rose-500 to-pink-600",
-    linkedin: "https://linkedin.com/in/izzetinberkekus",
+    linkedin: "https://www.linkedin.com/in/berke-ku%C5%9F-464837272/",
     github: "https://github.com/berkekus",
     bio: "Mobil uygulama geliştirme ve kullanıcı deneyimi tasarımı alanlarında çalışan yaratıcı teknoloji kurucusu. Kullanıcı odaklı tasarım felsefesini teknik mükemmellikle birleştirerek dijital deneyimler üretiyor.",
     skills: [
@@ -123,8 +123,8 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "OT",
     avatarGradient: "from-sky-500 via-blue-500 to-indigo-600",
-    linkedin: "https://linkedin.com/in/oguzhantarhan",
-    github: "https://github.com/oguzhantarhan",
+    linkedin: "https://www.linkedin.com/in/o%C4%9Fuzhan-tarhan-6a8299357/",
+    github: "https://github.com/OgzhnTarhn",
     bio: "Veri bilimi ve makine öğrenmesi alanlarında araştırma odaklı çalışmalar yapan analitik düşünürlü geliştirici. İstatistiksel modelleme ve derin öğrenme konularındaki birikimi, kolektifin veri stratejisinin temelini oluşturuyor.",
     skills: [
       "Data Science",

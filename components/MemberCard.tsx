@@ -118,15 +118,6 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
           </p>
         </div>
 
-        {/* ── Skills preview (top 3) ── */}
-        <div className="flex flex-wrap justify-center gap-1.5 px-2">
-          {member.skills.slice(0, 3).map((skill) => (
-            <span key={skill} className="tag-light">
-              {skill}
-            </span>
-          ))}
-        </div>
-
         {/* ── Social links ── */}
         <div className="flex items-center gap-4 mt-1">
           {member.linkedin && (

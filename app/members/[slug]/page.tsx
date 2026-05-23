@@ -221,35 +221,6 @@ export default async function MemberPage({
         </div>
 
         {/* ══════════════════════════════════════════════════════════
-            SKILLS
-        ══════════════════════════════════════════════════════════ */}
-        <section className="mb-14" aria-label="Teknik Yetkinlikler">
-          <SectionLabel label="// Teknik Yetkinlikler" />
-          <div className="mt-6 flex flex-wrap gap-3">
-            {member.skills.map((skill, i) => (
-              <div
-                key={skill}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all duration-200
-                           cursor-default border border-slate-200 bg-white
-                           hover:border-indigo-200 hover:bg-indigo-50 hover:shadow-sm"
-              >
-                <span
-                  className="w-1.5 h-1.5 rounded-full shrink-0"
-                  style={{
-                    background:
-                      i % 3 === 0 ? "#4f46e5" : i % 3 === 1 ? "#0ea5e9" : "#10b981",
-                  }}
-                  aria-hidden
-                />
-                <span className="font-outfit font-medium text-sm text-slate-700">
-                  {skill}
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════
             PROJECTS
         ══════════════════════════════════════════════════════════ */}
         {memberProjects.length > 0 && (
