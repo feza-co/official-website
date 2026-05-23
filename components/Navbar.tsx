@@ -14,14 +14,28 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50
-                 bg-white/90 backdrop-blur-md
-                 border-b border-slate-200/80"
+      className="fixed top-3 left-3 right-3 z-50 rounded-lg
+                 border border-white/80 bg-white/82 shadow-[0_10px_32px_rgba(24,24,27,0.08)]
+                 backdrop-blur-xl supports-[backdrop-filter]:bg-white/72"
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4
+                   focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2
+                   focus:font-mono focus:text-xs focus:uppercase focus:tracking-widest
+                   focus:text-blue-700 focus:shadow-lg focus:outline-none
+                   focus:ring-2 focus:ring-blue-500/35"
+      >
+        Ana içeriğe geç
+      </a>
       <nav className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
 
         {/* ── Logo ── */}
-        <Link href="/" className="group flex items-center gap-2.5">
+        <Link
+          href="/"
+          className="group flex cursor-pointer items-center gap-2.5 rounded-lg
+                     focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/35"
+        >
           {/* Glyph mark */}
           <div
             className="relative w-7 h-7 flex items-center justify-center"
@@ -29,8 +43,8 @@ export default function Navbar() {
           >
             <div
               className="absolute inset-0 rounded-full border border-indigo-400/60
-                         group-hover:border-indigo-500 transition-all duration-300
-                         group-hover:shadow-[0_0_0_3px_rgba(99,102,241,0.1)]"
+                         group-hover:border-blue-500 transition-all duration-300
+                         group-hover:shadow-[0_0_0_3px_rgba(37,99,235,0.1)]"
             />
             <div
               className="w-1.5 h-1.5 rounded-full bg-indigo-600
@@ -54,12 +68,14 @@ export default function Navbar() {
             <Link
               key={href}
               href={href}
-              className="font-mono text-xs tracking-widest text-slate-500 uppercase
-                         hover:text-slate-900 transition-colors duration-200 relative group"
+              className="group relative cursor-pointer rounded-sm font-mono text-xs uppercase
+                         tracking-widest text-zinc-500 transition-colors duration-200
+                         hover:text-zinc-950 focus:outline-none
+                         focus-visible:ring-2 focus-visible:ring-blue-500/30"
             >
               {label}
               <span
-                className="absolute -bottom-1 left-0 h-px w-0 bg-indigo-600
+                className="absolute -bottom-1 left-0 h-px w-0 bg-blue-600
                            group-hover:w-full transition-all duration-300"
               />
             </Link>
@@ -90,8 +106,8 @@ export default function Navbar() {
           type="button"
           className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg
                      border border-slate-200 bg-white text-slate-600
-                     transition-colors duration-200 hover:border-indigo-200 hover:text-indigo-600
-                     focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
+                     cursor-pointer transition-colors duration-200 hover:border-blue-200 hover:text-blue-600
+                     focus:outline-none focus:ring-2 focus:ring-blue-500/30"
           aria-label={isMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
@@ -118,16 +134,16 @@ export default function Navbar() {
 
       {/* ── Thin indigo shimmer line ── */}
       <div
-        className="h-px w-full"
+        className="h-px w-full rounded-b-lg"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.3) 30%, rgba(99,102,241,0.5) 50%, rgba(99,102,241,0.3) 80%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(37,99,235,0.25) 30%, rgba(37,99,235,0.45) 50%, rgba(37,99,235,0.25) 80%, transparent 100%)",
         }}
       />
 
       <div
         id="mobile-navigation"
-        className={`md:hidden overflow-hidden border-b border-slate-200/80 bg-white/95
+        className={`md:hidden overflow-hidden rounded-b-lg border-t border-slate-200/80 bg-white/95
                     transition-[max-height,opacity] duration-300 ease-out
                     ${isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
       >
@@ -136,10 +152,10 @@ export default function Navbar() {
             <Link
               key={href}
               href={href}
-              className="flex items-center justify-between rounded-lg px-3 py-3
+              className="flex items-center justify-between rounded-lg px-3 py-3.5 min-h-[44px]
                          font-mono text-xs tracking-widest text-slate-600 uppercase
-                         transition-colors duration-200 hover:bg-indigo-50 hover:text-indigo-700
-                         focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
+                         cursor-pointer transition-colors duration-200 hover:bg-blue-50 hover:text-blue-700
+                         focus:outline-none focus:ring-2 focus:ring-blue-500/30"
               onClick={() => setIsMenuOpen(false)}
             >
               <span>{label}</span>
