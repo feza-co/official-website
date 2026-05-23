@@ -1,51 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import type { Project } from "@/lib/data";
+import { ExternalLinkIcon, GitHubIcon, StatusDot } from "@/components/ui";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
-
-function ExternalLinkIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    >
-      <path d="M2 10L10 2M10 2H5M10 2V7" />
-    </svg>
-  );
-}
-
-function GitHubSmallIcon() {
-  return (
-    <svg
-      width="13"
-      height="13"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-    </svg>
-  );
-}
 
 // ─── Status config ────────────────────────────────────────────────────────────
 
 const statusConfig: Record<
   Project["status"],
-  { label: string; dotClass: string }
+  { label: string; tone: "active" | "planning" | "completed" }
 > = {
-  active:    { label: "Aktif",       dotClass: "status-active" },
-  planning:  { label: "Planlamada",  dotClass: "status-planning" },
-  completed: { label: "Tamamlandı",  dotClass: "status-completed" },
+  active:    { label: "Aktif",       tone: "active" },
+  planning:  { label: "Planlamada",  tone: "planning" },
+  completed: { label: "Tamamlandı",  tone: "completed" },
 };
 
 // ─── Project Card ─────────────────────────────────────────────────────────────
@@ -62,15 +29,20 @@ export default function ProjectCard({
   members = [],
 }: ProjectCardProps) {
   const status = statusConfig[project.status];
+  const projectFacts = [
+    { label: "Odak", value: project.tags[0] },
+    { label: "Ekip", value: `${members.length || project.members.length} kişi` },
+    { label: "Yıl", value: String(project.year) },
+  ];
 
   return (
-    <article className="card-base group relative rounded-2xl overflow-hidden bg-white">
+    <article className="card-base group relative rounded-lg overflow-hidden bg-white">
       {/* ── Left indigo accent bar ── */}
       <div
-        className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl"
+        className="absolute left-0 top-0 bottom-0 w-1 rounded-l-lg"
         style={{
           background:
-            "linear-gradient(180deg, #818cf8 0%, #4f46e5 50%, #818cf8 100%)",
+            "linear-gradient(180deg, #06b6d4 0%, #4f46e5 52%, #10b981 100%)",
         }}
         aria-hidden
       />
@@ -81,7 +53,7 @@ export default function ProjectCard({
                    transition-opacity duration-500 pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at top right, rgba(99,102,241,0.05) 0%, transparent 65%)",
+            "radial-gradient(circle at top right, rgba(6,182,212,0.07) 0%, transparent 65%)",
         }}
         aria-hidden
       />
@@ -99,9 +71,10 @@ export default function ProjectCard({
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span
-                className={`font-mono text-[10px] tracking-wider uppercase
-                            flex items-center text-slate-500 ${status.dotClass}`}
+                className="font-mono text-[10px] tracking-wider uppercase
+                           flex items-center gap-2 text-slate-500"
               >
+                <StatusDot tone={status.tone} pulse={project.status === "active"} className="h-1.5 w-1.5" />
                 {status.label}
               </span>
               <span className="font-mono text-[10px] tracking-widest text-slate-300">
@@ -112,7 +85,7 @@ export default function ProjectCard({
             {/* Title */}
             <h3
               className="font-orbitron font-bold text-xl md:text-2xl text-slate-900
-                         group-hover:text-indigo-900 transition-colors duration-300 leading-tight"
+                         group-hover:text-cyan-900 transition-colors duration-300 leading-tight"
             >
               {project.title}
             </h3>
@@ -131,7 +104,7 @@ export default function ProjectCard({
                            text-slate-500 border border-slate-200 bg-white
                            hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50"
               >
-                <GitHubSmallIcon />
+                <GitHubIcon size={13} />
                 <span>Repo</span>
               </a>
             )}
@@ -156,11 +129,11 @@ export default function ProjectCard({
         {/* ── Highlight callout ── */}
         {project.highlight && (
           <div
-            className="flex items-start gap-3 px-4 py-3 rounded-xl
-                        bg-indigo-50/70 border border-indigo-100"
-            style={{ borderLeft: "3px solid #818cf8" }}
+            className="flex items-start gap-3 px-4 py-3 rounded-lg
+                        bg-cyan-50/70 border border-cyan-100"
+            style={{ borderLeft: "3px solid #06b6d4" }}
           >
-            <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-400 mt-0.5 shrink-0">
+            <span className="font-mono text-[10px] tracking-widest uppercase text-cyan-500 mt-0.5 shrink-0">
               {"//"}
             </span>
             <p className="font-mono text-xs text-slate-600 leading-[1.75]">
@@ -173,6 +146,39 @@ export default function ProjectCard({
         <p className="font-outfit text-base text-slate-600 leading-relaxed">
           {project.description}
         </p>
+
+        {/* ── Case study snapshot ── */}
+        {project.caseStudy && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200">
+            {[
+              { label: "Problem", value: project.caseStudy.problem },
+              { label: "Yaklaşım", value: project.caseStudy.approach },
+              { label: "Çıktı", value: project.caseStudy.outcome },
+            ].map((item) => (
+              <div key={item.label} className="bg-white px-4 py-4">
+                <p className="font-mono text-[10px] tracking-widest uppercase text-cyan-600">
+                  {item.label}
+                </p>
+                <p className="mt-2 font-outfit text-sm leading-relaxed text-slate-600">
+                  {item.value}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="grid grid-cols-3 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200">
+          {projectFacts.map((fact) => (
+            <div key={fact.label} className="bg-slate-50 px-4 py-3">
+              <p className="font-mono text-[9px] tracking-widest uppercase text-slate-400">
+                {fact.label}
+              </p>
+              <p className="mt-1 truncate font-outfit text-sm font-semibold text-slate-700">
+                {fact.value}
+              </p>
+            </div>
+          ))}
+        </div>
 
         {/* ── Tags ── */}
         <div className="flex flex-wrap gap-2">

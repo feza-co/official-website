@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getMemberBySlug, getProjectsForMember, members } from "@/lib/data";
+import { GitHubIcon, LinkedInIcon, SectionLabel, StatusDot } from "@/components/ui";
 
 // ─── Static Params ─────────────────────────────────────────────────────────────
 
@@ -27,52 +28,7 @@ export async function generateMetadata({
 
 // ─── Icons ─────────────────────────────────────────────────────────────────────
 
-function LinkedInIcon() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-label="LinkedIn"
-    >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
-
-function GitHubIcon() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-label="GitHub"
-    >
-      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-    </svg>
-  );
-}
-
 // ─── Section Label ─────────────────────────────────────────────────────────────
-
-function SectionLabel({ label }: { label: string }) {
-  return (
-    <div className="flex items-center gap-4">
-      <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
-        {label}
-      </span>
-      <div className="flex-1 h-px bg-slate-200" />
-    </div>
-  );
-}
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 
@@ -160,10 +116,10 @@ export default async function MemberPage({
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-mono text-[10px] tracking-widest uppercase transition-all duration-200
                              text-slate-500 border border-slate-200 bg-white
-                             hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50
+                             hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
                              hover:shadow-sm"
                 >
                   <LinkedInIcon />
@@ -175,10 +131,10 @@ export default async function MemberPage({
                   href={member.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-mono text-[10px] tracking-widest uppercase transition-all duration-200
                              text-slate-500 border border-slate-200 bg-white
-                             hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50
+                             hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
                              hover:shadow-sm"
                 >
                   <GitHubIcon />
@@ -230,27 +186,16 @@ export default async function MemberPage({
               {memberProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="relative flex items-start gap-5 px-6 py-5 rounded-2xl
+                  className="relative flex items-start gap-5 px-6 py-5 rounded-lg
                              transition-all duration-200
                              border border-slate-200 bg-white
-                             hover:border-indigo-200 hover:shadow-sm"
+                             hover:border-cyan-200 hover:shadow-sm"
                 >
                   {/* Status dot */}
                   <div className="mt-1.5 shrink-0">
-                    <div
-                      className="w-2 h-2 rounded-full"
-                      style={{
-                        background: project.status === "active" ? "#22c55e" : "#4f46e5",
-                        animation:
-                          project.status === "active"
-                            ? "statusPulse 2.5s ease-in-out infinite"
-                            : "none",
-                        boxShadow:
-                          project.status === "active"
-                            ? "0 0 0 3px rgba(34,197,94,0.15)"
-                            : "none",
-                      }}
-                      aria-hidden
+                    <StatusDot
+                      tone={project.status === "active" ? "active" : "completed"}
+                      pulse={project.status === "active"}
                     />
                   </div>
 
@@ -290,7 +235,7 @@ export default async function MemberPage({
               {member.hackathons.map((event, i) => (
                 <div
                   key={event}
-                  className="flex items-center gap-3 px-5 py-4 rounded-xl
+                  className="flex items-center gap-3 px-5 py-4 rounded-lg
                              border border-slate-200 bg-white"
                 >
                   <span
@@ -320,10 +265,10 @@ export default async function MemberPage({
                 <Link
                   key={m.slug}
                   href={`/members/${m.slug}`}
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-outfit text-sm font-medium transition-all duration-200
                              text-slate-600 border border-slate-200 bg-white
-                             hover:border-indigo-200 hover:text-indigo-700 hover:bg-indigo-50
+                             hover:border-cyan-200 hover:text-cyan-700 hover:bg-cyan-50
                              hover:shadow-sm"
                 >
                   <div

@@ -25,7 +25,7 @@ export default function Footer() {
                 <div className="w-1.5 h-1.5 rounded-full bg-indigo-600" />
               </div>
               <span className="font-orbitron font-bold text-sm tracking-widest text-slate-900">
-                FEZA<span className="text-indigo-600">—CO</span>
+                FEZA<span className="text-cyan-600">—CO</span>
               </span>
             </div>
             <p className="font-outfit text-sm text-slate-500 leading-relaxed">
@@ -76,8 +76,8 @@ export default function Footer() {
             © {year} Feza-Co Kolektifi. Tüm hakları saklıdır.
           </p>
           <p className="font-mono text-[11px] text-slate-400">
-            <span className="text-indigo-500">5</span> ortak ·{" "}
-            <span className="text-indigo-500">1</span> aktif proje ·{" "}
+            <span className="text-cyan-600">5</span> ortak ·{" "}
+            <span className="text-emerald-600">1</span> aktif proje ·{" "}
             <span className="text-indigo-500">∞</span> vizyon
           </p>
         </div>

@@ -26,8 +26,11 @@
   --indigo-muted: rgba(79, 70, 229, 0.07);
   --indigo-border: rgba(99, 102, 241, 0.2);
 
-  /* Sky complement */
+  /* Complements */
   --sky: #0ea5e9;
+  --cyan: #06b6d4;
+  --emerald: #10b981;
+  --amber: #f59e0b;
 }
 
 /* ─── Base Reset ──────────────────────────────────────────────────────────── */
@@ -90,11 +93,11 @@ body {
       transform 0.22s ease;
   }
   .card-base:hover {
-    border-color: rgba(99, 102, 241, 0.3);
+    border-color: rgba(6, 182, 212, 0.34);
     box-shadow:
-      0 8px 32px rgba(79, 70, 229, 0.1),
+      0 8px 28px rgba(15, 23, 42, 0.08),
       0 2px 8px rgba(0, 0, 0, 0.04);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
   }
 
   /* Thin divider */
@@ -184,4 +187,28 @@ body {
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .card-base:hover {
+    transform: none;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import MemberCard from "@/components/MemberCard";
 import ProjectCard from "@/components/ProjectCard";
 import { members, projects, getMembersForProject } from "@/lib/data";
@@ -8,9 +9,28 @@ import { members, projects, getMembersForProject } from "@/lib/data";
 function HeroSection() {
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-20"
+      className="relative min-h-[88svh] md:min-h-[92svh] flex flex-col justify-center overflow-hidden pt-20 pb-12 md:pt-24 md:pb-16"
       aria-label="Ana başlık"
     >
+      <Image
+        src="/hero-feza-visual.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 object-cover object-center opacity-80"
+        aria-hidden
+      />
+
+      <div
+        className="absolute inset-0 pointer-events-none bg-gradient-to-r from-slate-50 via-slate-50/90 to-slate-50/15"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/65 via-transparent to-slate-50"
+        aria-hidden
+      />
+
       {/* ── Radial gradient: very subtle indigo tint ── */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -32,7 +52,7 @@ function HeroSection() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto w-full px-6 md:px-10">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-10">
 
         {/* ── Decorative status bar ── */}
         <div
@@ -110,7 +130,7 @@ function HeroSection() {
         >
           <Link
             href="#founders"
-            className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl
+            className="group flex items-center gap-2.5 px-7 py-3.5 rounded-lg
                        font-mono text-sm tracking-widest uppercase transition-all duration-300
                        bg-indigo-600 text-white border border-indigo-600
                        hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-600/20 hover:-translate-y-0.5"
@@ -131,10 +151,10 @@ function HeroSection() {
 
           <Link
             href="#projects"
-            className="flex items-center gap-2 px-7 py-3.5 rounded-xl
+            className="flex items-center gap-2 px-7 py-3.5 rounded-lg
                        font-mono text-sm tracking-widest uppercase transition-all duration-300
                        text-slate-700 border border-slate-300 bg-white
-                       hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50
+                       hover:border-cyan-300 hover:text-cyan-700 hover:bg-cyan-50
                        hover:-translate-y-0.5"
           >
             <span>Projeler</span>
@@ -143,7 +163,7 @@ function HeroSection() {
 
         {/* ── Stats row ── */}
         <div
-          className="mt-20
+          className="mt-14 md:mt-16
                      animate-fade-in opacity-0 [animation-delay:920ms] [animation-fill-mode:forwards]"
         >
           <div className="h-px mb-6 bg-gradient-to-r from-indigo-200/60 via-slate-200 to-transparent" />
@@ -168,7 +188,7 @@ function HeroSection() {
       </div>
 
       {/* ── Scroll indicator ── */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float-slow">
+      <div className="absolute bottom-4 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 animate-float-slow sm:flex">
         <span className="font-mono text-[9px] tracking-widest uppercase text-slate-400">
           Keşfet
         </span>
@@ -241,7 +261,7 @@ export default function HomePage() {
           </div>
 
           {/* Manifesto callout */}
-          <div className="mt-10 flex items-start gap-4 px-6 py-5 rounded-2xl bg-white border border-slate-200/80">
+          <div className="mt-10 flex items-start gap-4 px-6 py-5 rounded-lg bg-white border border-slate-200/80">
             <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-400 shrink-0 mt-1">
               Manifesto
             </span>
@@ -292,7 +312,7 @@ export default function HomePage() {
 
           {/* Coming soon placeholder */}
           <div
-            className="mt-6 flex flex-col items-center justify-center py-12 rounded-2xl
+            className="mt-6 flex flex-col items-center justify-center py-12 rounded-lg
                         border-2 border-dashed border-slate-200 bg-white"
           >
             <span className="font-mono text-[10px] tracking-widest uppercase text-slate-400 mb-3">
@@ -313,11 +333,11 @@ export default function HomePage() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div
-            className="relative rounded-3xl overflow-hidden px-8 md:px-16 py-16 md:py-20 text-center
-                        border border-indigo-100"
+            className="relative rounded-lg overflow-hidden px-8 md:px-16 py-16 md:py-20 text-center
+                        border border-cyan-100"
             style={{
               background:
-                "linear-gradient(135deg, #eef2ff 0%, #ffffff 45%, #f0f9ff 100%)",
+                "linear-gradient(135deg, #ecfeff 0%, #ffffff 46%, #eef2ff 100%)",
             }}
           >
             {/* Soft radial glow */}
@@ -326,7 +346,7 @@ export default function HomePage() {
               aria-hidden
               style={{
                 background:
-                  "radial-gradient(ellipse 65% 65% at 50% 50%, rgba(99,102,241,0.06) 0%, transparent 70%)",
+                  "radial-gradient(ellipse 65% 65% at 50% 50%, rgba(6,182,212,0.08) 0%, transparent 70%)",
               }}
             />
 
@@ -354,7 +374,7 @@ export default function HomePage() {
 
               <a
                 href="mailto:info@feza-co.dev"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-lg
                            font-mono text-sm tracking-widest uppercase transition-all duration-300
                            bg-indigo-600 text-white border border-indigo-600
                            hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-600/25

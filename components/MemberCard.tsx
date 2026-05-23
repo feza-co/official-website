@@ -1,45 +1,8 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import type { Member } from "@/lib/data";
+import { GitHubIcon, LinkedInIcon } from "@/components/ui";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
-
-function LinkedInIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-label="LinkedIn"
-    >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
-
-function GitHubIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-label="GitHub"
-    >
-      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-    </svg>
-  );
-}
 
 // ─── Member Card ──────────────────────────────────────────────────────────────
 
@@ -49,30 +12,31 @@ interface MemberCardProps {
 }
 
 export default function MemberCard({ member, index = 0 }: MemberCardProps) {
-  const router = useRouter();
-
   return (
-    <div
-      className="block group cursor-pointer"
-      role="link"
-      tabIndex={0}
-      aria-label={`${member.name} profiline git`}
-      onClick={() => router.push(`/members/${member.slug}`)}
-      onKeyDown={(e) => e.key === "Enter" && router.push(`/members/${member.slug}`)}
-    >
+    <div className="block group">
       <article
         className="card-base relative flex flex-col items-center gap-5 p-6
-                   rounded-2xl overflow-hidden select-none bg-white"
+                   rounded-lg overflow-hidden select-none bg-white"
         style={{ animationDelay: `${index * 80}ms` }}
       >
+        <Link
+          href={`/members/${member.slug}`}
+          className="absolute inset-0 z-10 rounded-lg focus:outline-none
+                     focus-visible:ring-2 focus-visible:ring-cyan-500/60
+                     focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50"
+          aria-label={`${member.name} profiline git`}
+        >
+          <span className="sr-only">{member.name} profiline git</span>
+        </Link>
+
         {/* ── Soft indigo radial on hover (top-right) ── */}
         <div
-          className="absolute top-0 right-0 w-28 h-28 opacity-0 group-hover:opacity-100
+            className="absolute top-0 right-0 w-28 h-28 opacity-0 group-hover:opacity-100
                      transition-opacity duration-500 pointer-events-none"
           aria-hidden
           style={{
             background:
-              "radial-gradient(circle at top right, rgba(99,102,241,0.07) 0%, transparent 70%)",
+              "radial-gradient(circle at top right, rgba(6,182,212,0.08) 0%, transparent 70%)",
           }}
         />
 
@@ -90,7 +54,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
           <div
             className="absolute -inset-3 rounded-full opacity-0 group-hover:opacity-100
                        transition-all duration-400 blur-lg pointer-events-none"
-            style={{ background: "rgba(99,102,241,0.1)" }}
+            style={{ background: "rgba(6,182,212,0.12)" }}
             aria-hidden
           />
 
@@ -108,7 +72,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
           {/* Indigo ring on hover */}
           <div
             className="absolute inset-0 rounded-full scale-110 pointer-events-none
-                       border-2 border-indigo-400/0 group-hover:border-indigo-400/35
+                       border-2 border-cyan-400/0 group-hover:border-cyan-400/35
                        transition-all duration-400"
             aria-hidden
           />
@@ -118,7 +82,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
         <div className="text-center space-y-1.5">
           <h3
             className="font-outfit font-semibold text-lg text-slate-900 leading-tight
-                       group-hover:text-indigo-900 transition-colors duration-300"
+                       group-hover:text-cyan-900 transition-colors duration-300"
           >
             {member.name}
           </h3>
@@ -128,13 +92,12 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
         </div>
 
         {/* ── Social links ── */}
-        <div className="flex items-center gap-4 mt-1">
+        <div className="relative z-20 flex items-center gap-4 mt-1">
           {member.linkedin && (
             <a
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
               className="text-slate-400 hover:text-indigo-600 transition-colors duration-200
                          hover:scale-110 transform"
               aria-label={`${member.name} - LinkedIn`}
@@ -147,7 +110,6 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
               href={member.github}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
               className="text-slate-400 hover:text-indigo-600 transition-colors duration-200
                          hover:scale-110 transform"
               aria-label={`${member.name} - GitHub`}
@@ -160,7 +122,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
         {/* ── "Profili Gör" CTA — slides in on hover ── */}
         <div
           className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest
-                     text-indigo-600 opacity-0 group-hover:opacity-100 -mt-1 mb-1
+                    text-cyan-600 opacity-0 group-hover:opacity-100 -mt-1 mb-1
                      translate-y-1 group-hover:translate-y-0
                      transition-all duration-300"
         >
@@ -183,7 +145,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
                      group-hover:opacity-100 transition-opacity duration-400"
           style={{
             background:
-              "linear-gradient(90deg, transparent, #6366f1 40%, #6366f1 60%, transparent)",
+              "linear-gradient(90deg, transparent, #06b6d4 40%, #4f46e5 60%, transparent)",
           }}
           aria-hidden
         />
