@@ -1,51 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import type { Project } from "@/lib/data";
+import { ExternalLinkIcon, GitHubIcon, StatusDot } from "@/components/ui";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
-
-function ExternalLinkIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    >
-      <path d="M2 10L10 2M10 2H5M10 2V7" />
-    </svg>
-  );
-}
-
-function GitHubSmallIcon() {
-  return (
-    <svg
-      width="13"
-      height="13"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-    </svg>
-  );
-}
 
 // ─── Status config ────────────────────────────────────────────────────────────
 
 const statusConfig: Record<
   Project["status"],
-  { label: string; dotClass: string }
+  { label: string; tone: "active" | "planning" | "completed" }
 > = {
-  active:    { label: "Aktif",       dotClass: "status-active" },
-  planning:  { label: "Planlamada",  dotClass: "status-planning" },
-  completed: { label: "Tamamlandı",  dotClass: "status-completed" },
+  active:    { label: "Aktif",       tone: "active" },
+  planning:  { label: "Planlamada",  tone: "planning" },
+  completed: { label: "Tamamlandı",  tone: "completed" },
 };
 
 // ─── Project Card ─────────────────────────────────────────────────────────────
@@ -99,9 +66,10 @@ export default function ProjectCard({
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span
-                className={`font-mono text-[10px] tracking-wider uppercase
-                            flex items-center text-slate-500 ${status.dotClass}`}
+                className="font-mono text-[10px] tracking-wider uppercase
+                           flex items-center gap-2 text-slate-500"
               >
+                <StatusDot tone={status.tone} pulse={project.status === "active"} className="h-1.5 w-1.5" />
                 {status.label}
               </span>
               <span className="font-mono text-[10px] tracking-widest text-slate-300">
@@ -131,7 +99,7 @@ export default function ProjectCard({
                            text-slate-500 border border-slate-200 bg-white
                            hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50"
               >
-                <GitHubSmallIcon />
+                <GitHubIcon size={13} />
                 <span>Repo</span>
               </a>
             )}
