@@ -245,7 +245,7 @@ export default function HomePage() {
       {/* ── Founders Section ── */}
       <section
         id="founders"
-        className="py-20 md:py-28 scroll-mt-16 bg-slate-50"
+        className="py-20 md:py-28 scroll-mt-16 bg-white"
         aria-label="Kurucu Ortaklar"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -263,7 +263,10 @@ export default function HomePage() {
           </div>
 
           {/* Manifesto callout */}
-          <div className="mt-10 flex items-start gap-4 px-6 py-5 rounded-lg bg-white border border-slate-200/80">
+          <div
+            className="mt-10 flex items-start gap-4 px-6 py-5 rounded-lg bg-slate-50 border border-slate-200/80"
+            style={{ borderLeft: "3px solid #6366f1" }}
+          >
             <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-400 shrink-0 mt-1">
               Manifesto
             </span>

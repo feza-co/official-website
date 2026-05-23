@@ -152,7 +152,7 @@ export default function Navbar() {
             <Link
               key={href}
               href={href}
-              className="flex items-center justify-between rounded-lg px-3 py-3
+              className="flex items-center justify-between rounded-lg px-3 py-3.5 min-h-[44px]
                          font-mono text-xs tracking-widest text-slate-600 uppercase
                          cursor-pointer transition-colors duration-200 hover:bg-blue-50 hover:text-blue-700
                          focus:outline-none focus:ring-2 focus:ring-blue-500/30"
