@@ -49,7 +49,7 @@ export const members: Member[] = [
       "TypeScript",
       "System Architecture",
     ],
-    projects: ["digital-twin-kit"],
+    projects: ["digital-twin-kit", "raw2value"],
     hackathons: ["Teknofest 2024", "HackITU 2024"],
     quote: "Kod yazmak bir sanat, sistem tasarlamak bir mühendislik disiplinidir.",
   },
@@ -70,7 +70,7 @@ export const members: Member[] = [
       "Unity / WebGL",
       "Real-time Data Pipelines",
     ],
-    projects: ["digital-twin-kit"],
+    projects: ["digital-twin-kit", "raw2value"],
     hackathons: ["Teknofest 2024", "IEEE Hackathon 2024"],
     quote:
       "Fiziksel dünyayı sayısallaştırmak, geleceğin mühendisliğinin kapılarını açar.",
@@ -134,7 +134,7 @@ export const members: Member[] = [
       "Statistical Modelling",
       "Data Visualization",
     ],
-    projects: [],
+    projects: ["raw2value"],
     hackathons: ["Datathon ITU 2024", "Teknofest 2024"],
     quote: "Veri, doğru sorular sorulduğunda konuşmaya başlar.",
   },
@@ -143,6 +143,30 @@ export const members: Member[] = [
 // ─── Projects ─────────────────────────────────────────────────────────────────
 
 export const projects: Project[] = [
+  {
+    id: "raw2value",
+    title: "Raw2Value AI",
+    description:
+      "Kapadokya bölgesi (TR71) yerel üreticileri için hammadde satışı ve işleme süreçlerini optimize eden makine öğrenmesi tabanlı karar destek motoru.",
+    longDescription:
+      "Türkiye dünya ponza üretiminin %45,6'sını gerçekleştirmesine karşın hammaddeyi ~91,7 $/ton'dan ihraç etmektedir; oysa işlenmiş formlar 200–300 $/ton değer taşımaktadır. Raw2Value AI bu değer boşluğunu kapatmak için işleme rota önerileri, TL bazında kâr tahmini, CO₂ ayak izi hesaplama ve ağırlıklı puanlama algoritmasıyla B2B alıcı-satıcı eşleştirmesi sunar. Gerçek zamanlı TCMB döviz verisi ve OpenRouteService lojistik entegrasyonu içerir.",
+    highlight:
+      "Kapadokya Hackathon 2026 — ML tabanlı hammadde değer optimizasyon platformu",
+    tags: [
+      "Machine Learning",
+      "Python",
+      "FastAPI",
+      "Next.js",
+      "XGBoost",
+      "CatBoost",
+      "PostgreSQL",
+      "Docker",
+    ],
+    status: "completed",
+    members: ["tuna-deniz", "ahmet-karakoyun", "oguzhan-tarhan"],
+    github: "https://github.com/feza-co/Raw2Value",
+    year: 2026,
+  },
   {
     id: "digital-twin-kit",
     title: "Digital Twin Kit",
