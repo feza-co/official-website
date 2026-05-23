@@ -4,7 +4,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-white border-t border-slate-200/80">
+    <footer className="bg-feza-card border-t border-feza-border/80">
       {/* ── Thin indigo shimmer line ── */}
       <div
         className="h-px w-full"
@@ -24,11 +24,11 @@ export default function Footer() {
                 <div className="absolute inset-0 rounded-full border border-indigo-400/50" />
                 <div className="w-1.5 h-1.5 rounded-full bg-indigo-600" />
               </div>
-              <span className="font-orbitron font-bold text-sm tracking-widest text-slate-900">
+              <span className="font-orbitron font-bold text-sm tracking-widest text-feza-text">
                 FEZA<span className="text-cyan-600">—CO</span>
               </span>
             </div>
-            <p className="font-outfit text-sm text-slate-500 leading-relaxed">
+            <p className="font-outfit text-sm text-feza-muted-xs leading-relaxed">
               Beş kurucu ortak, sınırsız vizyon.
               <br />
               Teknolojinin sınırlarını birlikte zorluyoruz.
@@ -37,7 +37,7 @@ export default function Footer() {
 
           {/* ── Navigation ── */}
           <div className="space-y-3">
-            <p className="font-mono text-[10px] tracking-widest text-slate-400 uppercase mb-4">
+            <p className="font-mono text-[10px] tracking-widest text-feza-muted uppercase mb-4">
               Navigasyon
             </p>
             {[
@@ -48,7 +48,7 @@ export default function Footer() {
               <Link
                 key={href}
                 href={href}
-                className="block cursor-pointer rounded-sm font-outfit text-sm text-slate-500
+                className="block cursor-pointer rounded-sm font-outfit text-sm text-feza-muted-xs
                            transition-colors duration-200 hover:text-blue-600
                            focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
               >
@@ -59,10 +59,10 @@ export default function Footer() {
 
           {/* ── Collective Manifesto ── */}
           <div className="space-y-3">
-            <p className="font-mono text-[10px] tracking-widest text-slate-400 uppercase mb-4">
+            <p className="font-mono text-[10px] tracking-widest text-feza-muted uppercase mb-4">
               Kolektif İlkesi
             </p>
-            <p className="font-mono text-xs text-slate-400 leading-[1.9]">
+            <p className="font-mono text-xs text-feza-muted leading-[1.9]">
               {"// Hiyerarşisiz bir yapı."}<br />
               {"// Her ortak eşit düzeyde."}<br />
               {"// Fikirler statüden değil,"}<br />
@@ -72,11 +72,11 @@ export default function Footer() {
         </div>
 
         {/* ── Bottom Bar ── */}
-        <div className="mt-10 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-mono text-[11px] text-slate-400">
+        <div className="mt-10 pt-6 border-t border-feza-border flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="font-mono text-[11px] text-feza-muted">
             © {year} Feza-Co Kolektifi. Tüm hakları saklıdır.
           </p>
-          <p className="font-mono text-[11px] text-slate-400">
+          <p className="font-mono text-[11px] text-feza-muted">
             <span className="text-cyan-600">5</span> ortak ·{" "}
             <span className="text-emerald-600">1</span> aktif proje ·{" "}
             <span className="text-indigo-500">∞</span> vizyon

@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,27 +14,29 @@ const config: Config = {
         outfit:   ["var(--font-space-grotesk)", "sans-serif"],
         archivo:  ["var(--font-archivo)", "sans-serif"],
         grotesk:  ["var(--font-space-grotesk)", "sans-serif"],
-        // backward-compat alias so any remaining font-rajdhani refs still work
         rajdhani: ["var(--font-space-grotesk)", "sans-serif"],
         mono:     ["var(--font-space-mono)", "monospace"],
       },
       colors: {
         feza: {
-          bg:            "#fafafa",
-          surface:       "#ffffff",
-          card:          "#ffffff",
-          border:        "#e2e8f0",
-          "border-md":   "#cbd5e1",
+          bg:            "var(--bg)",
+          surface:       "var(--surface)",
+          card:          "var(--card)",
+          "surface-2":   "var(--surface-2)",
+          border:        "var(--border)",
+          "border-md":   "var(--border-md)",
+          text:          "var(--text)",
+          secondary:     "var(--text-secondary)",
+          muted:         "var(--text-muted)",
+          "muted-xs":    "var(--text-xs)",
+          faint:         "var(--text-faint)",
+          // Accent — fixed brand colors
           indigo:        "#2563eb",
           "indigo-dim":  "#3b82f6",
           "indigo-light":"#818cf8",
           cyan:          "#06b6d4",
           emerald:       "#10b981",
           amber:         "#f59e0b",
-          text:          "#09090b",
-          secondary:     "#3f3f46",
-          muted:         "#94a3b8",
-          "muted-xs":    "#64748b",
         },
       },
       animation: {

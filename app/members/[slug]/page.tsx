@@ -26,10 +26,6 @@ export async function generateMetadata({
   };
 }
 
-// ─── Icons ─────────────────────────────────────────────────────────────────────
-
-// ─── Section Label ─────────────────────────────────────────────────────────────
-
 // ─── Page ──────────────────────────────────────────────────────────────────────
 
 export default async function MemberPage({
@@ -44,7 +40,7 @@ export default async function MemberPage({
   const memberProjects = getProjectsForMember(member.slug);
 
   return (
-    <div className="min-h-screen bg-slate-50 pt-24 pb-20">
+    <div className="min-h-screen bg-feza-bg pt-24 pb-20">
       {/* Very subtle indigo tint at top */}
       <div
         className="fixed inset-0 pointer-events-none"
@@ -61,7 +57,7 @@ export default async function MemberPage({
         <Link
           href="/#founders"
           className="group mb-12 inline-flex cursor-pointer items-center gap-2 rounded-sm
-                     font-mono text-xs uppercase tracking-widest text-slate-500
+                     font-mono text-xs uppercase tracking-widest text-feza-muted-xs
                      transition-colors duration-200 hover:text-blue-600
                      focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
         >
@@ -94,19 +90,18 @@ export default async function MemberPage({
                 className={`relative w-36 h-36 md:w-44 md:h-44 rounded-full
                             bg-gradient-to-br ${member.avatarGradient}
                             flex items-center justify-center
-                            shadow-xl shadow-slate-200/80`}
+                            shadow-xl shadow-black/20`}
               >
                 <span className="font-orbitron font-black text-white text-3xl md:text-4xl tracking-wide drop-shadow-lg">
                   {member.initials}
                 </span>
               </div>
-              {/* Concentric rings for depth */}
               <div
-                className="absolute -inset-2 rounded-full border border-indigo-200/60 pointer-events-none"
+                className="absolute -inset-2 rounded-full border border-indigo-200/60 dark:border-indigo-700/40 pointer-events-none"
                 aria-hidden
               />
               <div
-                className="absolute -inset-4 rounded-full border border-slate-200/50 pointer-events-none"
+                className="absolute -inset-4 rounded-full border border-feza-border/50 pointer-events-none"
                 aria-hidden
               />
             </div>
@@ -120,8 +115,9 @@ export default async function MemberPage({
                   rel="noopener noreferrer"
                   className="flex cursor-pointer items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-mono text-[10px] tracking-widest uppercase transition-all duration-200
-                             text-slate-500 border border-slate-200 bg-white
+                             text-feza-muted-xs border border-feza-border bg-feza-card
                              hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
+                             dark:hover:text-cyan-400 dark:hover:border-cyan-900 dark:hover:bg-cyan-950/30
                              hover:shadow-sm focus:outline-none
                              focus-visible:ring-2 focus-visible:ring-blue-500/30"
                 >
@@ -136,8 +132,9 @@ export default async function MemberPage({
                   rel="noopener noreferrer"
                   className="flex cursor-pointer items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-mono text-[10px] tracking-widest uppercase transition-all duration-200
-                             text-slate-500 border border-slate-200 bg-white
+                             text-feza-muted-xs border border-feza-border bg-feza-card
                              hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
+                             dark:hover:text-cyan-400 dark:hover:border-cyan-900 dark:hover:bg-cyan-950/30
                              hover:shadow-sm focus:outline-none
                              focus-visible:ring-2 focus-visible:ring-blue-500/30"
                 >
@@ -157,7 +154,7 @@ export default async function MemberPage({
             </div>
 
             <h1
-              className="font-orbitron font-bold text-slate-900 leading-tight"
+              className="font-orbitron font-bold text-feza-text leading-tight"
               style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)" }}
             >
               {member.name}
@@ -166,13 +163,13 @@ export default async function MemberPage({
             {/* Accent rule */}
             <div className="h-px max-w-sm bg-gradient-to-r from-indigo-400 via-indigo-200 to-transparent" />
 
-            <p className="font-outfit text-base md:text-lg text-slate-600 leading-[1.85]">
+            <p className="font-outfit text-base md:text-lg text-feza-secondary leading-[1.85]">
               {member.bio}
             </p>
 
             {member.quote && (
               <blockquote className="relative pl-5 py-1 border-l-2 border-indigo-400">
-                <p className="font-mono text-sm italic text-slate-500 leading-relaxed">
+                <p className="font-mono text-sm italic text-feza-muted-xs leading-relaxed">
                   &ldquo;{member.quote}&rdquo;
                 </p>
               </blockquote>
@@ -192,8 +189,8 @@ export default async function MemberPage({
                   key={project.id}
                   className="relative flex items-start gap-5 px-6 py-5 rounded-lg
                              transition-all duration-200
-                             border border-slate-200 bg-white
-                             hover:border-cyan-200 hover:shadow-sm"
+                             border border-feza-border bg-feza-card
+                             hover:border-cyan-200 dark:hover:border-cyan-900 hover:shadow-sm"
                 >
                   {/* Status dot */}
                   <div className="mt-1.5 shrink-0">
@@ -205,14 +202,14 @@ export default async function MemberPage({
 
                   <div className="space-y-2 flex-1">
                     <div className="flex items-start justify-between gap-4">
-                      <h3 className="font-orbitron font-bold text-slate-900 text-base md:text-lg">
+                      <h3 className="font-orbitron font-bold text-feza-text text-base md:text-lg">
                         {project.title}
                       </h3>
-                      <span className="shrink-0 font-mono text-[10px] tracking-wider uppercase text-slate-400">
+                      <span className="shrink-0 font-mono text-[10px] tracking-wider uppercase text-feza-muted">
                         {project.year}
                       </span>
                     </div>
-                    <p className="font-outfit text-sm text-slate-600 leading-[1.75]">
+                    <p className="font-outfit text-sm text-feza-secondary leading-[1.75]">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-1.5 mt-2">
@@ -240,15 +237,15 @@ export default async function MemberPage({
                 <div
                   key={event}
                   className="flex items-center gap-3 px-5 py-4 rounded-lg
-                             border border-slate-200 bg-white"
+                             border border-feza-border bg-feza-card"
                 >
                   <span
-                    className="font-mono text-[10px] text-slate-300"
+                    className="font-mono text-[10px] text-feza-faint"
                     aria-hidden
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-outfit font-medium text-sm text-slate-700">
+                  <span className="font-outfit font-medium text-sm text-feza-secondary">
                     {event}
                   </span>
                 </div>
@@ -258,8 +255,8 @@ export default async function MemberPage({
         )}
 
         {/* ── Other founders ── */}
-        <div className="mt-16 pt-12 border-t border-slate-200">
-          <p className="font-mono text-[10px] tracking-widest uppercase text-slate-400 mb-6">
+        <div className="mt-16 pt-12 border-t border-feza-border">
+          <p className="font-mono text-[10px] tracking-widest uppercase text-feza-muted mb-6">
             Diğer Kurucu Ortaklar
           </p>
           <div className="flex flex-wrap gap-3">
@@ -271,8 +268,9 @@ export default async function MemberPage({
                   href={`/members/${m.slug}`}
                   className="flex cursor-pointer items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-outfit text-sm font-medium transition-all duration-200
-                             text-slate-600 border border-slate-200 bg-white
+                             text-feza-secondary border border-feza-border bg-feza-card
                              hover:border-cyan-200 hover:text-cyan-700 hover:bg-cyan-50
+                             dark:hover:border-cyan-900 dark:hover:text-cyan-400 dark:hover:bg-cyan-950/30
                              hover:shadow-sm focus:outline-none
                              focus-visible:ring-2 focus-visible:ring-blue-500/30"
                 >
