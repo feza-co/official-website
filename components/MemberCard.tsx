@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { Member } from "@/lib/data";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
@@ -49,11 +49,20 @@ interface MemberCardProps {
 }
 
 export default function MemberCard({ member, index = 0 }: MemberCardProps) {
+  const router = useRouter();
+
   return (
-    <Link href={`/members/${member.slug}`} className="block group">
+    <div
+      className="block group cursor-pointer"
+      role="link"
+      tabIndex={0}
+      aria-label={`${member.name} profiline git`}
+      onClick={() => router.push(`/members/${member.slug}`)}
+      onKeyDown={(e) => e.key === "Enter" && router.push(`/members/${member.slug}`)}
+    >
       <article
         className="card-base relative flex flex-col items-center gap-5 p-6
-                   rounded-2xl cursor-pointer overflow-hidden select-none bg-white"
+                   rounded-2xl overflow-hidden select-none bg-white"
         style={{ animationDelay: `${index * 80}ms` }}
       >
         {/* ── Soft indigo radial on hover (top-right) ── */}
@@ -179,6 +188,6 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
           aria-hidden
         />
       </article>
-    </Link>
+    </div>
   );
 }
