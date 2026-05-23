@@ -3,13 +3,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getMemberBySlug, getProjectsForMember, members } from "@/lib/data";
 
-// ─── Static Params ─────────────────────────────────────────────────────────
+// ─── Static Params ─────────────────────────────────────────────────────────────
 
 export function generateStaticParams() {
   return members.map((m) => ({ slug: m.slug }));
 }
 
-// ─── Dynamic Metadata ─────────────────────────────────────────────────────
+// ─── Dynamic Metadata ──────────────────────────────────────────────────────────
 
 export async function generateMetadata({
   params,
@@ -25,11 +25,17 @@ export async function generateMetadata({
   };
 }
 
-// ─── Icons ────────────────────────────────────────────────────────────────
+// ─── Icons ─────────────────────────────────────────────────────────────────────
 
 function LinkedInIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-label="LinkedIn">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-label="LinkedIn"
+    >
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
       <rect x="2" y="9" width="4" height="12" />
       <circle cx="4" cy="4" r="2" />
@@ -39,27 +45,36 @@ function LinkedInIcon() {
 
 function GitHubIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-label="GitHub">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-label="GitHub"
+    >
       <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
     </svg>
   );
 }
 
-// ─── Section Label ────────────────────────────────────────────────────────
+// ─── Section Label ─────────────────────────────────────────────────────────────
 
 function SectionLabel({ label }: { label: string }) {
   return (
     <div className="flex items-center gap-4">
-      <span className="font-mono text-[10px] tracking-widest uppercase text-[rgba(0,200,255,0.55)]">
+      <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
         {label}
       </span>
-      <div className="flex-1 h-px bg-[rgba(0,200,255,0.12)]" />
+      <div className="flex-1 h-px bg-slate-200" />
     </div>
   );
 }
 
-// ─── Page ─────────────────────────────────────────────────────────────────
+// ─── Page ──────────────────────────────────────────────────────────────────────
 
 export default async function MemberPage({
   params,
@@ -73,29 +88,36 @@ export default async function MemberPage({
   const memberProjects = getProjectsForMember(member.slug);
 
   return (
-    <div className="min-h-screen pt-24 pb-20">
-      {/* BG radial glow */}
+    <div className="min-h-screen bg-slate-50 pt-24 pb-20">
+      {/* Very subtle indigo tint at top */}
       <div
         className="fixed inset-0 pointer-events-none"
         aria-hidden
         style={{
           background:
-            "radial-gradient(ellipse 50% 40% at 30% 30%, rgba(0,200,255,0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse 55% 40% at 30% 25%, rgba(99,102,241,0.04) 0%, transparent 65%)",
         }}
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10">
 
-        {/* ── Back nav ── */}
+        {/* ── Back navigation ── */}
         <Link
           href="/#founders"
           className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase
-                     mb-12 transition-colors duration-300 text-feza-muted hover:text-[#00c8ff] group"
+                     mb-12 text-slate-500 hover:text-indigo-600 transition-colors duration-200 group"
         >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
             <path d="M10.5 7H3.5M3.5 7L7 3.5M3.5 7L7 10.5" />
           </svg>
-          <span className="group-hover:-translate-x-0.5 transition-transform duration-300">
+          <span className="group-hover:-translate-x-0.5 transition-transform duration-200 inline-block">
             Kolektife Dön
           </span>
         </Link>
@@ -105,34 +127,28 @@ export default async function MemberPage({
         ══════════════════════════════════════════════════════════ */}
         <div className="grid grid-cols-1 md:grid-cols-[auto,1fr] gap-10 md:gap-16 mb-16">
 
-          {/* Left: Avatar + social links */}
+          {/* ── Left: Avatar + social links ── */}
           <div className="flex flex-col items-center md:items-start gap-5">
 
             {/* Avatar */}
             <div className="relative">
               <div
-                className="absolute -inset-4 rounded-full blur-xl opacity-30 pointer-events-none"
-                style={{ background: "radial-gradient(circle, rgba(0,200,255,0.4) 0%, transparent 70%)" }}
-                aria-hidden
-              />
-              <div
                 className={`relative w-36 h-36 md:w-44 md:h-44 rounded-full
                             bg-gradient-to-br ${member.avatarGradient}
                             flex items-center justify-center
-                            shadow-[0_0_40px_rgba(0,200,255,0.2)]`}
+                            shadow-xl shadow-slate-200/80`}
               >
                 <span className="font-orbitron font-black text-white text-3xl md:text-4xl tracking-wide drop-shadow-lg">
                   {member.initials}
                 </span>
               </div>
+              {/* Concentric rings for depth */}
               <div
-                className="absolute -inset-1 rounded-full pointer-events-none"
-                style={{ border: "1px solid rgba(0,200,255,0.3)" }}
+                className="absolute -inset-2 rounded-full border border-indigo-200/60 pointer-events-none"
                 aria-hidden
               />
               <div
-                className="absolute -inset-3 rounded-full pointer-events-none"
-                style={{ border: "1px solid rgba(0,200,255,0.08)" }}
+                className="absolute -inset-4 rounded-full border border-slate-200/50 pointer-events-none"
                 aria-hidden
               />
             </div>
@@ -144,10 +160,11 @@ export default async function MemberPage({
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-sm
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl
                              font-mono text-[10px] tracking-widest uppercase transition-all duration-200
-                             text-feza-muted border border-feza-border
-                             hover:text-[#00c8ff] hover:border-[rgba(0,200,255,0.4)] hover:bg-[rgba(0,200,255,0.05)]"
+                             text-slate-500 border border-slate-200 bg-white
+                             hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50
+                             hover:shadow-sm"
                 >
                   <LinkedInIcon />
                   <span>LinkedIn</span>
@@ -158,10 +175,11 @@ export default async function MemberPage({
                   href={member.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-sm
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl
                              font-mono text-[10px] tracking-widest uppercase transition-all duration-200
-                             text-feza-muted border border-feza-border
-                             hover:text-[#00c8ff] hover:border-[rgba(0,200,255,0.4)] hover:bg-[rgba(0,200,255,0.05)]"
+                             text-slate-500 border border-slate-200 bg-white
+                             hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50
+                             hover:shadow-sm"
                 >
                   <GitHubIcon />
                   <span>GitHub</span>
@@ -170,45 +188,31 @@ export default async function MemberPage({
             </div>
           </div>
 
-          {/* Right: Name, bio, quote */}
+          {/* ── Right: Name, bio, quote ── */}
           <div className="space-y-6 md:pt-2">
             <div>
-              <span className="font-mono text-[10px] tracking-widest uppercase text-[rgba(0,200,255,0.6)]">
+              <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
                 {member.role}
               </span>
             </div>
 
             <h1
-              className="font-orbitron font-bold text-white leading-tight"
-              style={{
-                fontSize: "clamp(1.8rem, 5vw, 3rem)",
-                textShadow: "0 0 30px rgba(0,200,255,0.1)",
-              }}
+              className="font-orbitron font-bold text-slate-900 leading-tight"
+              style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)" }}
             >
               {member.name}
             </h1>
 
-            <div
-              className="h-px max-w-sm"
-              style={{ background: "linear-gradient(90deg, rgba(0,200,255,0.4), transparent)" }}
-            />
+            {/* Accent rule */}
+            <div className="h-px max-w-sm bg-gradient-to-r from-indigo-400 via-indigo-200 to-transparent" />
 
-            <p
-              className="font-rajdhani text-base md:text-lg leading-relaxed"
-              style={{ color: "rgba(218,228,240,0.7)", lineHeight: 1.85 }}
-            >
+            <p className="font-outfit text-base md:text-lg text-slate-600 leading-[1.85]">
               {member.bio}
             </p>
 
             {member.quote && (
-              <blockquote
-                className="relative pl-5 py-1"
-                style={{ borderLeft: "2px solid rgba(0,200,255,0.35)" }}
-              >
-                <p
-                  className="font-mono text-sm italic leading-relaxed"
-                  style={{ color: "var(--muted)" }}
-                >
+              <blockquote className="relative pl-5 py-1 border-l-2 border-indigo-400">
+                <p className="font-mono text-sm italic text-slate-500 leading-relaxed">
                   &ldquo;{member.quote}&rdquo;
                 </p>
               </blockquote>
@@ -225,23 +229,19 @@ export default async function MemberPage({
             {member.skills.map((skill, i) => (
               <div
                 key={skill}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-sm transition-all duration-200
-                           cursor-default border border-[rgba(0,200,255,0.15)] bg-[rgba(0,200,255,0.04)]
-                           hover:border-[rgba(0,200,255,0.4)] hover:bg-[rgba(0,200,255,0.08)]
-                           hover:shadow-[0_0_12px_rgba(0,200,255,0.1)]"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all duration-200
+                           cursor-default border border-slate-200 bg-white
+                           hover:border-indigo-200 hover:bg-indigo-50 hover:shadow-sm"
               >
                 <span
                   className="w-1.5 h-1.5 rounded-full shrink-0"
                   style={{
                     background:
-                      i % 3 === 0 ? "#00c8ff" : i % 3 === 1 ? "#818cf8" : "#34d399",
+                      i % 3 === 0 ? "#4f46e5" : i % 3 === 1 ? "#0ea5e9" : "#10b981",
                   }}
                   aria-hidden
                 />
-                <span
-                  className="font-rajdhani font-medium text-sm"
-                  style={{ color: "rgba(218,228,240,0.85)" }}
-                >
+                <span className="font-outfit font-medium text-sm text-slate-700">
                   {skill}
                 </span>
               </div>
@@ -259,21 +259,24 @@ export default async function MemberPage({
               {memberProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="relative flex items-start gap-5 px-6 py-5 rounded-xl
+                  className="relative flex items-start gap-5 px-6 py-5 rounded-2xl
                              transition-all duration-200
-                             border border-feza-border bg-feza-card
-                             hover:border-[rgba(0,200,255,0.3)] hover:shadow-[0_0_20px_rgba(0,200,255,0.08)]"
+                             border border-slate-200 bg-white
+                             hover:border-indigo-200 hover:shadow-sm"
                 >
-                  {/* status dot */}
+                  {/* Status dot */}
                   <div className="mt-1.5 shrink-0">
                     <div
                       className="w-2 h-2 rounded-full"
                       style={{
-                        background: project.status === "active" ? "#00c8ff" : "#10b981",
-                        boxShadow: `0 0 8px ${project.status === "active" ? "#00c8ff" : "#10b981"}`,
+                        background: project.status === "active" ? "#22c55e" : "#4f46e5",
                         animation:
                           project.status === "active"
-                            ? "statusPulse 2s ease-in-out infinite"
+                            ? "statusPulse 2.5s ease-in-out infinite"
+                            : "none",
+                        boxShadow:
+                          project.status === "active"
+                            ? "0 0 0 3px rgba(34,197,94,0.15)"
                             : "none",
                       }}
                       aria-hidden
@@ -282,28 +285,21 @@ export default async function MemberPage({
 
                   <div className="space-y-2 flex-1">
                     <div className="flex items-start justify-between gap-4">
-                      <h3
-                        className="font-orbitron font-bold text-white text-base md:text-lg"
-                        style={{ textShadow: "0 0 20px rgba(0,200,255,0.1)" }}
-                      >
+                      <h3 className="font-orbitron font-bold text-slate-900 text-base md:text-lg">
                         {project.title}
                       </h3>
-                      <span
-                        className="shrink-0 font-mono text-[10px] tracking-wider uppercase"
-                        style={{ color: "var(--muted-2)" }}
-                      >
+                      <span className="shrink-0 font-mono text-[10px] tracking-wider uppercase text-slate-400">
                         {project.year}
                       </span>
                     </div>
-                    <p
-                      className="font-rajdhani text-sm"
-                      style={{ color: "var(--muted)", lineHeight: 1.75 }}
-                    >
+                    <p className="font-outfit text-sm text-slate-600 leading-[1.75]">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-1.5 mt-2">
                       {project.tags.slice(0, 5).map((tag) => (
-                        <span key={tag} className="tag-cyan">{tag}</span>
+                        <span key={tag} className="tag-light">
+                          {tag}
+                        </span>
                       ))}
                     </div>
                   </div>
@@ -314,7 +310,7 @@ export default async function MemberPage({
         )}
 
         {/* ══════════════════════════════════════════════════════════
-            HACKATHONS
+            HACKATHONS & EVENTS
         ══════════════════════════════════════════════════════════ */}
         {member.hackathons && member.hackathons.length > 0 && (
           <section className="mb-14" aria-label="Hackathon & Etkinlikler">
@@ -323,20 +319,16 @@ export default async function MemberPage({
               {member.hackathons.map((event, i) => (
                 <div
                   key={event}
-                  className="flex items-center gap-3 px-5 py-4 rounded-sm
-                             border border-feza-border bg-feza-card"
+                  className="flex items-center gap-3 px-5 py-4 rounded-xl
+                             border border-slate-200 bg-white"
                 >
                   <span
-                    className="font-mono text-[10px] opacity-30"
-                    style={{ color: "var(--cyan)" }}
+                    className="font-mono text-[10px] text-slate-300"
                     aria-hidden
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span
-                    className="font-rajdhani font-medium text-sm"
-                    style={{ color: "var(--text)" }}
-                  >
+                  <span className="font-outfit font-medium text-sm text-slate-700">
                     {event}
                   </span>
                 </div>
@@ -345,15 +337,9 @@ export default async function MemberPage({
           </section>
         )}
 
-        {/* ── Other members ── */}
-        <div
-          className="mt-16 pt-12"
-          style={{ borderTop: "1px solid rgba(25,40,64,0.6)" }}
-        >
-          <p
-            className="font-mono text-[10px] tracking-widest uppercase mb-6"
-            style={{ color: "var(--muted-2)" }}
-          >
+        {/* ── Other founders ── */}
+        <div className="mt-16 pt-12 border-t border-slate-200">
+          <p className="font-mono text-[10px] tracking-widest uppercase text-slate-400 mb-6">
             Diğer Kurucu Ortaklar
           </p>
           <div className="flex flex-wrap gap-3">
@@ -363,11 +349,11 @@ export default async function MemberPage({
                 <Link
                   key={m.slug}
                   href={`/members/${m.slug}`}
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-sm
-                             font-rajdhani text-sm font-medium transition-all duration-200
-                             text-feza-muted border border-feza-border
-                             hover:border-[rgba(0,200,255,0.35)] hover:text-feza-text
-                             hover:bg-[rgba(0,200,255,0.04)]"
+                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl
+                             font-outfit text-sm font-medium transition-all duration-200
+                             text-slate-600 border border-slate-200 bg-white
+                             hover:border-indigo-200 hover:text-indigo-700 hover:bg-indigo-50
+                             hover:shadow-sm"
                 >
                   <div
                     className={`w-5 h-5 rounded-full bg-gradient-to-br ${m.avatarGradient}

@@ -3,19 +3,19 @@
 import Link from "next/link";
 import type { Project } from "@/lib/data";
 
-// ─── Icons ───────────────────────────────────────────────────────────────────
+// ─── Icons ────────────────────────────────────────────────────────────────────
 
 function ExternalLinkIcon() {
   return (
     <svg
-      width="13"
-      height="13"
-      viewBox="0 0 13 13"
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
     >
-      <path d="M2.5 10.5L10.5 2.5M10.5 2.5H5M10.5 2.5V8" />
+      <path d="M2 10L10 2M10 2H5M10 2V7" />
     </svg>
   );
 }
@@ -23,8 +23,8 @@ function ExternalLinkIcon() {
 function GitHubSmallIcon() {
   return (
     <svg
-      width="14"
-      height="14"
+      width="13"
+      height="13"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -37,15 +37,15 @@ function GitHubSmallIcon() {
   );
 }
 
-// ─── Status label helper ──────────────────────────────────────────────────────
+// ─── Status config ────────────────────────────────────────────────────────────
 
 const statusConfig: Record<
   Project["status"],
-  { label: string; className: string }
+  { label: string; dotClass: string }
 > = {
-  active: { label: "Aktif", className: "status-active" },
-  planning: { label: "Planlamada", className: "status-planning" },
-  completed: { label: "Tamamlandı", className: "status-completed" },
+  active:    { label: "Aktif",       dotClass: "status-active" },
+  planning:  { label: "Planlamada",  dotClass: "status-planning" },
+  completed: { label: "Tamamlandı",  dotClass: "status-completed" },
 };
 
 // ─── Project Card ─────────────────────────────────────────────────────────────
@@ -64,90 +64,72 @@ export default function ProjectCard({
   const status = statusConfig[project.status];
 
   return (
-    <article
-      className="card-base group relative rounded-xl overflow-hidden"
-      style={{ background: "var(--card)" }}
-    >
-      {/* ── Left accent bar ── */}
+    <article className="card-base group relative rounded-2xl overflow-hidden bg-white">
+      {/* ── Left indigo accent bar ── */}
       <div
-        className="absolute left-0 top-0 bottom-0 w-0.5"
+        className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl"
         style={{
           background:
-            "linear-gradient(180deg, transparent, var(--cyan), transparent)",
-          opacity: 0.6,
+            "linear-gradient(180deg, #818cf8 0%, #4f46e5 50%, #818cf8 100%)",
         }}
         aria-hidden
       />
 
-      {/* ── Top-right corner mesh ── */}
+      {/* ── Corner radial on hover ── */}
       <div
-        className="absolute top-0 right-0 w-32 h-32 opacity-20 pointer-events-none"
+        className="absolute top-0 right-0 w-56 h-56 opacity-0 group-hover:opacity-100
+                   transition-opacity duration-500 pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at top right, rgba(0,200,255,0.2) 0%, transparent 65%)",
+            "radial-gradient(circle at top right, rgba(99,102,241,0.05) 0%, transparent 65%)",
         }}
         aria-hidden
       />
 
-      <div className="p-7 md:p-8 space-y-6">
-        {/* ── Header row ── */}
+      <div className="pl-8 pr-7 py-7 md:py-8 space-y-5">
+        {/* ── Header ── */}
         <div className="flex items-start justify-between gap-4">
           <div className="space-y-2">
-            {/* Project number + status */}
+            {/* Number + status + year */}
             <div className="flex items-center gap-3">
               <span
-                className="font-mono text-xs tracking-widest"
-                style={{ color: "rgba(0,200,255,0.35)" }}
+                className="font-mono text-[10px] tracking-widest text-slate-300"
                 aria-hidden
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span
-                className={`font-mono text-[10px] tracking-wider uppercase flex items-center ${status.className}`}
-                style={{ color: "var(--muted)" }}
+                className={`font-mono text-[10px] tracking-wider uppercase
+                            flex items-center text-slate-500 ${status.dotClass}`}
               >
                 {status.label}
               </span>
-              <span
-                className="font-mono text-[10px] tracking-widest"
-                style={{ color: "var(--muted-2)" }}
-              >
+              <span className="font-mono text-[10px] tracking-widest text-slate-300">
                 {project.year}
               </span>
             </div>
 
             {/* Title */}
             <h3
-              className="font-orbitron font-bold text-xl md:text-2xl text-feza-text
-                         group-hover:text-white transition-colors duration-300 leading-tight"
+              className="font-orbitron font-bold text-xl md:text-2xl text-slate-900
+                         group-hover:text-indigo-900 transition-colors duration-300 leading-tight"
             >
               {project.title}
             </h3>
           </div>
 
-          {/* Action links */}
+          {/* Action buttons */}
           <div className="flex items-center gap-2 shrink-0 mt-1">
             {project.github && (
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm font-mono text-[10px]
-                           tracking-widest uppercase transition-all duration-200
-                           hover:border-[#00c8ff]/40"
-                style={{
-                  color: "var(--muted)",
-                  border: "1px solid var(--border)",
-                  background: "transparent",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "var(--cyan)";
-                  e.currentTarget.style.borderColor = "rgba(0,200,255,0.4)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "var(--muted)";
-                  e.currentTarget.style.borderColor = "var(--border)";
-                }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                           font-mono text-[10px] tracking-widest uppercase
+                           transition-all duration-200
+                           text-slate-500 border border-slate-200 bg-white
+                           hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50"
               >
                 <GitHubSmallIcon />
                 <span>Repo</span>
@@ -158,22 +140,11 @@ export default function ProjectCard({
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm font-mono text-[10px]
-                           tracking-widest uppercase transition-all duration-200"
-                style={{
-                  color: "var(--cyan)",
-                  border: "1px solid rgba(0,200,255,0.3)",
-                  background: "rgba(0,200,255,0.05)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(0,200,255,0.1)";
-                  e.currentTarget.style.boxShadow =
-                    "0 0 12px rgba(0,200,255,0.2)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "rgba(0,200,255,0.05)";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                           font-mono text-[10px] tracking-widest uppercase
+                           transition-all duration-200
+                           text-indigo-600 border border-indigo-200 bg-indigo-50
+                           hover:bg-indigo-100 hover:border-indigo-300 hover:shadow-sm"
               >
                 <span>Demo</span>
                 <ExternalLinkIcon />
@@ -185,71 +156,48 @@ export default function ProjectCard({
         {/* ── Highlight callout ── */}
         {project.highlight && (
           <div
-            className="flex items-start gap-3 px-4 py-3 rounded-sm"
-            style={{
-              background: "rgba(0,200,255,0.04)",
-              border: "1px solid rgba(0,200,255,0.12)",
-              borderLeft: "3px solid rgba(0,200,255,0.5)",
-            }}
+            className="flex items-start gap-3 px-4 py-3 rounded-xl
+                        bg-indigo-50/70 border border-indigo-100"
+            style={{ borderLeft: "3px solid #818cf8" }}
           >
-            <span
-              className="font-mono text-[10px] tracking-widest uppercase mt-0.5 shrink-0"
-              style={{ color: "rgba(0,200,255,0.6)" }}
-            >
+            <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-400 mt-0.5 shrink-0">
               {"//"}
             </span>
-            <p
-              className="font-mono text-xs leading-relaxed"
-              style={{ color: "var(--muted)", lineHeight: 1.7 }}
-            >
+            <p className="font-mono text-xs text-slate-600 leading-[1.75]">
               {project.highlight}
             </p>
           </div>
         )}
 
         {/* ── Description ── */}
-        <p
-          className="font-rajdhani text-base leading-relaxed"
-          style={{ color: "var(--muted)", lineHeight: 1.75 }}
-        >
+        <p className="font-outfit text-base text-slate-600 leading-relaxed">
           {project.description}
         </p>
 
         {/* ── Tags ── */}
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <span key={tag} className="tag-cyan">
+            <span key={tag} className="tag-light">
               {tag}
             </span>
           ))}
         </div>
 
-        {/* ── Footer: contributing members ── */}
+        {/* ── Contributing members ── */}
         {members.length > 0 && (
-          <div
-            className="flex items-center gap-3 pt-4"
-            style={{ borderTop: "1px solid rgba(25,40,64,0.6)" }}
-          >
-            <span
-              className="font-mono text-[10px] tracking-widest uppercase"
-              style={{ color: "var(--muted-2)" }}
-            >
+          <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
+            <span className="font-mono text-[10px] tracking-widest uppercase text-slate-400">
               Katkıda Bulunanlar
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               {members.map((m) => (
                 <Link
                   key={m.slug}
                   href={`/members/${m.slug}`}
-                  className="flex items-center gap-1.5 group/member"
+                  className="font-outfit text-sm text-slate-500
+                             hover:text-indigo-600 transition-colors duration-200"
                 >
-                  <span
-                    className="font-mono text-[10px] tracking-wide transition-colors duration-200
-                               group-hover/member:text-[#00c8ff]"
-                    style={{ color: "var(--muted)" }}
-                  >
-                    {m.name}
-                  </span>
+                  {m.name}
                 </Link>
               ))}
             </div>

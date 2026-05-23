@@ -11,81 +11,75 @@ function HeroSection() {
       className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-20"
       aria-label="Ana başlık"
     >
-      {/* ── Radial gradient: center glow ── */}
+      {/* ── Radial gradient: very subtle indigo tint ── */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden
         style={{
           background:
-            "radial-gradient(ellipse 70% 55% at 50% 40%, rgba(0,200,255,0.055) 0%, transparent 70%)",
+            "radial-gradient(ellipse 78% 62% at 50% 36%, rgba(99,102,241,0.07) 0%, rgba(14,165,233,0.03) 45%, transparent 70%)",
         }}
       />
 
-      {/* ── Top decorative metadata bar ── */}
+      {/* ── Ultra-faint grid texture ── */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(99,102,241,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.025) 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
+        }}
+      />
+
       <div className="max-w-7xl mx-auto w-full px-6 md:px-10">
-        <div className="flex items-center gap-3 mb-14 animate-fade-in opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards]">
-          <div
-            className="flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase"
-            style={{ color: "rgba(0,200,255,0.45)" }}
-          >
+
+        {/* ── Decorative status bar ── */}
+        <div
+          className="flex items-center gap-3 mb-14
+                     animate-fade-in opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards]"
+        >
+          <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase text-indigo-500">
             <span
-              className="w-1.5 h-1.5 rounded-full"
+              className="w-1.5 h-1.5 rounded-full bg-green-500"
               style={{
-                background: "#00c8ff",
-                boxShadow: "0 0 6px #00c8ff",
-                animation: "statusPulse 2s ease-in-out infinite",
+                animation: "statusPulse 2.5s ease-in-out infinite",
+                boxShadow: "0 0 0 2px rgba(34,197,94,0.2)",
               }}
             />
             Kolektif · Aktif
           </div>
-          <div
-            className="flex-1 h-px"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(0,200,255,0.2), transparent)",
-            }}
-          />
-          <span
-            className="font-mono text-[10px] tracking-widest"
-            style={{ color: "rgba(255,255,255,0.15)" }}
-          >
+          <div className="flex-1 h-px bg-gradient-to-r from-indigo-200/60 to-transparent" />
+          <span className="font-mono text-[10px] tracking-widest text-slate-400">
             EST. 2024
           </span>
         </div>
 
-        {/* ── Main title block ── */}
-        <div className="space-y-4 md:space-y-2">
-          {/* FEZA — massive display */}
+        {/* ── Main title ── */}
+        <div className="space-y-2 md:space-y-1">
+          {/* FEZA — monumental black lettering */}
           <div className="overflow-hidden">
             <h1
-              className="font-orbitron font-black text-white tracking-tight leading-none
+              className="font-orbitron font-black text-slate-900 tracking-tight leading-none
                          animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]"
               style={{
-                fontSize: "clamp(4rem, 13vw, 11rem)",
-                letterSpacing: "-0.02em",
+                fontSize: "clamp(4.5rem, 14vw, 12rem)",
+                letterSpacing: "-0.025em",
               }}
             >
               FEZA
             </h1>
           </div>
 
-          {/* ── divider + CO ── */}
-          <div className="flex items-center gap-4 md:gap-6 animate-fade-in-up opacity-0 [animation-delay:350ms] [animation-fill-mode:forwards]">
-            <div
-              className="flex-1 h-px max-w-xs"
-              style={{
-                background:
-                  "linear-gradient(90deg, rgba(0,200,255,0.7), rgba(0,200,255,0.1))",
-              }}
-            />
+          {/* ── Divider rule + CO ── */}
+          <div
+            className="flex items-center gap-4 md:gap-6
+                       animate-fade-in-up opacity-0 [animation-delay:360ms] [animation-fill-mode:forwards]"
+          >
+            <div className="flex-1 h-px max-w-sm bg-gradient-to-r from-indigo-400 via-indigo-300 to-transparent" />
             <span
-              className="font-orbitron font-bold tracking-widest animate-glow-pulse"
-              style={{
-                fontSize: "clamp(1.5rem, 4vw, 3.5rem)",
-                color: "#00c8ff",
-                textShadow:
-                  "0 0 20px rgba(0,200,255,0.5), 0 0 40px rgba(0,200,255,0.2)",
-              }}
+              className="font-orbitron font-bold text-indigo-600 tracking-widest"
+              style={{ fontSize: "clamp(1.5rem, 4vw, 3.5rem)" }}
             >
               — CO
             </span>
@@ -93,35 +87,33 @@ function HeroSection() {
         </div>
 
         {/* ── Tagline ── */}
-        <div className="mt-10 md:mt-12 max-w-2xl animate-fade-in-up opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards]">
+        <div
+          className="mt-10 md:mt-12 max-w-2xl
+                     animate-fade-in-up opacity-0 [animation-delay:520ms] [animation-fill-mode:forwards]"
+        >
           <p
-            className="font-rajdhani font-light leading-relaxed"
-            style={{
-              fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)",
-              color: "rgba(218,228,240,0.75)",
-              lineHeight: 1.65,
-            }}
+            className="font-outfit font-light text-slate-700 leading-relaxed"
+            style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.45rem)", lineHeight: 1.65 }}
           >
             Teknolojinin sınırlarını birlikte zorluyoruz.
             <br />
-            <span
-              className="font-rajdhani font-medium"
-              style={{ color: "var(--muted)" }}
-            >
+            <span className="font-outfit font-normal text-slate-500">
               Hiyerarşisiz bir yapıda, beş kurucu ortak — sınırsız vizyon.
             </span>
           </p>
         </div>
 
         {/* ── CTA Buttons ── */}
-        <div className="mt-10 flex flex-wrap items-center gap-4 animate-fade-in-up opacity-0 [animation-delay:650ms] [animation-fill-mode:forwards]">
+        <div
+          className="mt-10 flex flex-wrap items-center gap-4
+                     animate-fade-in-up opacity-0 [animation-delay:680ms] [animation-fill-mode:forwards]"
+        >
           <Link
             href="#founders"
-            className="group relative flex items-center gap-2.5 px-7 py-3.5 rounded-sm
-                       font-mono text-sm tracking-widest uppercase overflow-hidden
-                       transition-all duration-300
-                       bg-[rgba(0,200,255,0.08)] border border-[rgba(0,200,255,0.35)] text-[#00c8ff]
-                       hover:bg-[rgba(0,200,255,0.15)] hover:shadow-[0_0_20px_rgba(0,200,255,0.2)]"
+            className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl
+                       font-mono text-sm tracking-widest uppercase transition-all duration-300
+                       bg-indigo-600 text-white border border-indigo-600
+                       hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-600/20 hover:-translate-y-0.5"
           >
             <span>Ekibi Keşfet</span>
             <svg
@@ -139,44 +131,34 @@ function HeroSection() {
 
           <Link
             href="#projects"
-            className="flex items-center gap-2 px-7 py-3.5 rounded-sm
+            className="flex items-center gap-2 px-7 py-3.5 rounded-xl
                        font-mono text-sm tracking-widest uppercase transition-all duration-300
-                       text-feza-muted border border-feza-border
-                       hover:text-feza-text hover:border-[rgba(0,200,255,0.25)]"
+                       text-slate-700 border border-slate-300 bg-white
+                       hover:border-indigo-300 hover:text-indigo-700 hover:bg-indigo-50
+                       hover:-translate-y-0.5"
           >
             <span>Projeler</span>
           </Link>
         </div>
 
         {/* ── Stats row ── */}
-        <div className="mt-20 animate-fade-in opacity-0 [animation-delay:900ms] [animation-fill-mode:forwards]">
-          <div
-            className="h-px mb-6"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(0,200,255,0.3), rgba(0,200,255,0.05) 60%, transparent)",
-            }}
-          />
+        <div
+          className="mt-20
+                     animate-fade-in opacity-0 [animation-delay:920ms] [animation-fill-mode:forwards]"
+        >
+          <div className="h-px mb-6 bg-gradient-to-r from-indigo-200/60 via-slate-200 to-transparent" />
           <div className="flex flex-wrap gap-10 md:gap-16">
             {[
-              { value: "5", label: "Kurucu Ortak" },
-              { value: "1", label: "Aktif Proje" },
+              { value: "5",    label: "Kurucu Ortak" },
+              { value: "1",    label: "Aktif Proje" },
               { value: "2024", label: "Kuruluş Yılı" },
-              { value: "∞", label: "Vizyon" },
+              { value: "∞",    label: "Vizyon" },
             ].map(({ value, label }) => (
               <div key={label} className="space-y-1">
-                <p
-                  className="font-orbitron font-bold text-2xl md:text-3xl text-white"
-                  style={{
-                    textShadow: "0 0 15px rgba(0,200,255,0.25)",
-                  }}
-                >
+                <p className="font-orbitron font-bold text-2xl md:text-3xl text-indigo-600">
                   {value}
                 </p>
-                <p
-                  className="font-mono text-[10px] tracking-widest uppercase"
-                  style={{ color: "var(--muted)" }}
-                >
+                <p className="font-mono text-[10px] tracking-widest uppercase text-slate-500">
                   {label}
                 </p>
               </div>
@@ -187,18 +169,10 @@ function HeroSection() {
 
       {/* ── Scroll indicator ── */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float-slow">
-        <span
-          className="font-mono text-[9px] tracking-widest uppercase"
-          style={{ color: "rgba(0,200,255,0.3)" }}
-        >
+        <span className="font-mono text-[9px] tracking-widest uppercase text-slate-400">
           Keşfet
         </span>
-        <div
-          className="w-px h-8"
-          style={{
-            background: "linear-gradient(180deg, rgba(0,200,255,0.4), transparent)",
-          }}
-        />
+        <div className="w-px h-8 bg-gradient-to-b from-indigo-400/50 to-transparent" />
       </div>
     </section>
   );
@@ -218,28 +192,19 @@ function SectionHeader({
   return (
     <div className="mb-12 md:mb-16 space-y-4">
       <div className="flex items-center gap-3">
-        <span
-          className="font-mono text-[10px] tracking-widest uppercase"
-          style={{ color: "rgba(0,200,255,0.5)" }}
-        >
+        <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
           {label}
         </span>
-        <div
-          className="flex-1 h-px max-w-[80px]"
-          style={{ background: "rgba(0,200,255,0.25)" }}
-        />
+        <div className="h-px w-20 bg-indigo-200" />
       </div>
       <h2
-        className="font-orbitron font-bold text-white"
+        className="font-orbitron font-bold text-slate-900"
         style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)" }}
       >
         {title}
       </h2>
       {subtitle && (
-        <p
-          className="font-rajdhani text-base max-w-2xl leading-relaxed"
-          style={{ color: "var(--muted)", lineHeight: 1.75 }}
-        >
+        <p className="font-outfit text-base text-slate-600 max-w-2xl leading-relaxed">
           {subtitle}
         </p>
       )}
@@ -258,7 +223,7 @@ export default function HomePage() {
       {/* ── Founders Section ── */}
       <section
         id="founders"
-        className="py-20 md:py-28 scroll-mt-16"
+        className="py-20 md:py-28 scroll-mt-16 bg-slate-50"
         aria-label="Kurucu Ortaklar"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -275,24 +240,12 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Collective manifesto callout */}
-          <div
-            className="mt-10 flex items-start gap-4 px-6 py-5 rounded-xl"
-            style={{
-              background: "rgba(0,200,255,0.03)",
-              border: "1px solid rgba(0,200,255,0.08)",
-            }}
-          >
-            <span
-              className="font-mono text-[10px] tracking-widest uppercase shrink-0 mt-1"
-              style={{ color: "rgba(0,200,255,0.4)" }}
-            >
+          {/* Manifesto callout */}
+          <div className="mt-10 flex items-start gap-4 px-6 py-5 rounded-2xl bg-white border border-slate-200/80">
+            <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-400 shrink-0 mt-1">
               Manifesto
             </span>
-            <p
-              className="font-mono text-xs leading-relaxed"
-              style={{ color: "var(--muted-2)", lineHeight: 1.9 }}
-            >
+            <p className="font-mono text-xs text-slate-500 leading-[1.9]">
               {'// Bu kolektifte hiç kimse "Lead", "Senior" veya "Manager" değildir.'}
               {"  "}
               {"// Her üye eşit düzeyde Kurucu Ortak'tır."}
@@ -303,18 +256,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Thin separator ── */}
-      <div
-        className="max-w-7xl mx-auto px-6 md:px-10"
-        aria-hidden
-      >
-        <div className="divider-cyan" />
+      {/* ── Thin divider ── */}
+      <div className="max-w-7xl mx-auto px-6 md:px-10" aria-hidden>
+        <div className="divider-light" />
       </div>
 
       {/* ── Projects Section ── */}
       <section
         id="projects"
-        className="py-20 md:py-28 scroll-mt-16"
+        className="py-20 md:py-28 scroll-mt-16 bg-slate-50"
         aria-label="Projeler"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -327,11 +277,7 @@ export default function HomePage() {
           <div className="space-y-6">
             {projects.map((project, i) => {
               const projectMembers = getMembersForProject(project.id).map(
-                (m) => ({
-                  name: m.name,
-                  slug: m.slug,
-                  initials: m.initials,
-                })
+                (m) => ({ name: m.name, slug: m.slug, initials: m.initials })
               );
               return (
                 <ProjectCard
@@ -346,22 +292,13 @@ export default function HomePage() {
 
           {/* Coming soon placeholder */}
           <div
-            className="mt-6 flex flex-col items-center justify-center py-12 rounded-xl"
-            style={{
-              border: "1px dashed rgba(0,200,255,0.12)",
-              background: "rgba(0,200,255,0.01)",
-            }}
+            className="mt-6 flex flex-col items-center justify-center py-12 rounded-2xl
+                        border-2 border-dashed border-slate-200 bg-white"
           >
-            <span
-              className="font-mono text-[10px] tracking-widest uppercase mb-3"
-              style={{ color: "rgba(0,200,255,0.25)" }}
-            >
+            <span className="font-mono text-[10px] tracking-widest uppercase text-slate-400 mb-3">
               Yakında
             </span>
-            <p
-              className="font-rajdhani text-sm text-center max-w-xs"
-              style={{ color: "var(--muted-2)" }}
-            >
+            <p className="font-outfit text-sm text-center text-slate-500 max-w-xs">
               Yeni projeler hazırlanıyor. Kolektifin bir sonraki büyük adımı geliyor.
             </p>
           </div>
@@ -371,48 +308,45 @@ export default function HomePage() {
       {/* ── Contact / CTA Section ── */}
       <section
         id="contact"
-        className="py-20 md:py-28 scroll-mt-16"
+        className="py-20 md:py-28 scroll-mt-16 bg-white"
         aria-label="İletişim"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div
-            className="relative rounded-2xl overflow-hidden px-8 md:px-16 py-16 md:py-20 text-center"
+            className="relative rounded-3xl overflow-hidden px-8 md:px-16 py-16 md:py-20 text-center
+                        border border-indigo-100"
             style={{
               background:
-                "linear-gradient(135deg, rgba(0,200,255,0.06) 0%, rgba(8,15,30,0.8) 50%, rgba(0,100,160,0.08) 100%)",
-              border: "1px solid rgba(0,200,255,0.14)",
+                "linear-gradient(135deg, #eef2ff 0%, #ffffff 45%, #f0f9ff 100%)",
             }}
           >
-            {/* BG glow */}
+            {/* Soft radial glow */}
             <div
               className="absolute inset-0 pointer-events-none"
               aria-hidden
               style={{
                 background:
-                  "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(0,200,255,0.07) 0%, transparent 70%)",
+                  "radial-gradient(ellipse 65% 65% at 50% 50%, rgba(99,102,241,0.06) 0%, transparent 70%)",
               }}
             />
 
             <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
               <div className="flex justify-center mb-2">
-                <span
-                  className="font-mono text-[10px] tracking-widest uppercase"
-                  style={{ color: "rgba(0,200,255,0.5)" }}
-                >
+                <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
                   {"// İletişim"}
                 </span>
               </div>
 
               <h2
-                className="font-orbitron font-bold text-white"
+                className="font-orbitron font-bold text-slate-900"
                 style={{ fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)" }}
               >
                 Birlikte bir şeyler üretelim
               </h2>
 
               <p
-                className="font-rajdhani text-base leading-relaxed"
-                style={{ color: "var(--muted)", lineHeight: 1.8 }}
+                className="font-outfit text-base text-slate-600 leading-relaxed"
+                style={{ lineHeight: 1.8 }}
               >
                 Bir fikriniz, bir projeniz veya sadece selamlaşmak için bize ulaşın.
                 Kolektifin kapıları her zaman açık.
@@ -420,10 +354,11 @@ export default function HomePage() {
 
               <a
                 href="mailto:info@feza-co.dev"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-sm
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl
                            font-mono text-sm tracking-widest uppercase transition-all duration-300
-                           bg-[rgba(0,200,255,0.1)] border border-[rgba(0,200,255,0.35)] text-[#00c8ff]
-                           hover:bg-[rgba(0,200,255,0.18)] hover:shadow-[0_0_25px_rgba(0,200,255,0.2)]"
+                           bg-indigo-600 text-white border border-indigo-600
+                           hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-600/25
+                           hover:-translate-y-0.5"
               >
                 <svg
                   width="15"
