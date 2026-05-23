@@ -312,7 +312,6 @@ export default function HomePage() {
                 key={project.id}
                 project={project}
                 index={i}
-                teamSize={members.length}
               />
             ))}
           </div>
