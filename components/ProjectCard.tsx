@@ -1,5 +1,7 @@
 import type { Project } from "@/lib/data";
+import { getMembersForProject } from "@/lib/data";
 import { ExternalLinkIcon, GitHubIcon, StatusDot } from "@/components/ui";
+import TeamPopover from "@/components/TeamPopover";
 
 const statusConfig: Record<
   Project["status"],
@@ -22,9 +24,9 @@ export default function ProjectCard({
   teamSize = project.members.length,
 }: ProjectCardProps) {
   const status = statusConfig[project.status];
-  const projectFacts = [
+  const teamMembers = getMembersForProject(project.id);
+  const odakYilFacts = [
     { label: "Odak", value: project.tags[0] },
-    { label: "Ekip", value: `${teamSize} ortak` },
     { label: "Yıl", value: String(project.year) },
   ];
 
@@ -165,17 +167,33 @@ export default function ProjectCard({
           </div>
         )}
 
-        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-feza-border bg-feza-border sm:grid-cols-3">
-          {projectFacts.map((fact) => (
-            <div key={fact.label} className="bg-feza-surface-2 px-4 py-3">
-              <p className="font-mono text-[9px] tracking-widest uppercase text-feza-muted">
-                {fact.label}
-              </p>
-              <p className="mt-1 truncate font-outfit text-sm font-semibold text-feza-secondary">
-                {fact.value}
-              </p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 gap-px rounded-lg border border-feza-border bg-feza-border sm:grid-cols-3">
+          {/* Odak */}
+          <div className="bg-feza-surface-2 px-4 py-3 rounded-tl-lg rounded-bl-lg sm:rounded-bl-none sm:rounded-tr-none">
+            <p className="font-mono text-[9px] tracking-widest uppercase text-feza-muted">
+              {odakYilFacts[0].label}
+            </p>
+            <p className="mt-1 truncate font-outfit text-sm font-semibold text-feza-secondary">
+              {odakYilFacts[0].value}
+            </p>
+          </div>
+
+          {/* Ekip — interactive popover */}
+          <TeamPopover
+            members={teamMembers}
+            label="Ekip"
+            value={`${teamSize} ortak`}
+          />
+
+          {/* Yıl */}
+          <div className="bg-feza-surface-2 px-4 py-3 rounded-br-lg rounded-tr-lg sm:rounded-tl-none sm:rounded-bl-none">
+            <p className="font-mono text-[9px] tracking-widest uppercase text-feza-muted">
+              {odakYilFacts[1].label}
+            </p>
+            <p className="mt-1 truncate font-outfit text-sm font-semibold text-feza-secondary">
+              {odakYilFacts[1].value}
+            </p>
+          </div>
         </div>
 
         {/* ── Tags ── */}
