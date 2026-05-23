@@ -103,3 +103,7 @@ GEMINI.md
 graphify-out/
 .graphify_python
 .graphify_*
+
+
+
+.codex/
