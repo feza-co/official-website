@@ -75,7 +75,7 @@ export const members: Member[] = [
       "Unity / WebGL",
       "Real-time Data Pipelines",
     ],
-    projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan"],
+    projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan", "iso-testing-world"],
     hackathons: ["Teknofest 2024", "IEEE Hackathon 2024", "ASTRO Hackathon 2026"],
     quote:
       "Fiziksel dünyayı sayısallaştırmak, geleceğin mühendisliğinin kapılarını açar.",
@@ -97,7 +97,7 @@ export const members: Member[] = [
       "Kubernetes",
       "Database Design",
     ],
-    projects: ["astro-hackathon", "uyum-platform"],
+    projects: ["astro-hackathon", "uyum-platform", "iso-testing-world"],
     hackathons: ["Teknofest 2024", "ASTRO Hackathon 2026", "ODTÜ Spor Tech Hackathon 2026"],
     quote: "Doğru mimari, ölçeklenebilirliği sorun olmaktan çıkarır.",
   },
@@ -139,7 +139,7 @@ export const members: Member[] = [
       "Statistical Modelling",
       "Data Visualization",
     ],
-    projects: ["raw2value", "astro-hackathon", "meydan"],
+    projects: ["raw2value", "astro-hackathon", "meydan", "iso-testing-world"],
     hackathons: ["Datathon ITU 2024", "Teknofest 2024", "ASTRO Hackathon 2026"],
     quote: "Veri, doğru sorular sorulduğunda konuşmaya başlar.",
   },
@@ -290,6 +290,36 @@ export const projects: Project[] = [
       problem: "Engelli bireyler spor tesislerinin gerçek erişilebilirliğini önceden göremiyor.",
       approach: "Radar skoru, erişilebilir harita ve Türkçe AI ilk ziyaret rehberini birleştirme.",
       outcome: "Daha güvenli tesis seçimi ve ilk ziyaret öncesi net hazırlık akışı.",
+    },
+  },
+  {
+    id: "iso-testing-world",
+    title: "ISO Testing World",
+    description:
+      "ISO/IEC/IEEE 29119-1:2022 yazılım test kavramlarını öğreten, tarayıcı tabanlı eğitsel simülasyon. Oyuncu kıdemli test mühendisi rolünde beş bölgede üretim olayı #047'yi çözer; her bölge farklı bir ISO kavram kümesini hedefler.",
+    longDescription:
+      "ISO Testing World, IT & ISQS Learner-as-Designer dersi için geliştirilen tarayıcı tabanlı bir eğitim oyunudur. Beş bölgenin her biri (Hata/Kusur/Arıza, Doğrulama & Geçerleme, Test Seviyesi × Tipi, Test Tabanı/Öğesi, Test Oracle) ISO/IEC/IEEE 29119-1:2022 kavram kümelerini hedefler; günlük tanımlar bilerek yanlış cevap üretecek şekilde tasarlanmıştır. NPC tabanlı ofis-içi simülasyon katmanı, pixel-art karakterler, retro masaüstü mini araçları (VSCode, BugSweeper, Pipeline Ops, Snake) ve her yanlış cevapta atlanamayan ISO madde tanımı modalı içerir. Three.js ile prosedürel 3B Dünya Haritası ve Node.js/Express + PostgreSQL ile oturum/ilerleme kalıcılığı sunar.",
+    highlight:
+      "IT & ISQS Learner-as-Designer — ISO/IEC/IEEE 29119-1:2022 öğreten interaktif test eğitim oyunu",
+    tags: [
+      "React 19",
+      "Vite",
+      "Three.js",
+      "Framer Motion",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Docker",
+    ],
+    status: "completed",
+    members: ["tuna-deniz", "nedim-goktug-tabak", "oguzhan-tarhan"],
+    github: "https://github.com/tunadeniz1304/ISO-Testing-World",
+    demo: "https://opus-isotestingworld.vercel.app/",
+    year: 2026,
+    caseStudy: {
+      problem: "ISO test kavramları informal tanımlarla karıştırılıyor; öğrenci doğru terminolojiyi içselleştiremiyor.",
+      approach: "Her yanlış cevabı atlanamayan verbatim ISO madde tanımıyla eşleştiren beş bölgeli oyunlaştırma.",
+      outcome: "Standart-kesin terminolojiyi pekiştiren, ofis simülasyonuyla bağlamlandırılmış öğrenme akışı.",
     },
   },
 ];
