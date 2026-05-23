@@ -30,6 +30,7 @@ const spaceMono = Space_Mono({
 
 // ─── Metadata ─────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
+  metadataBase: new URL("https://feza-co.dev"),
   title: {
     default: "Feza-Co | Teknoloji Kolektifi",
     template: "%s | Feza-Co",
@@ -45,10 +46,34 @@ export const metadata: Metadata = {
     "digital twin",
     "yapay zeka",
   ],
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "tr_TR",
     siteName: "Feza-Co",
+    title: "Feza-Co | Teknoloji Kolektifi",
+    description:
+      "Beş kurucu ortak, sınırsız vizyon. Geleceğin teknolojisini birlikte inşa eden bağımsız yazılım kolektifi.",
+    url: "https://feza-co.dev",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Feza-Co teknoloji kolektifi sosyal paylaşım görseli",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Feza-Co | Teknoloji Kolektifi",
+    description:
+      "Beş kurucu ortak, sınırsız vizyon. Geleceğin teknolojisini birlikte inşa eden bağımsız yazılım kolektifi.",
+    images: ["/og-image.png"],
   },
 };
 
