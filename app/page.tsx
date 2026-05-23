@@ -9,7 +9,7 @@ import { members, projects, getMembersForProject } from "@/lib/data";
 function HeroSection() {
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-20"
+      className="relative min-h-[88svh] md:min-h-[92svh] flex flex-col justify-center overflow-hidden pt-20 pb-12 md:pt-24 md:pb-16"
       aria-label="Ana başlık"
     >
       <Image
@@ -163,7 +163,7 @@ function HeroSection() {
 
         {/* ── Stats row ── */}
         <div
-          className="mt-20
+          className="mt-14 md:mt-16
                      animate-fade-in opacity-0 [animation-delay:920ms] [animation-fill-mode:forwards]"
         >
           <div className="h-px mb-6 bg-gradient-to-r from-indigo-200/60 via-slate-200 to-transparent" />
@@ -188,7 +188,7 @@ function HeroSection() {
       </div>
 
       {/* ── Scroll indicator ── */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float-slow">
+      <div className="absolute bottom-4 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 animate-float-slow sm:flex">
         <span className="font-mono text-[9px] tracking-widest uppercase text-slate-400">
           Keşfet
         </span>
