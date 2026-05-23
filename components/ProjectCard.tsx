@@ -29,6 +29,11 @@ export default function ProjectCard({
   members = [],
 }: ProjectCardProps) {
   const status = statusConfig[project.status];
+  const projectFacts = [
+    { label: "Odak", value: project.tags[0] },
+    { label: "Ekip", value: `${members.length || project.members.length} kişi` },
+    { label: "Yıl", value: String(project.year) },
+  ];
 
   return (
     <article className="card-base group relative rounded-lg overflow-hidden bg-white">
@@ -141,6 +146,39 @@ export default function ProjectCard({
         <p className="font-outfit text-base text-slate-600 leading-relaxed">
           {project.description}
         </p>
+
+        {/* ── Case study snapshot ── */}
+        {project.caseStudy && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200">
+            {[
+              { label: "Problem", value: project.caseStudy.problem },
+              { label: "Yaklaşım", value: project.caseStudy.approach },
+              { label: "Çıktı", value: project.caseStudy.outcome },
+            ].map((item) => (
+              <div key={item.label} className="bg-white px-4 py-4">
+                <p className="font-mono text-[10px] tracking-widest uppercase text-cyan-600">
+                  {item.label}
+                </p>
+                <p className="mt-2 font-outfit text-sm leading-relaxed text-slate-600">
+                  {item.value}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="grid grid-cols-3 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200">
+          {projectFacts.map((fact) => (
+            <div key={fact.label} className="bg-slate-50 px-4 py-3">
+              <p className="font-mono text-[9px] tracking-widest uppercase text-slate-400">
+                {fact.label}
+              </p>
+              <p className="mt-1 truncate font-outfit text-sm font-semibold text-slate-700">
+                {fact.value}
+              </p>
+            </div>
+          ))}
+        </div>
 
         {/* ── Tags ── */}
         <div className="flex flex-wrap gap-2">

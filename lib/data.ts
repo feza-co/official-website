@@ -27,6 +27,11 @@ export interface Project {
   demo?: string;
   year: number;
   highlight?: string; // bold callout text
+  caseStudy?: {
+    problem: string;
+    approach: string;
+    outcome: string;
+  };
 }
 
 // ─── Members ─────────────────────────────────────────────────────────────────
@@ -166,6 +171,11 @@ export const projects: Project[] = [
     members: ["tuna-deniz", "ahmet-karakoyun", "oguzhan-tarhan"],
     github: "https://github.com/feza-co/Raw2Value",
     year: 2026,
+    caseStudy: {
+      problem: "Hammadde ihracatında düşük katma değer ve zor karşılaştırılan satış rotaları.",
+      approach: "ML tahminleri, lojistik verisi ve ağırlıklı karar skorunu tek akışta birleştirme.",
+      outcome: "Üretici için daha karlı işleme rotası ve B2B eşleşme önerileri.",
+    },
   },
   {
     id: "digital-twin-kit",
@@ -188,6 +198,11 @@ export const projects: Project[] = [
     status: "active",
     members: ["tuna-deniz", "ahmet-karakoyun"],
     year: 2024,
+    caseStudy: {
+      problem: "Fiziksel sistem verilerinin 3D bağlamda izlenmesi ve yorumlanması zor.",
+      approach: "Sensör verisini WebGL tabanlı dijital ikiz yüzeyiyle eşleştiren modüler altyapı.",
+      outcome: "Akademik ve endüstriyel prototipler için tekrar kullanılabilir başlangıç kiti.",
+    },
   },
   {
     id: "astro-hackathon",
@@ -218,6 +233,11 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/ahmetkrkyn0/ASTROHackathon",
     year: 2026,
+    caseStudy: {
+      problem: "Ay yüzeyinde güvenli rota; eğim, enerji, gölge ve termal riskle birlikte çözülmeli.",
+      approach: "DEM katmanlarını A* maliyet fonksiyonunda görev ağırlıklarıyla birleştirme.",
+      outcome: "Farklı rover profilleri için karşılaştırılabilir rota simülasyonu.",
+    },
   },
   {
     id: "meydan",
@@ -241,6 +261,11 @@ export const projects: Project[] = [
     members: ["ahmet-karakoyun", "tuna-deniz", "oguzhan-tarhan"],
     github: "https://github.com/ahmetkrkyn0/Meydan",
     year: 2026,
+    caseStudy: {
+      problem: "Futbol dışı sporcular görünürlük, destek ve marka erişimi bulmakta zorlanıyor.",
+      approach: "AI destekli eşleştirme, rol bazlı panolar ve konum odaklı etkinlik keşfi.",
+      outcome: "Sporcu, taraftar, gönüllü ve marka arasında ortak bir destek ağı.",
+    },
   },
   {
     id: "uyum-platform",
@@ -265,6 +290,11 @@ export const projects: Project[] = [
     members: ["nedim-goktug-tabak"],
     github: "https://github.com/goktugtabak/uyum-platform",
     year: 2026,
+    caseStudy: {
+      problem: "Engelli bireyler spor tesislerinin gerçek erişilebilirliğini önceden göremiyor.",
+      approach: "Radar skoru, erişilebilir harita ve Türkçe AI ilk ziyaret rehberini birleştirme.",
+      outcome: "Daha güvenli tesis seçimi ve ilk ziyaret öncesi net hazırlık akışı.",
+    },
   },
 ];
 
