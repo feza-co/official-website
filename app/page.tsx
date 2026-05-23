@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import MemberCard from "@/components/MemberCard";
 import ProjectCard from "@/components/ProjectCard";
 import { members, projects, getMembersForProject } from "@/lib/data";
@@ -11,6 +12,25 @@ function HeroSection() {
       className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-20"
       aria-label="Ana başlık"
     >
+      <Image
+        src="/hero-feza-visual.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 object-cover object-center opacity-80"
+        aria-hidden
+      />
+
+      <div
+        className="absolute inset-0 pointer-events-none bg-gradient-to-r from-slate-50 via-slate-50/90 to-slate-50/15"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/65 via-transparent to-slate-50"
+        aria-hidden
+      />
+
       {/* ── Radial gradient: very subtle indigo tint ── */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -32,7 +52,7 @@ function HeroSection() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto w-full px-6 md:px-10">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-10">
 
         {/* ── Decorative status bar ── */}
         <div
