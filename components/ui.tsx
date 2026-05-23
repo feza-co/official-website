@@ -9,7 +9,7 @@ export function SectionLabel({ label }: { label: string }) {
       <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
         {label}
       </span>
-      <div className="flex-1 h-px bg-slate-200" />
+      <div className="flex-1 h-px bg-feza-border" />
     </div>
   );
 }
