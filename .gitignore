@@ -216,3 +216,26 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Added by code-review-graph
+.code-review-graph/
+
+# AI agent config & rules
+.claude/
+.cursor/
+.kiro/
+.cursorrules
+.windsurfrules
+.mcp.json
+.opencode.json
+
+# AI agent instruction files
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+
+# Graphify knowledge graph output
+graphify-out/
+.graphify_python
+
+# Temp / build artifacts
+.graphify_*
