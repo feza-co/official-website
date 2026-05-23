@@ -49,8 +49,8 @@ export const members: Member[] = [
       "TypeScript",
       "System Architecture",
     ],
-    projects: ["digital-twin-kit", "raw2value"],
-    hackathons: ["Teknofest 2024", "HackITU 2024"],
+    projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan"],
+    hackathons: ["Teknofest 2024", "HackITU 2024", "ASTRO Hackathon 2026"],
     quote: "Kod yazmak bir sanat, sistem tasarlamak bir mühendislik disiplinidir.",
   },
   {
@@ -70,8 +70,8 @@ export const members: Member[] = [
       "Unity / WebGL",
       "Real-time Data Pipelines",
     ],
-    projects: ["digital-twin-kit", "raw2value"],
-    hackathons: ["Teknofest 2024", "IEEE Hackathon 2024"],
+    projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan"],
+    hackathons: ["Teknofest 2024", "IEEE Hackathon 2024", "ASTRO Hackathon 2026"],
     quote:
       "Fiziksel dünyayı sayısallaştırmak, geleceğin mühendisliğinin kapılarını açar.",
   },
@@ -92,8 +92,8 @@ export const members: Member[] = [
       "Kubernetes",
       "Database Design",
     ],
-    projects: [],
-    hackathons: ["Teknofest 2024"],
+    projects: ["astro-hackathon", "uyum-platform"],
+    hackathons: ["Teknofest 2024", "ASTRO Hackathon 2026", "ODTÜ Spor Tech Hackathon 2026"],
     quote: "Doğru mimari, ölçeklenebilirliği sorun olmaktan çıkarır.",
   },
   {
@@ -113,8 +113,8 @@ export const members: Member[] = [
       "Flutter",
       "Product Thinking",
     ],
-    projects: [],
-    hackathons: ["HackITU 2024", "Design Jam 2024"],
+    projects: ["astro-hackathon"],
+    hackathons: ["HackITU 2024", "Design Jam 2024", "ASTRO Hackathon 2026"],
     quote: "En iyi arayüz, kullanıcının varlığını bile hissetmediği arayüzdür.",
   },
   {
@@ -134,8 +134,8 @@ export const members: Member[] = [
       "Statistical Modelling",
       "Data Visualization",
     ],
-    projects: ["raw2value"],
-    hackathons: ["Datathon ITU 2024", "Teknofest 2024"],
+    projects: ["raw2value", "astro-hackathon", "meydan"],
+    hackathons: ["Datathon ITU 2024", "Teknofest 2024", "ASTRO Hackathon 2026"],
     quote: "Veri, doğru sorular sorulduğunda konuşmaya başlar.",
   },
 ];
@@ -188,6 +188,83 @@ export const projects: Project[] = [
     status: "active",
     members: ["tuna-deniz", "ahmet-karakoyun"],
     year: 2024,
+  },
+  {
+    id: "astro-hackathon",
+    title: "LunaPath",
+    description:
+      "Ay yüzeyi üzerinde çok kriterli güzergah planlama sistemi. DEM analizinden elde edilen eğim, enerji tüketimi, gölge ve termal risk katmanlarıyla optimal rover rotaları üretir.",
+    longDescription:
+      "ASTRO Hackathon 2026 için geliştirilen LunaPath, ay yüzeyindeki rover'lar için çok kriterli güzergah optimizasyonu sunar. DEM verilerinden eğim, enerji, gölge proxy ve termal risk grid katmanları üretilir; A* pathfinding algoritmasıyla misyon ağırlıklarına göre en verimli rota hesaplanır. Farklı rover profilleri, REST API ve interaktif web arayüzüyle kapsamlı bir uzay keşif simülasyonu sunar.",
+    highlight:
+      "ASTRO Hackathon 2026 — Ay yüzeyinde A* tabanlı çok kriterli rover güzergah optimizasyonu",
+    tags: [
+      "Python",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "GDAL",
+      "Rasterio",
+      "A* Pathfinding",
+      "Vite",
+    ],
+    status: "completed",
+    members: [
+      "ahmet-karakoyun",
+      "tuna-deniz",
+      "nedim-goktug-tabak",
+      "oguzhan-tarhan",
+      "izzettin-berke-kus",
+    ],
+    github: "https://github.com/ahmetkrkyn0/ASTROHackathon",
+    year: 2026,
+  },
+  {
+    id: "meydan",
+    title: "Meydan",
+    description:
+      "Türkiye'deki futbol dışı sporcuları taraftarlar, gönüllüler ve markalarla buluşturan AI destekli dijital spor platformu.",
+    longDescription:
+      "Meydan, futbol dışındaki sporcuların ekipman, sponsorluk, görünürlük ve topluluk desteği ihtiyaçlarını tek bir dijital çatı altında çözer. Sporcular hikayelerini paylaşır, taraftarlar destek sağlar, markalar anlamlı ortaklıklar bulur. Gemini API destekli akıllı eşleştirme, OpenRouteService ile konum bazlı etkinlik keşfi ve rol tabanlı panolar ile kapsamlı bir spor ekosistemi kurar.",
+    highlight:
+      "Sporun sessiz kahramanlarını görünür kılan AI destekli spor eşleştirme ekosistemi",
+    tags: [
+      "React 19",
+      "TypeScript",
+      "FastAPI",
+      "Supabase",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Gemini API",
+    ],
+    status: "active",
+    members: ["ahmet-karakoyun", "tuna-deniz", "oguzhan-tarhan"],
+    github: "https://github.com/ahmetkrkyn0/Meydan",
+    year: 2026,
+  },
+  {
+    id: "uyum-platform",
+    title: "UYUM",
+    description:
+      "Engelli bireylerin uyarlanabilir sporlara erişimini kolaylaştıran; altı boyutlu erişilebilirlik radar sistemi, akıllı harita ve AI destekli ilk ziyaret rehberi sunan platform.",
+    longDescription:
+      "ODTÜ Spor Teknolojileri Hackathonu 2026 için geliştirilen UYUM, engelli bireylerin Ankara'daki spor tesislerine erişimini kolaylaştırır. Renk körü modları, yüksek kontrast ve klavye navigasyonu ile tam erişilebilirlik sağlar. n8n + OpenAI GPT-4o-mini entegrasyonuyla Türkçe sesli AI rehberi, OpenStreetMap tabanlı çift kodlu akıllı harita ve topluluk deneyim paylaşımı içerir.",
+    highlight:
+      "ODTÜ Spor Tech Hackathon 2026 — Altı boyutlu radar & AI destekli engelli spor erişilebilirlik platformu",
+    tags: [
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Leaflet",
+      "OpenAI",
+      "n8n",
+      "Framer Motion",
+      "Vite",
+    ],
+    status: "completed",
+    members: ["nedim-goktug-tabak"],
+    github: "https://github.com/goktugtabak/uyum-platform",
+    year: 2026,
   },
 ];
 
