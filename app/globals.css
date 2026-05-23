@@ -2,18 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── CSS Custom Properties ───────────────────────────────────────────────── */
+/* ─── Design System Variables ─────────────────────────────────────────────── */
 :root {
-  --bg: #050c17;
-  --surface: #0a1525;
-  --card: #080f1e;
-  --border: #192840;
-  --cyan: #00c8ff;
-  --cyan-dim: #0090b8;
-  --cyan-muted: rgba(0, 200, 255, 0.1);
-  --text: #dae4f0;
-  --muted: #445a6f;
-  --muted-2: #2a3d52;
+  /* Surfaces */
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --card: #ffffff;
+
+  /* Borders */
+  --border: #e2e8f0;
+  --border-md: #cbd5e1;
+
+  /* Typography */
+  --text: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-xs: #64748b;
+
+  /* Accent — Indigo */
+  --indigo: #4f46e5;
+  --indigo-dim: #6366f1;
+  --indigo-light: #818cf8;
+  --indigo-muted: rgba(79, 70, 229, 0.07);
+  --indigo-border: rgba(99, 102, 241, 0.2);
+
+  /* Sky complement */
+  --sky: #0ea5e9;
 }
 
 /* ─── Base Reset ──────────────────────────────────────────────────────────── */
@@ -39,183 +53,135 @@ body {
   color: var(--text);
 }
 
-/* ─── Dot-Grid Star Map Background ───────────────────────────────────────── */
-body {
-  background-color: var(--bg);
-  background-image:
-    radial-gradient(rgba(0, 200, 255, 0.055) 1px, transparent 1px),
-    radial-gradient(rgba(0, 200, 255, 0.02) 1px, transparent 1px);
-  background-size: 36px 36px, 18px 18px;
-  background-position: 0 0, 9px 9px;
-}
-
-/* ─── Scanline CRT Overlay ────────────────────────────────────────────────── */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 3px,
-    rgba(0, 0, 0, 0.025) 3px,
-    rgba(0, 0, 0, 0.025) 4px
-  );
-  pointer-events: none;
-  z-index: 9998;
-}
-
 /* ─── Scrollbar ───────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg);
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--cyan-dim);
+  background: #c7d2fe;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--cyan);
+  background: #4f46e5;
 }
 
 /* ─── Text Selection ──────────────────────────────────────────────────────── */
 ::selection {
-  background: rgba(0, 200, 255, 0.22);
-  color: #fff;
+  background: rgba(99, 102, 241, 0.15);
+  color: #4338ca;
 }
 
-/* ─── Custom Utility Classes ──────────────────────────────────────────────── */
+/* ─── Utility Layer ───────────────────────────────────────────────────────── */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 
-  /* Glowing text effect */
-  .glow-text-cyan {
-    text-shadow:
-      0 0 20px rgba(0, 200, 255, 0.45),
-      0 0 40px rgba(0, 200, 255, 0.2);
-  }
-
-  .glow-text-cyan-sm {
-    text-shadow: 0 0 12px rgba(0, 200, 255, 0.4);
-  }
-
-  /* Glowing box / border */
-  .glow-border-cyan {
-    box-shadow:
-      0 0 20px rgba(0, 200, 255, 0.12),
-      inset 0 0 20px rgba(0, 200, 255, 0.03);
-  }
-
-  /* Card base */
+  /* Card base — light mode */
   .card-base {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     transition:
-      border-color 0.3s ease,
-      box-shadow 0.3s ease,
-      transform 0.3s ease;
+      border-color 0.22s ease,
+      box-shadow 0.22s ease,
+      transform 0.22s ease;
   }
-
   .card-base:hover {
-    border-color: rgba(0, 200, 255, 0.35);
+    border-color: rgba(99, 102, 241, 0.3);
     box-shadow:
-      0 0 30px rgba(0, 200, 255, 0.1),
-      0 12px 50px rgba(0, 0, 0, 0.5);
+      0 8px 32px rgba(79, 70, 229, 0.1),
+      0 2px 8px rgba(0, 0, 0, 0.04);
     transform: translateY(-3px);
   }
 
-  /* Thin cyan horizontal rule */
-  .divider-cyan {
+  /* Thin divider */
+  .divider-light {
     border: none;
     height: 1px;
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(0, 200, 255, 0.5) 30%,
-      rgba(0, 200, 255, 0.5) 70%,
+      #e2e8f0 25%,
+      #e2e8f0 75%,
       transparent
     );
   }
 
-  /* Tag / chip style */
-  .tag-cyan {
+  /* Tag / chip — indigo tinted */
+  .tag-light {
     font-family: var(--font-space-mono), monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.06em;
-    color: rgba(0, 200, 255, 0.85);
-    background: rgba(0, 200, 255, 0.07);
-    border: 1px solid rgba(0, 200, 255, 0.18);
+    font-size: 0.63rem;
+    letter-spacing: 0.04em;
+    color: #4338ca;
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
     padding: 0.2rem 0.55rem;
-    border-radius: 3px;
+    border-radius: 4px;
+    white-space: nowrap;
   }
 
   /* Status dots */
   .status-active::before {
     content: "";
     display: inline-block;
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: #00c8ff;
-    box-shadow: 0 0 8px #00c8ff;
+    background: #22c55e;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
     margin-right: 7px;
-    animation: statusPulse 2s ease-in-out infinite;
+    animation: statusPulse 2.5s ease-in-out infinite;
+    vertical-align: middle;
   }
-
   .status-planning::before {
     content: "";
     display: inline-block;
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: #f59e0b;
-    box-shadow: 0 0 8px #f59e0b;
     margin-right: 7px;
+    vertical-align: middle;
   }
-
   .status-completed::before {
     content: "";
     display: inline-block;
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: #10b981;
-    box-shadow: 0 0 8px #10b981;
+    background: #4f46e5;
     margin-right: 7px;
+    vertical-align: middle;
+  }
+
+  .font-display {
+    font-family: var(--font-orbitron), sans-serif;
   }
 }
 
-/* ─── Status pulse keyframe ───────────────────────────────────────────────── */
+/* ─── Keyframes ───────────────────────────────────────────────────────────── */
 @keyframes statusPulse {
   0%,
   100% {
-    opacity: 1;
-    box-shadow: 0 0 8px #00c8ff;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
   }
   50% {
-    opacity: 0.5;
-    box-shadow: 0 0 16px #00c8ff, 0 0 24px rgba(0, 200, 255, 0.4);
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.08);
   }
 }
 
-/* ─── Section fade-in animation utility ──────────────────────────────────── */
+/* ─── Scroll-triggered fade ───────────────────────────────────────────────── */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* ─── Orbitron font utility (applied via Tailwind class) ──────────────────── */
-.font-display {
-  font-family: var(--font-orbitron), sans-serif;
 }

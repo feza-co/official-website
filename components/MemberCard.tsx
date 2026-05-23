@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { Member } from "@/lib/data";
 
-// ─── Icon Components ──────────────────────────────────────────────────────────
+// ─── Icons ────────────────────────────────────────────────────────────────────
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
@@ -41,21 +41,6 @@ function GitHubIcon({ className }: { className?: string }) {
   );
 }
 
-function ArrowIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    >
-      <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" />
-    </svg>
-  );
-}
-
 // ─── Member Card ──────────────────────────────────────────────────────────────
 
 interface MemberCardProps {
@@ -64,38 +49,27 @@ interface MemberCardProps {
 }
 
 export default function MemberCard({ member, index = 0 }: MemberCardProps) {
-  const animationDelay = `${index * 100}ms`;
-
   return (
     <Link href={`/members/${member.slug}`} className="block group">
       <article
-        className="card-base relative flex flex-col items-center gap-5 p-6 rounded-xl
-                   cursor-pointer overflow-hidden select-none"
-        style={{
-          animationDelay,
-          background: "var(--card)",
-          border: "1px solid var(--border)",
-        }}
+        className="card-base relative flex flex-col items-center gap-5 p-6
+                   rounded-2xl cursor-pointer overflow-hidden select-none bg-white"
+        style={{ animationDelay: `${index * 80}ms` }}
       >
-        {/* ── Corner accent ── */}
+        {/* ── Soft indigo radial on hover (top-right) ── */}
         <div
-          className="absolute top-0 right-0 w-16 h-16 opacity-0
-                     group-hover:opacity-100 transition-opacity duration-500"
+          className="absolute top-0 right-0 w-28 h-28 opacity-0 group-hover:opacity-100
+                     transition-opacity duration-500 pointer-events-none"
           aria-hidden
-        >
-          <div
-            className="absolute top-3 right-3 w-full h-full"
-            style={{
-              background:
-                "radial-gradient(circle at top right, rgba(0,200,255,0.1) 0%, transparent 70%)",
-            }}
-          />
-        </div>
+          style={{
+            background:
+              "radial-gradient(circle at top right, rgba(99,102,241,0.07) 0%, transparent 70%)",
+          }}
+        />
 
         {/* ── Sequential number ── */}
         <span
-          className="absolute top-3 left-4 font-mono text-[10px] tracking-widest opacity-30"
-          style={{ color: "var(--cyan)" }}
+          className="absolute top-3.5 left-4 font-mono text-[10px] tracking-widest text-slate-300"
           aria-hidden
         >
           {String(index + 1).padStart(2, "0")}
@@ -103,30 +77,29 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
 
         {/* ── Avatar ── */}
         <div className="relative mt-3">
-          {/* Outer glow ring - visible on hover */}
+          {/* Glow halo on hover */}
           <div
-            className="absolute -inset-2 rounded-full opacity-0 group-hover:opacity-100
-                       transition-opacity duration-400 blur-sm"
-            style={{ background: "rgba(0,200,255,0.15)" }}
+            className="absolute -inset-3 rounded-full opacity-0 group-hover:opacity-100
+                       transition-all duration-400 blur-lg pointer-events-none"
+            style={{ background: "rgba(99,102,241,0.1)" }}
             aria-hidden
           />
 
           {/* Avatar circle */}
           <div
             className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${member.avatarGradient}
-                        flex items-center justify-center shadow-lg
-                        group-hover:shadow-[0_0_20px_rgba(0,200,255,0.25)]
-                        transition-shadow duration-400`}
+                        flex items-center justify-center
+                        shadow-md group-hover:shadow-lg transition-shadow duration-300`}
           >
             <span className="font-orbitron font-bold text-white text-base tracking-wide drop-shadow">
               {member.initials}
             </span>
           </div>
 
-          {/* Cyan ring border on hover */}
+          {/* Indigo ring on hover */}
           <div
-            className="absolute inset-0 rounded-full border border-[#00c8ff]/0
-                       group-hover:border-[#00c8ff]/50 scale-110
+            className="absolute inset-0 rounded-full scale-110 pointer-events-none
+                       border-2 border-indigo-400/0 group-hover:border-indigo-400/35
                        transition-all duration-400"
             aria-hidden
           />
@@ -135,15 +108,12 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
         {/* ── Name & Role ── */}
         <div className="text-center space-y-1.5">
           <h3
-            className="font-rajdhani font-bold text-lg text-feza-text leading-tight
-                       group-hover:text-white transition-colors duration-300"
+            className="font-outfit font-semibold text-lg text-slate-900 leading-tight
+                       group-hover:text-indigo-900 transition-colors duration-300"
           >
             {member.name}
           </h3>
-          <p
-            className="font-mono text-[10px] tracking-widest uppercase"
-            style={{ color: "rgba(0,200,255,0.7)" }}
-          >
+          <p className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
             {member.role}
           </p>
         </div>
@@ -151,7 +121,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
         {/* ── Skills preview (top 3) ── */}
         <div className="flex flex-wrap justify-center gap-1.5 px-2">
           {member.skills.slice(0, 3).map((skill) => (
-            <span key={skill} className="tag-cyan">
+            <span key={skill} className="tag-light">
               {skill}
             </span>
           ))}
@@ -165,14 +135,8 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="transition-colors duration-200 hover:scale-110 transition-transform"
-              style={{ color: "var(--muted)" }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--cyan)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--muted)")
-              }
+              className="text-slate-400 hover:text-indigo-600 transition-colors duration-200
+                         hover:scale-110 transform"
               aria-label={`${member.name} - LinkedIn`}
             >
               <LinkedInIcon />
@@ -184,14 +148,8 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="transition-colors duration-200 hover:scale-110 transition-transform"
-              style={{ color: "var(--muted)" }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--cyan)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--muted)")
-              }
+              className="text-slate-400 hover:text-indigo-600 transition-colors duration-200
+                         hover:scale-110 transform"
               aria-label={`${member.name} - GitHub`}
             >
               <GitHubIcon />
@@ -199,24 +157,33 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
           )}
         </div>
 
-        {/* ── View profile CTA ── */}
+        {/* ── "Profili Gör" CTA — slides in on hover ── */}
         <div
           className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest
-                     opacity-0 group-hover:opacity-100 -mt-1 mb-1
-                     transition-all duration-300 translate-y-1 group-hover:translate-y-0"
-          style={{ color: "rgba(0,200,255,0.8)" }}
+                     text-indigo-600 opacity-0 group-hover:opacity-100 -mt-1 mb-1
+                     translate-y-1 group-hover:translate-y-0
+                     transition-all duration-300"
         >
           <span>PROFİLİ GÖR</span>
-          <ArrowIcon />
+          <svg
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path d="M2 8L8 2M8 2H4M8 2V6" />
+          </svg>
         </div>
 
-        {/* ── Bottom border glow line ── */}
+        {/* ── Bottom indigo accent bar ── */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-px opacity-0
+          className="absolute bottom-0 left-0 right-0 h-0.5 opacity-0
                      group-hover:opacity-100 transition-opacity duration-400"
           style={{
             background:
-              "linear-gradient(90deg, transparent, rgba(0,200,255,0.5), transparent)",
+              "linear-gradient(90deg, transparent, #6366f1 40%, #6366f1 60%, transparent)",
           }}
           aria-hidden
         />

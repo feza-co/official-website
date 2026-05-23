@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Orbitron, Rajdhani, Space_Mono } from "next/font/google";
+import { Orbitron, Outfit, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// ─── Brand / display font ──────────────────────────────────────────────────
 const orbitron = Orbitron({
   subsets: ["latin"],
   variable: "--font-orbitron",
@@ -11,13 +12,15 @@ const orbitron = Orbitron({
   display: "swap",
 });
 
-const rajdhani = Rajdhani({
+// ─── Primary UI font ───────────────────────────────────────────────────────
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-rajdhani",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-outfit",
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
+// ─── Monospace / tag font ──────────────────────────────────────────────────
 const spaceMono = Space_Mono({
   subsets: ["latin"],
   variable: "--font-space-mono",
@@ -25,6 +28,7 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
+// ─── Metadata ─────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   title: {
     default: "Feza-Co | Teknoloji Kolektifi",
@@ -48,17 +52,16 @@ export const metadata: Metadata = {
   },
 };
 
+// ─── Root Layout ──────────────────────────────────────────────────────────
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="tr"
-      className={`${orbitron.variable} ${rajdhani.variable} ${spaceMono.variable}`}
+      className={`${orbitron.variable} ${outfit.variable} ${spaceMono.variable}`}
     >
-      <body className="font-rajdhani antialiased min-h-screen flex flex-col bg-feza-bg text-feza-text">
+      <body className="font-outfit antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

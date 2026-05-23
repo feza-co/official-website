@@ -14,16 +14,12 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50"
-      style={{
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-        background:
-          "linear-gradient(180deg, rgba(5,12,23,0.95) 0%, rgba(5,12,23,0.80) 100%)",
-        borderBottom: "1px solid rgba(0, 200, 255, 0.08)",
-      }}
+      className="fixed top-0 left-0 right-0 z-50
+                 bg-white/90 backdrop-blur-md
+                 border-b border-slate-200/80"
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+
         {/* ── Logo ── */}
         <Link href="/" className="group flex items-center gap-2.5">
           {/* Glyph mark */}
@@ -31,71 +27,72 @@ export default function Navbar() {
             className="relative w-7 h-7 flex items-center justify-center"
             aria-hidden
           >
-            {/* Outer ring */}
             <div
-              className="absolute inset-0 rounded-full border border-[#00c8ff]/40
-                         group-hover:border-[#00c8ff]/80 transition-all duration-300
-                         group-hover:shadow-[0_0_12px_rgba(0,200,255,0.35)]"
+              className="absolute inset-0 rounded-full border border-indigo-400/60
+                         group-hover:border-indigo-500 transition-all duration-300
+                         group-hover:shadow-[0_0_0_3px_rgba(99,102,241,0.1)]"
             />
-            {/* Inner dot */}
-            <div className="w-1.5 h-1.5 rounded-full bg-[#00c8ff] group-hover:shadow-[0_0_8px_#00c8ff] transition-shadow duration-300" />
+            <div
+              className="w-1.5 h-1.5 rounded-full bg-indigo-600
+                         group-hover:bg-indigo-500 transition-colors duration-300"
+            />
           </div>
 
           {/* Wordmark */}
           <span
-            className="font-orbitron font-bold text-sm tracking-widest text-feza-text
-                       group-hover:text-white transition-colors duration-300"
+            className="font-orbitron font-bold text-sm tracking-widest text-slate-900
+                       group-hover:text-slate-700 transition-colors duration-300"
           >
             FEZA
-            <span className="text-[#00c8ff]">—CO</span>
+            <span className="text-indigo-600">—CO</span>
           </span>
         </Link>
 
-        {/* ── Navigation Links ── */}
+        {/* ── Nav Links (desktop) ── */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className="font-mono text-xs tracking-widest text-feza-muted uppercase
-                         hover:text-[#00c8ff] transition-colors duration-300 relative group"
+              className="font-mono text-xs tracking-widest text-slate-500 uppercase
+                         hover:text-slate-900 transition-colors duration-200 relative group"
             >
               {label}
               <span
-                className="absolute -bottom-1 left-0 h-px w-0 bg-[#00c8ff]
-                            group-hover:w-full transition-all duration-300"
+                className="absolute -bottom-1 left-0 h-px w-0 bg-indigo-600
+                           group-hover:w-full transition-all duration-300"
               />
             </Link>
           ))}
         </div>
 
-        {/* ── Right side: collective badge ── */}
+        {/* ── Right badge ── */}
         <div className="hidden md:flex items-center gap-3">
           <div
-            className="flex items-center gap-2 px-3 py-1.5 rounded-sm"
-            style={{
-              background: "rgba(0, 200, 255, 0.05)",
-              border: "1px solid rgba(0, 200, 255, 0.12)",
-            }}
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full
+                        bg-indigo-50 border border-indigo-100/80"
           >
-            {/* Live indicator */}
             <span
-              className="w-1.5 h-1.5 rounded-full bg-[#00c8ff]"
-              style={{ boxShadow: "0 0 6px #00c8ff" }}
+              className="w-1.5 h-1.5 rounded-full bg-green-500"
+              style={{
+                animation: "statusPulse 2.5s ease-in-out infinite",
+                boxShadow: "0 0 0 2px rgba(34,197,94,0.2)",
+              }}
             />
-            <span className="font-mono text-[10px] tracking-widest text-[#00c8ff]/70 uppercase">
+            <span className="font-mono text-[10px] tracking-widest text-indigo-600 uppercase">
               Aktif Kolektif
             </span>
           </div>
         </div>
 
-        {/* ── Mobile Menu Icon ── */}
+        {/* ── Mobile links ── */}
         <div className="md:hidden flex items-center gap-1.5">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className="font-mono text-[10px] text-feza-muted hover:text-[#00c8ff] transition-colors px-2"
+              className="font-mono text-[10px] text-slate-500 hover:text-indigo-600
+                         transition-colors px-2"
             >
               {label}
             </Link>
@@ -103,12 +100,12 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ── Bottom border glow line ── */}
+      {/* ── Thin indigo shimmer line ── */}
       <div
         className="h-px w-full"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, rgba(0,200,255,0.25) 20%, rgba(0,200,255,0.5) 50%, rgba(0,200,255,0.25) 80%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.3) 30%, rgba(99,102,241,0.5) 50%, rgba(99,102,241,0.3) 80%, transparent 100%)",
         }}
       />
     </header>
