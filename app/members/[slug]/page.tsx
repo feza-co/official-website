@@ -60,8 +60,10 @@ export default async function MemberPage({
         {/* ── Back navigation ── */}
         <Link
           href="/#founders"
-          className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase
-                     mb-12 text-slate-500 hover:text-indigo-600 transition-colors duration-200 group"
+          className="group mb-12 inline-flex cursor-pointer items-center gap-2 rounded-sm
+                     font-mono text-xs uppercase tracking-widest text-slate-500
+                     transition-colors duration-200 hover:text-blue-600
+                     focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
         >
           <svg
             width="14"
@@ -116,11 +118,12 @@ export default async function MemberPage({
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg
+                  className="flex cursor-pointer items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-mono text-[10px] tracking-widest uppercase transition-all duration-200
                              text-slate-500 border border-slate-200 bg-white
                              hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
-                             hover:shadow-sm"
+                             hover:shadow-sm focus:outline-none
+                             focus-visible:ring-2 focus-visible:ring-blue-500/30"
                 >
                   <LinkedInIcon />
                   <span>LinkedIn</span>
@@ -131,11 +134,12 @@ export default async function MemberPage({
                   href={member.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg
+                  className="flex cursor-pointer items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-mono text-[10px] tracking-widest uppercase transition-all duration-200
                              text-slate-500 border border-slate-200 bg-white
                              hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
-                             hover:shadow-sm"
+                             hover:shadow-sm focus:outline-none
+                             focus-visible:ring-2 focus-visible:ring-blue-500/30"
                 >
                   <GitHubIcon />
                   <span>GitHub</span>
@@ -265,11 +269,12 @@ export default async function MemberPage({
                 <Link
                   key={m.slug}
                   href={`/members/${m.slug}`}
-                  className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg
+                  className="flex cursor-pointer items-center gap-2.5 px-4 py-2.5 rounded-lg
                              font-outfit text-sm font-medium transition-all duration-200
                              text-slate-600 border border-slate-200 bg-white
                              hover:border-cyan-200 hover:text-cyan-700 hover:bg-cyan-50
-                             hover:shadow-sm"
+                             hover:shadow-sm focus:outline-none
+                             focus-visible:ring-2 focus-visible:ring-blue-500/30"
                 >
                   <div
                     className={`w-5 h-5 rounded-full bg-gradient-to-br ${m.avatarGradient}

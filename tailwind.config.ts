@@ -9,27 +9,29 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        orbitron: ["var(--font-orbitron)", "sans-serif"],
-        outfit:   ["var(--font-outfit)",   "sans-serif"],
+        orbitron: ["var(--font-archivo)", "sans-serif"],
+        outfit:   ["var(--font-space-grotesk)", "sans-serif"],
+        archivo:  ["var(--font-archivo)", "sans-serif"],
+        grotesk:  ["var(--font-space-grotesk)", "sans-serif"],
         // backward-compat alias so any remaining font-rajdhani refs still work
-        rajdhani: ["var(--font-outfit)",   "sans-serif"],
+        rajdhani: ["var(--font-space-grotesk)", "sans-serif"],
         mono:     ["var(--font-space-mono)", "monospace"],
       },
       colors: {
         feza: {
-          bg:            "#f8fafc",
+          bg:            "#fafafa",
           surface:       "#ffffff",
           card:          "#ffffff",
           border:        "#e2e8f0",
           "border-md":   "#cbd5e1",
-          indigo:        "#4f46e5",
-          "indigo-dim":  "#6366f1",
+          indigo:        "#2563eb",
+          "indigo-dim":  "#3b82f6",
           "indigo-light":"#818cf8",
           cyan:          "#06b6d4",
           emerald:       "#10b981",
           amber:         "#f59e0b",
-          text:          "#0f172a",
-          secondary:     "#475569",
+          text:          "#09090b",
+          secondary:     "#3f3f46",
           muted:         "#94a3b8",
           "muted-xs":    "#64748b",
         },

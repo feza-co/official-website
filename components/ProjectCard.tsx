@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Project } from "@/lib/data";
 import { ExternalLinkIcon, GitHubIcon, StatusDot } from "@/components/ui";
 
@@ -20,29 +19,29 @@ const statusConfig: Record<
 interface ProjectCardProps {
   project: Project;
   index?: number;
-  members?: { name: string; slug: string; initials: string }[];
+  teamSize?: number;
 }
 
 export default function ProjectCard({
   project,
   index = 0,
-  members = [],
+  teamSize = project.members.length,
 }: ProjectCardProps) {
   const status = statusConfig[project.status];
   const projectFacts = [
     { label: "Odak", value: project.tags[0] },
-    { label: "Ekip", value: `${members.length || project.members.length} kişi` },
+    { label: "Ekip", value: `${teamSize} ortak` },
     { label: "Yıl", value: String(project.year) },
   ];
 
   return (
-    <article className="card-base group relative rounded-lg overflow-hidden bg-white">
+    <article className="card-base group relative h-full rounded-lg overflow-hidden bg-white">
       {/* ── Left indigo accent bar ── */}
       <div
         className="absolute left-0 top-0 bottom-0 w-1 rounded-l-lg"
         style={{
           background:
-            "linear-gradient(180deg, #06b6d4 0%, #4f46e5 52%, #10b981 100%)",
+            "linear-gradient(180deg, #06b6d4 0%, #2563eb 52%, #10b981 100%)",
         }}
         aria-hidden
       />
@@ -98,11 +97,12 @@ export default function ProjectCard({
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                className="flex cursor-pointer items-center gap-1.5 px-3 py-1.5 rounded-lg
                            font-mono text-[10px] tracking-widest uppercase
                            transition-all duration-200
                            text-slate-500 border border-slate-200 bg-white
-                           hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50"
+                           hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
               >
                 <GitHubIcon size={13} />
                 <span>Repo</span>
@@ -113,11 +113,12 @@ export default function ProjectCard({
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                className="flex cursor-pointer items-center gap-1.5 px-3 py-1.5 rounded-lg
                            font-mono text-[10px] tracking-widest uppercase
                            transition-all duration-200
-                           text-indigo-600 border border-indigo-200 bg-indigo-50
-                           hover:bg-indigo-100 hover:border-indigo-300 hover:shadow-sm"
+                           text-blue-600 border border-blue-200 bg-blue-50
+                           hover:bg-blue-100 hover:border-blue-300 hover:shadow-sm
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
               >
                 <span>Demo</span>
                 <ExternalLinkIcon />
@@ -149,7 +150,7 @@ export default function ProjectCard({
 
         {/* ── Case study snapshot ── */}
         {project.caseStudy && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200">
+          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 sm:grid-cols-3">
             {[
               { label: "Problem", value: project.caseStudy.problem },
               { label: "Yaklaşım", value: project.caseStudy.approach },
@@ -167,7 +168,7 @@ export default function ProjectCard({
           </div>
         )}
 
-        <div className="grid grid-cols-3 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200">
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 sm:grid-cols-3">
           {projectFacts.map((fact) => (
             <div key={fact.label} className="bg-slate-50 px-4 py-3">
               <p className="font-mono text-[9px] tracking-widest uppercase text-slate-400">
@@ -189,26 +190,6 @@ export default function ProjectCard({
           ))}
         </div>
 
-        {/* ── Contributing members ── */}
-        {members.length > 0 && (
-          <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-            <span className="font-mono text-[10px] tracking-widest uppercase text-slate-400">
-              Katkıda Bulunanlar
-            </span>
-            <div className="flex items-center gap-3">
-              {members.map((m) => (
-                <Link
-                  key={m.slug}
-                  href={`/members/${m.slug}`}
-                  className="font-outfit text-sm text-slate-500
-                             hover:text-indigo-600 transition-colors duration-200"
-                >
-                  {m.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </article>
   );

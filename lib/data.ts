@@ -145,6 +145,8 @@ export const members: Member[] = [
   },
 ];
 
+const allMemberSlugs = members.map((member) => member.slug);
+
 // ─── Projects ─────────────────────────────────────────────────────────────────
 
 export const projects: Project[] = [
@@ -168,7 +170,7 @@ export const projects: Project[] = [
       "Docker",
     ],
     status: "completed",
-    members: ["tuna-deniz", "ahmet-karakoyun", "oguzhan-tarhan"],
+    members: allMemberSlugs,
     github: "https://github.com/feza-co/Raw2Value",
     year: 2026,
     caseStudy: {
@@ -196,7 +198,7 @@ export const projects: Project[] = [
       "Real-time",
     ],
     status: "active",
-    members: ["tuna-deniz", "ahmet-karakoyun"],
+    members: allMemberSlugs,
     year: 2024,
     caseStudy: {
       problem: "Fiziksel sistem verilerinin 3D bağlamda izlenmesi ve yorumlanması zor.",
@@ -224,13 +226,7 @@ export const projects: Project[] = [
       "Vite",
     ],
     status: "completed",
-    members: [
-      "ahmet-karakoyun",
-      "tuna-deniz",
-      "nedim-goktug-tabak",
-      "oguzhan-tarhan",
-      "izzettin-berke-kus",
-    ],
+    members: allMemberSlugs,
     github: "https://github.com/ahmetkrkyn0/ASTROHackathon",
     year: 2026,
     caseStudy: {
@@ -258,7 +254,7 @@ export const projects: Project[] = [
       "Gemini API",
     ],
     status: "active",
-    members: ["ahmet-karakoyun", "tuna-deniz", "oguzhan-tarhan"],
+    members: allMemberSlugs,
     github: "https://github.com/ahmetkrkyn0/Meydan",
     year: 2026,
     caseStudy: {
@@ -287,7 +283,7 @@ export const projects: Project[] = [
       "Vite",
     ],
     status: "completed",
-    members: ["nedim-goktug-tabak"],
+    members: allMemberSlugs,
     github: "https://github.com/goktugtabak/uyum-platform",
     year: 2026,
     caseStudy: {
@@ -319,7 +315,5 @@ export function getMembersForProject(projectId: string): Member[] {
 export function getProjectsForMember(memberSlug: string): Project[] {
   const member = getMemberBySlug(memberSlug);
   if (!member) return [];
-  return member.projects
-    .map((id) => getProjectById(id))
-    .filter(Boolean) as Project[];
+  return projects.filter((project) => project.members.includes(memberSlug));
 }

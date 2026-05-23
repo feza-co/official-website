@@ -13,9 +13,9 @@ interface MemberCardProps {
 
 export default function MemberCard({ member, index = 0 }: MemberCardProps) {
   return (
-    <div className="block group">
+    <div className="group block">
       <article
-        className="card-base relative flex flex-col items-center gap-5 p-6
+        className="card-base relative flex cursor-pointer flex-col items-center gap-5 p-6
                    rounded-lg overflow-hidden select-none bg-white"
         style={{ animationDelay: `${index * 80}ms` }}
       >
@@ -98,8 +98,9 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-indigo-600 transition-colors duration-200
-                         hover:scale-110 transform"
+              className="relative z-20 rounded-md text-slate-400 transition-colors duration-200
+                         hover:text-blue-600 focus:outline-none
+                         focus-visible:ring-2 focus-visible:ring-blue-500/30"
               aria-label={`${member.name} - LinkedIn`}
             >
               <LinkedInIcon />
@@ -110,8 +111,9 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
               href={member.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-indigo-600 transition-colors duration-200
-                         hover:scale-110 transform"
+              className="relative z-20 rounded-md text-slate-400 transition-colors duration-200
+                         hover:text-blue-600 focus:outline-none
+                         focus-visible:ring-2 focus-visible:ring-blue-500/30"
               aria-label={`${member.name} - GitHub`}
             >
               <GitHubIcon />
@@ -145,7 +147,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
                      group-hover:opacity-100 transition-opacity duration-400"
           style={{
             background:
-              "linear-gradient(90deg, transparent, #06b6d4 40%, #4f46e5 60%, transparent)",
+              "linear-gradient(90deg, transparent, #06b6d4 40%, #2563eb 60%, transparent)",
           }}
           aria-hidden
         />

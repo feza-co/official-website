@@ -48,8 +48,9 @@ export default function Footer() {
               <Link
                 key={href}
                 href={href}
-                className="block font-outfit text-sm text-slate-500
-                           hover:text-indigo-600 transition-colors duration-200"
+                className="block cursor-pointer rounded-sm font-outfit text-sm text-slate-500
+                           transition-colors duration-200 hover:text-blue-600
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
               >
                 {label}
               </Link>

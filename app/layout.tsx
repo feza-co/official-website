@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { Orbitron, Outfit, Space_Mono } from "next/font/google";
+import { Archivo, Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 // ─── Brand / display font ──────────────────────────────────────────────────
-const orbitron = Orbitron({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-orbitron",
-  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-archivo",
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 // ─── Primary UI font ───────────────────────────────────────────────────────
-const outfit = Outfit({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-outfit",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-space-grotesk",
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -84,11 +84,13 @@ export default function RootLayout({
   return (
     <html
       lang="tr"
-      className={`${orbitron.variable} ${outfit.variable} ${spaceMono.variable}`}
+      className={`${archivo.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`}
     >
-      <body className="font-outfit antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900">
+      <body className="font-outfit antialiased min-h-screen flex flex-col bg-feza-bg text-feza-text">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

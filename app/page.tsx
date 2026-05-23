@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import MemberCard from "@/components/MemberCard";
 import ProjectCard from "@/components/ProjectCard";
-import { members, projects, getMembersForProject } from "@/lib/data";
+import { members, projects } from "@/lib/data";
 
 // ─── Hero Section ─────────────────────────────────────────────────────────────
 
@@ -130,10 +130,11 @@ function HeroSection() {
         >
           <Link
             href="#founders"
-            className="group flex items-center gap-2.5 px-7 py-3.5 rounded-lg
+            className="group flex cursor-pointer items-center gap-2.5 px-7 py-3.5 rounded-lg
                        font-mono text-sm tracking-widest uppercase transition-all duration-300
-                       bg-indigo-600 text-white border border-indigo-600
-                       hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-600/20 hover:-translate-y-0.5"
+                       bg-blue-600 text-white border border-blue-600
+                       hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/20 hover:-translate-y-0.5
+                       focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/35"
           >
             <span>Ekibi Keşfet</span>
             <svg
@@ -151,11 +152,12 @@ function HeroSection() {
 
           <Link
             href="#projects"
-            className="flex items-center gap-2 px-7 py-3.5 rounded-lg
+            className="flex cursor-pointer items-center gap-2 px-7 py-3.5 rounded-lg
                        font-mono text-sm tracking-widest uppercase transition-all duration-300
-                       text-slate-700 border border-slate-300 bg-white
+                       text-slate-700 border border-slate-300 bg-white/86 backdrop-blur-md
                        hover:border-cyan-300 hover:text-cyan-700 hover:bg-cyan-50
-                       hover:-translate-y-0.5"
+                       hover:-translate-y-0.5 focus:outline-none
+                       focus-visible:ring-2 focus-visible:ring-blue-500/35"
           >
             <span>Projeler</span>
           </Link>
@@ -294,26 +296,21 @@ export default function HomePage() {
             subtitle="Kolektif olarak geliştirdiğimiz ve geliştireceğimiz projeler. Her proje, farklı uzmanlıkların kesişim noktasında doğar."
           />
 
-          <div className="space-y-6">
-            {projects.map((project, i) => {
-              const projectMembers = getMembersForProject(project.id).map(
-                (m) => ({ name: m.name, slug: m.slug, initials: m.initials })
-              );
-              return (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  index={i}
-                  members={projectMembers}
-                />
-              );
-            })}
+          <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+            {projects.map((project, i) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={i}
+                teamSize={members.length}
+              />
+            ))}
           </div>
 
           {/* Coming soon placeholder */}
           <div
             className="mt-6 flex flex-col items-center justify-center py-12 rounded-lg
-                        border-2 border-dashed border-slate-200 bg-white"
+                        border-2 border-dashed border-slate-200 bg-white/75 backdrop-blur-md xl:col-span-2"
           >
             <span className="font-mono text-[10px] tracking-widest uppercase text-slate-400 mb-3">
               Yakında
@@ -374,11 +371,12 @@ export default function HomePage() {
 
               <a
                 href="mailto:info@feza-co.dev"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-lg
+                className="inline-flex cursor-pointer items-center gap-2.5 px-8 py-4 rounded-lg
                            font-mono text-sm tracking-widest uppercase transition-all duration-300
-                           bg-indigo-600 text-white border border-indigo-600
-                           hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-600/25
-                           hover:-translate-y-0.5"
+                           bg-blue-600 text-white border border-blue-600
+                           hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/25
+                           hover:-translate-y-0.5 focus:outline-none
+                           focus-visible:ring-2 focus-visible:ring-blue-500/35"
               >
                 <svg
                   width="15"
