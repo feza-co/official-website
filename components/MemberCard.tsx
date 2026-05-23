@@ -1,6 +1,4 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import type { Member } from "@/lib/data";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
@@ -49,22 +47,23 @@ interface MemberCardProps {
 }
 
 export default function MemberCard({ member, index = 0 }: MemberCardProps) {
-  const router = useRouter();
-
   return (
-    <div
-      className="block group cursor-pointer"
-      role="link"
-      tabIndex={0}
-      aria-label={`${member.name} profiline git`}
-      onClick={() => router.push(`/members/${member.slug}`)}
-      onKeyDown={(e) => e.key === "Enter" && router.push(`/members/${member.slug}`)}
-    >
+    <div className="block group">
       <article
         className="card-base relative flex flex-col items-center gap-5 p-6
                    rounded-lg overflow-hidden select-none bg-white"
         style={{ animationDelay: `${index * 80}ms` }}
       >
+        <Link
+          href={`/members/${member.slug}`}
+          className="absolute inset-0 z-10 rounded-lg focus:outline-none
+                     focus-visible:ring-2 focus-visible:ring-cyan-500/60
+                     focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50"
+          aria-label={`${member.name} profiline git`}
+        >
+          <span className="sr-only">{member.name} profiline git</span>
+        </Link>
+
         {/* ── Soft indigo radial on hover (top-right) ── */}
         <div
             className="absolute top-0 right-0 w-28 h-28 opacity-0 group-hover:opacity-100
@@ -128,13 +127,12 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
         </div>
 
         {/* ── Social links ── */}
-        <div className="flex items-center gap-4 mt-1">
+        <div className="relative z-20 flex items-center gap-4 mt-1">
           {member.linkedin && (
             <a
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
               className="text-slate-400 hover:text-indigo-600 transition-colors duration-200
                          hover:scale-110 transform"
               aria-label={`${member.name} - LinkedIn`}
@@ -147,7 +145,6 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
               href={member.github}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
               className="text-slate-400 hover:text-indigo-600 transition-colors duration-200
                          hover:scale-110 transform"
               aria-label={`${member.name} - GitHub`}
