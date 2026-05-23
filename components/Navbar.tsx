@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const navLinks = [
   { href: "/#founders", label: "Ekip" },
@@ -10,7 +10,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  usePathname(); // reserved for future active-link highlighting
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header
@@ -85,19 +85,35 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* ── Mobile links ── */}
-        <div className="md:hidden flex items-center gap-1.5">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="font-mono text-[10px] text-slate-500 hover:text-indigo-600
-                         transition-colors px-2"
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
+        {/* ── Mobile menu toggle ── */}
+        <button
+          type="button"
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg
+                     border border-slate-200 bg-white text-slate-600
+                     transition-colors duration-200 hover:border-indigo-200 hover:text-indigo-600
+                     focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
+          aria-label={isMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setIsMenuOpen((open) => !open)}
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            aria-hidden
+          >
+            {isMenuOpen ? (
+              <path d="M4.5 4.5L13.5 13.5M13.5 4.5L4.5 13.5" />
+            ) : (
+              <path d="M3 5.5H15M3 9H15M3 12.5H15" />
+            )}
+          </svg>
+        </button>
       </nav>
 
       {/* ── Thin indigo shimmer line ── */}
@@ -108,6 +124,40 @@ export default function Navbar() {
             "linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.3) 30%, rgba(99,102,241,0.5) 50%, rgba(99,102,241,0.3) 80%, transparent 100%)",
         }}
       />
+
+      <div
+        id="mobile-navigation"
+        className={`md:hidden overflow-hidden border-b border-slate-200/80 bg-white/95
+                    transition-[max-height,opacity] duration-300 ease-out
+                    ${isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
+      >
+        <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="flex items-center justify-between rounded-lg px-3 py-3
+                         font-mono text-xs tracking-widest text-slate-600 uppercase
+                         transition-colors duration-200 hover:bg-indigo-50 hover:text-indigo-700
+                         focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span>{label}</span>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                aria-hidden
+              >
+                <path d="M2 6h8M7 3l3 3-3 3" />
+              </svg>
+            </Link>
+          ))}
+        </div>
+      </div>
     </header>
   );
 }
