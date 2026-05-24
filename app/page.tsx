@@ -18,17 +18,25 @@ function HeroSection() {
         fill
         priority
         sizes="100vw"
-        className="absolute inset-0 object-cover object-center opacity-80"
+        className="absolute inset-0 object-cover object-center opacity-80 dark:opacity-40"
         aria-hidden
       />
 
+      {/* Left-to-right fade overlay — uses CSS var so it adapts to theme */}
       <div
-        className="absolute inset-0 pointer-events-none bg-gradient-to-r from-slate-50 via-slate-50/90 to-slate-50/15"
+        className="absolute inset-0 pointer-events-none"
         aria-hidden
+        style={{
+          background: "linear-gradient(to right, var(--bg) 0%, color-mix(in srgb, var(--bg) 90%, transparent) 60%, color-mix(in srgb, var(--bg) 15%, transparent) 100%)",
+        }}
       />
+      {/* Top-to-bottom fade overlay */}
       <div
-        className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/65 via-transparent to-slate-50"
+        className="absolute inset-0 pointer-events-none"
         aria-hidden
+        style={{
+          background: "linear-gradient(to bottom, color-mix(in srgb, var(--bg) 65%, transparent) 0%, transparent 50%, var(--bg) 100%)",
+        }}
       />
 
       {/* ── Radial gradient: very subtle indigo tint ── */}
@@ -70,17 +78,16 @@ function HeroSection() {
             Kolektif · Aktif
           </div>
           <div className="flex-1 h-px bg-gradient-to-r from-indigo-200/60 to-transparent" />
-          <span className="font-mono text-[10px] tracking-widest text-slate-400">
+          <span className="font-mono text-[10px] tracking-widest text-feza-muted">
             EST. 2024
           </span>
         </div>
 
         {/* ── Main title ── */}
         <div className="space-y-2 md:space-y-1">
-          {/* FEZA — monumental black lettering */}
           <div className="overflow-hidden">
             <h1
-              className="font-orbitron font-black text-slate-900 tracking-tight leading-none
+              className="font-orbitron font-black text-feza-text tracking-tight leading-none
                          animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]"
               style={{
                 fontSize: "clamp(4.5rem, 14vw, 12rem)",
@@ -112,12 +119,12 @@ function HeroSection() {
                      animate-fade-in-up opacity-0 [animation-delay:520ms] [animation-fill-mode:forwards]"
         >
           <p
-            className="font-outfit font-light text-slate-700 leading-relaxed"
+            className="font-outfit font-light text-feza-secondary leading-relaxed"
             style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.45rem)", lineHeight: 1.65 }}
           >
             Teknolojinin sınırlarını birlikte zorluyoruz.
             <br />
-            <span className="font-outfit font-normal text-slate-500">
+            <span className="font-outfit font-normal text-feza-muted-xs">
               Hiyerarşisiz bir yapıda, beş kurucu ortak — sınırsız vizyon.
             </span>
           </p>
@@ -154,8 +161,8 @@ function HeroSection() {
             href="#projects"
             className="flex cursor-pointer items-center gap-2 px-7 py-3.5 rounded-lg
                        font-mono text-sm tracking-widest uppercase transition-all duration-300
-                       text-slate-700 border border-slate-300 bg-white/86 backdrop-blur-md
-                       hover:border-cyan-300 hover:text-cyan-700 hover:bg-cyan-50
+                       text-feza-secondary border border-feza-border bg-feza-card/86 backdrop-blur-md
+                       hover:border-cyan-300 hover:text-cyan-700 dark:hover:text-cyan-400
                        hover:-translate-y-0.5 focus:outline-none
                        focus-visible:ring-2 focus-visible:ring-blue-500/35"
           >
@@ -168,7 +175,7 @@ function HeroSection() {
           className="mt-14 md:mt-16
                      animate-fade-in opacity-0 [animation-delay:920ms] [animation-fill-mode:forwards]"
         >
-          <div className="h-px mb-6 bg-gradient-to-r from-indigo-200/60 via-slate-200 to-transparent" />
+          <div className="h-px mb-6 bg-gradient-to-r from-indigo-200/60 via-feza-border to-transparent" />
           <div className="flex flex-wrap gap-10 md:gap-16">
             {[
               { value: "5",    label: "Kurucu Ortak" },
@@ -180,7 +187,7 @@ function HeroSection() {
                 <p className="font-orbitron font-bold text-2xl md:text-3xl text-indigo-600">
                   {value}
                 </p>
-                <p className="font-mono text-[10px] tracking-widest uppercase text-slate-500">
+                <p className="font-mono text-[10px] tracking-widest uppercase text-feza-muted">
                   {label}
                 </p>
               </div>
@@ -191,7 +198,7 @@ function HeroSection() {
 
       {/* ── Scroll indicator ── */}
       <div className="absolute bottom-4 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 animate-float-slow sm:flex">
-        <span className="font-mono text-[9px] tracking-widest uppercase text-slate-400">
+        <span className="font-mono text-[9px] tracking-widest uppercase text-feza-muted">
           Keşfet
         </span>
         <div className="w-px h-8 bg-gradient-to-b from-indigo-400/50 to-transparent" />
@@ -217,16 +224,16 @@ function SectionHeader({
         <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
           {label}
         </span>
-        <div className="h-px w-20 bg-indigo-200" />
+        <div className="h-px w-20 bg-indigo-200 dark:bg-indigo-800" />
       </div>
       <h2
-        className="font-orbitron font-bold text-slate-900"
+        className="font-orbitron font-bold text-feza-text"
         style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)" }}
       >
         {title}
       </h2>
       {subtitle && (
-        <p className="font-outfit text-base text-slate-600 max-w-2xl leading-relaxed">
+        <p className="font-outfit text-base text-feza-secondary max-w-2xl leading-relaxed">
           {subtitle}
         </p>
       )}
@@ -245,7 +252,7 @@ export default function HomePage() {
       {/* ── Founders Section ── */}
       <section
         id="founders"
-        className="py-20 md:py-28 scroll-mt-16 bg-white"
+        className="py-20 md:py-28 scroll-mt-16 bg-feza-card"
         aria-label="Kurucu Ortaklar"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -264,13 +271,13 @@ export default function HomePage() {
 
           {/* Manifesto callout */}
           <div
-            className="mt-10 flex items-start gap-4 px-6 py-5 rounded-lg bg-slate-50 border border-slate-200/80"
+            className="mt-10 flex items-start gap-4 px-6 py-5 rounded-lg bg-feza-surface-2 border border-feza-border/80"
             style={{ borderLeft: "3px solid #6366f1" }}
           >
             <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-400 shrink-0 mt-1">
               Manifesto
             </span>
-            <p className="font-mono text-xs text-slate-500 leading-[1.9]">
+            <p className="font-mono text-xs text-feza-muted-xs leading-[1.9]">
               {'// Bu kolektifte hiç kimse "Lead", "Senior" veya "Manager" değildir.'}
               {"  "}
               {"// Her üye eşit düzeyde Kurucu Ortak'tır."}
@@ -289,7 +296,7 @@ export default function HomePage() {
       {/* ── Projects Section ── */}
       <section
         id="projects"
-        className="py-20 md:py-28 scroll-mt-16 bg-slate-50"
+        className="py-20 md:py-28 scroll-mt-16 bg-feza-bg"
         aria-label="Projeler"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -305,7 +312,6 @@ export default function HomePage() {
                 key={project.id}
                 project={project}
                 index={i}
-                teamSize={members.length}
               />
             ))}
           </div>
@@ -313,12 +319,12 @@ export default function HomePage() {
           {/* Coming soon placeholder */}
           <div
             className="mt-6 flex flex-col items-center justify-center py-12 rounded-lg
-                        border-2 border-dashed border-slate-200 bg-white/75 backdrop-blur-md xl:col-span-2"
+                        border-2 border-dashed border-feza-border bg-feza-card/75 backdrop-blur-md xl:col-span-2"
           >
-            <span className="font-mono text-[10px] tracking-widest uppercase text-slate-400 mb-3">
+            <span className="font-mono text-[10px] tracking-widest uppercase text-feza-muted mb-3">
               Yakında
             </span>
-            <p className="font-outfit text-sm text-center text-slate-500 max-w-xs">
+            <p className="font-outfit text-sm text-center text-feza-muted-xs max-w-xs">
               Yeni projeler hazırlanıyor. Kolektifin bir sonraki büyük adımı geliyor.
             </p>
           </div>
@@ -328,16 +334,16 @@ export default function HomePage() {
       {/* ── Contact / CTA Section ── */}
       <section
         id="contact"
-        className="py-20 md:py-28 scroll-mt-16 bg-white"
+        className="py-20 md:py-28 scroll-mt-16 bg-feza-card"
         aria-label="İletişim"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div
             className="relative rounded-lg overflow-hidden px-8 md:px-16 py-16 md:py-20 text-center
-                        border border-cyan-100"
+                        border border-feza-border"
             style={{
               background:
-                "linear-gradient(135deg, #ecfeff 0%, #ffffff 46%, #eef2ff 100%)",
+                "linear-gradient(135deg, color-mix(in srgb, var(--cyan) 6%, var(--bg)) 0%, var(--bg) 46%, color-mix(in srgb, var(--indigo) 6%, var(--bg)) 100%)",
             }}
           >
             {/* Soft radial glow */}
@@ -358,14 +364,14 @@ export default function HomePage() {
               </div>
 
               <h2
-                className="font-orbitron font-bold text-slate-900"
+                className="font-orbitron font-bold text-feza-text"
                 style={{ fontSize: "clamp(1.4rem, 3.5vw, 2.2rem)" }}
               >
                 Birlikte bir şeyler üretelim
               </h2>
 
               <p
-                className="font-outfit text-base text-slate-600 leading-relaxed"
+                className="font-outfit text-base text-feza-secondary leading-relaxed"
                 style={{ lineHeight: 1.8 }}
               >
                 Bir fikriniz, bir projeniz veya sadece selamlaşmak için bize ulaşın.
@@ -373,7 +379,7 @@ export default function HomePage() {
               </p>
 
               <a
-                href="mailto:info@feza-co.dev"
+                href="mailto:fezahackathon@gmail.com"
                 className="inline-flex cursor-pointer items-center gap-2.5 px-8 py-4 rounded-lg
                            font-mono text-sm tracking-widest uppercase transition-all duration-300
                            bg-blue-600 text-white border border-blue-600
@@ -391,7 +397,7 @@ export default function HomePage() {
                 >
                   <path d="M1 3.5h13M1 3.5l6.5 5L14 3.5M1 3.5V11.5h13V3.5" />
                 </svg>
-                <span>info@feza-co.dev</span>
+                <span>fezahackathon@gmail.com</span>
               </a>
             </div>
           </div>

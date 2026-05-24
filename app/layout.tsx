@@ -3,6 +3,7 @@ import { Archivo, Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ThemeProvider from "@/components/ThemeProvider";
 
 // ─── Brand / display font ──────────────────────────────────────────────────
 const archivo = Archivo({
@@ -84,14 +85,22 @@ export default function RootLayout({
   return (
     <html
       lang="tr"
+      suppressHydrationWarning
       className={`${archivo.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`}
     >
       <body className="font-outfit antialiased min-h-screen flex flex-col bg-feza-bg text-feza-text">
-        <Navbar />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
