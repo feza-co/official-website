@@ -379,7 +379,7 @@ export default function HomePage() {
               </p>
 
               <a
-                href="mailto:info@feza-co.dev"
+                href="mailto:fezahackathon@gmail.com"
                 className="inline-flex cursor-pointer items-center gap-2.5 px-8 py-4 rounded-lg
                            font-mono text-sm tracking-widest uppercase transition-all duration-300
                            bg-blue-600 text-white border border-blue-600
@@ -397,7 +397,7 @@ export default function HomePage() {
                 >
                   <path d="M1 3.5h13M1 3.5l6.5 5L14 3.5M1 3.5V11.5h13V3.5" />
                 </svg>
-                <span>info@feza-co.dev</span>
+                <span>fezahackathon@gmail.com</span>
               </a>
             </div>
           </div>
