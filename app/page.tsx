@@ -86,7 +86,7 @@ function HeroSection() {
 
       {/* ── Vertical version marker (md+) ── */}
       <div
-        className="absolute right-6 top-1/2 hidden lg:flex -translate-y-1/2 flex-col items-center gap-3 font-mono text-[10px] tracking-[0.4em] uppercase text-feza-faint"
+        className="absolute right-6 top-1/2 hidden lg:flex -translate-y-1/2 flex-col items-center gap-3 font-mono text-[10px] tracking-widest uppercase text-feza-faint"
         aria-hidden
       >
         <span className="rotate-180" style={{ writingMode: "vertical-rl" }}>
@@ -99,29 +99,20 @@ function HeroSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10">
         <div className="max-w-3xl">
           {/* ── Status row ── */}
+          {/* H2b fix: "Aktif Kolektif" badge Navbar'da zaten var — Hero'da sadece kolektif istatistiği göster */}
           <div
             className="flex flex-wrap items-center gap-3 mb-10 sm:mb-14
                        animate-fade-in opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards]"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-50/80 px-3 py-1 font-mono text-[10px] tracking-widest uppercase text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-400">
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-emerald-500"
-                style={{
-                  animation: "statusPulse 2.5s ease-in-out infinite",
-                  boxShadow: "0 0 0 2px rgba(34,197,94,0.2)",
-                }}
-              />
-              Aktif Kolektif
-            </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-feza-border bg-feza-card/60 backdrop-blur-sm px-3 py-1 font-mono text-[10px] tracking-widest uppercase text-feza-muted-xs">
-              <span className="text-[#2563eb] dark:text-indigo-400">{"//"}</span>
+              <span className="text-[#2563eb] dark:text-indigo-400" aria-hidden="true">{"//"}</span>
               {members.length} kurucu · {projects.length} proje
             </div>
           </div>
 
           {/* ── Eyebrow line ── */}
           <div
-            className="mb-4 flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase text-[#2563eb] dark:text-indigo-400
+            className="mb-4 flex items-center gap-3 font-mono text-[11px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400
                        animate-fade-in opacity-0 [animation-delay:180ms] [animation-fill-mode:forwards]"
           >
             <span className="h-px w-10 bg-indigo-400" aria-hidden />
@@ -273,7 +264,7 @@ function HeroSection() {
                    animate-fade-in opacity-0 [animation-delay:1200ms] [animation-fill-mode:forwards]"
         aria-hidden
       >
-        <span className="font-mono text-[9px] tracking-[0.4em] uppercase text-feza-muted">
+        <span className="font-mono text-[9px] tracking-widest uppercase text-feza-muted">
           Aşağı kaydır
         </span>
         <div className="relative h-9 w-5 rounded-full border border-feza-border-md">
@@ -315,12 +306,17 @@ function SectionHeader({
   title: string;
   subtitle?: string;
 }) {
+  // Strip leading "// " from label so screen readers don't hear "slash slash Ekip"
+  const cleanLabel = label.replace(/^\/\/\s*/, "");
+  const hasPrefix = label.startsWith("//");
+
   return (
     <div className="mb-12 md:mb-16 space-y-4">
       <div className="flex items-center gap-3">
         <div className="h-px w-10 bg-indigo-400" aria-hidden />
         <span className="font-mono text-[11px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
-          {label}
+          {hasPrefix && <span aria-hidden="true">{"// "}</span>}
+          {cleanLabel}
         </span>
         <div className="h-px w-10 bg-indigo-200 dark:bg-indigo-800" aria-hidden />
       </div>
@@ -545,8 +541,10 @@ export default function HomePage() {
 
               {/* Right: contact actions */}
               <div className="space-y-3">
+                {/* WCAG 3.2.2: disclose that this link opens an external mail client */}
                 <a
                   href="mailto:fezahackathon@gmail.com"
+                  title="E-posta uygulaması açar"
                   className="group/c flex items-center justify-between gap-4 rounded-xl px-5 py-4
                              bg-feza-text text-feza-bg
                              transition-all duration-300
@@ -569,8 +567,11 @@ export default function HomePage() {
                   </span>
                 </a>
 
-                {/* F12: mail client olmayan kullanıcılar için kopyala butonu */}
-                <div className="flex items-center justify-end px-1">
+                {/* F12: mail client olmayan kullanıcılar için kopyala butonu + disclosure */}
+                <div className="flex items-center justify-between px-1">
+                  <span className="font-mono text-[10px] tracking-widest uppercase text-feza-faint">
+                    E-posta uygulaması açar
+                  </span>
                   <CopyEmail email="fezahackathon@gmail.com" />
                 </div>
 

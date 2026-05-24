@@ -160,7 +160,7 @@ export default async function ProjectPage({
               {[
                 { label: "Problem",  value: project.caseStudy.problem,  accent: "text-rose-700 dark:text-rose-400"    },
                 { label: "Yaklaşım", value: project.caseStudy.approach, accent: "text-[#2563eb] dark:text-indigo-400"  },
-                { label: "Çıktı",    value: project.caseStudy.outcome,  accent: "text-emerald-500" },
+                { label: "Çıktı",    value: project.caseStudy.outcome,  accent: "text-emerald-700 dark:text-emerald-400" },
               ].map((item) => (
                 <div key={item.label} className="bg-feza-card px-5 py-5">
                   <p className={`font-mono text-[10px] tracking-widest uppercase ${item.accent}`}>

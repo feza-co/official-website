@@ -146,7 +146,7 @@ export default function Navbar() {
               <Link
                 key={href}
                 href={href}
-                aria-current={isActive ? "true" : undefined}
+                aria-current={isActive ? "page" : undefined}
                 className={`group relative cursor-pointer rounded-sm font-mono text-xs uppercase
                            tracking-widest transition-colors duration-200 focus:outline-none
                            focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]
@@ -196,7 +196,7 @@ export default function Navbar() {
                        border border-feza-border bg-feza-card text-feza-muted-xs
                        cursor-pointer transition-colors duration-200
                        hover:border-blue-200 hover:text-blue-600
-                       focus:outline-none focus:ring-2 focus:ring-[#2563eb] focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#0a0a0b]"
+                       focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
             aria-label={isMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
@@ -231,8 +231,12 @@ export default function Navbar() {
         }}
       />
 
+      {/* WCAG 2.1 SC 2.1.2: aria-hidden + inert prevent hidden links from being keyboard-reachable */}
       <div
         id="mobile-navigation"
+        aria-hidden={!isMenuOpen}
+        // @ts-expect-error — inert is a valid HTML attribute but not yet in React's TS types
+        inert={!isMenuOpen ? "" : undefined}
         className={`md:hidden overflow-hidden rounded-b-lg border-t border-feza-border/80 bg-feza-card/95
                     transition-[max-height,opacity] duration-300 ease-out
                     ${isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
@@ -244,11 +248,12 @@ export default function Navbar() {
               <Link
                 key={href}
                 href={href}
-                aria-current={isActive ? "true" : undefined}
+                aria-current={isActive ? "page" : undefined}
+                tabIndex={isMenuOpen ? 0 : -1}
                 className={`flex items-center justify-between rounded-lg px-3 py-3.5 min-h-[44px]
                            font-mono text-xs tracking-widest uppercase
                            cursor-pointer transition-colors duration-200
-                           focus:outline-none focus:ring-2 focus:ring-[#2563eb] focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#0a0a0b]
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]
                            ${isActive
                              ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400"
                              : "text-feza-secondary hover:bg-blue-50 hover:text-blue-700 dark:hover:bg-blue-950/40 dark:hover:text-blue-400"

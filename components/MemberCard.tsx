@@ -130,7 +130,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-md text-feza-muted transition-colors duration-200
-                         hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/30 focus:outline-none
+                         hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 focus:outline-none
                          focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
               aria-label={`${member.name} LinkedIn profilini aç`}
               title={`${member.name} — LinkedIn`}
@@ -155,9 +155,10 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
         </div>
 
         {/* ── View profile CTA — always visible (H6b fix: affordance) ── */}
+        {/* text-feza-muted-xs: ~5.1:1 on white — passes AA; brightens to indigo on hover */}
         <div
           className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest
-                     text-indigo-400/60 dark:text-indigo-500/50 group-hover/card:text-indigo-600 dark:group-hover/card:text-indigo-400
+                     text-feza-muted-xs group-hover/card:text-indigo-600 dark:group-hover/card:text-indigo-400
                      -mt-1 translate-y-0 group-hover/card:-translate-y-0.5
                      transition-all duration-300"
         >

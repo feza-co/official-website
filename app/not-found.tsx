@@ -35,7 +35,7 @@ export default function NotFound() {
       <div className="relative z-10 max-w-2xl text-center space-y-8">
         {/* ── Error code ── */}
         <div className="space-y-3">
-          <div className="flex items-center justify-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase text-[#2563eb] dark:text-indigo-400">
+          <div className="flex items-center justify-center gap-3 font-mono text-[11px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
             <span className="h-px w-10 bg-indigo-400" aria-hidden />
             Sistem Yanıtı
             <span className="h-px w-10 bg-indigo-400" aria-hidden />
@@ -101,8 +101,9 @@ export default function NotFound() {
         </div>
 
         {/* ── H9a fix: kullanıcı dostu kurtarma ipucu ── */}
-        <div className="pt-6 font-mono text-[10px] tracking-[0.2em] uppercase text-feza-faint">
-          <span className="text-rose-400">{"//"}</span>{" "}
+        <div className="pt-6 font-mono text-[10px] tracking-widest uppercase text-feza-faint">
+          {/* Decorative prefix — aria-hidden so screen readers skip the // symbol */}
+          <span className="text-rose-400" aria-hidden="true">{"//"}</span>{" "}
           URL hatalı olabilir veya sayfa kaldırılmış — yukarıdaki bağlantıları deneyin
         </div>
       </div>

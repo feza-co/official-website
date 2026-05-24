@@ -35,6 +35,16 @@ export default function ProjectCard({
                  hover:border-indigo-200 dark:hover:border-indigo-800
                  hover:shadow-[0_22px_50px_rgba(99,102,241,0.10)]"
     >
+      {/* H4b fix: full-card overlay link — matches MemberCard interaction pattern */}
+      <Link
+        href={`/projects/${project.id}`}
+        className="absolute inset-0 z-10 rounded-xl focus:outline-none
+                   focus-visible:ring-2 focus-visible:ring-[#2563eb]
+                   focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
+        aria-label={`${project.title} proje detayına git`}
+        tabIndex={-1}
+        aria-hidden="true"
+      />
       {/* ── Left accent bar ── */}
       <div
         className="absolute left-0 top-0 bottom-0 w-1 rounded-l-xl"
@@ -167,7 +177,7 @@ export default function ProjectCard({
             {[
               { label: "Problem",  value: project.caseStudy.problem,  accent: "text-rose-700 dark:text-rose-400"   },
               { label: "Yaklaşım", value: project.caseStudy.approach, accent: "text-[#2563eb] dark:text-indigo-400" },
-              { label: "Çıktı",    value: project.caseStudy.outcome,  accent: "text-emerald-500"},
+              { label: "Çıktı",    value: project.caseStudy.outcome,  accent: "text-emerald-700 dark:text-emerald-400"},
             ].map((item) => (
               <div key={item.label} className="bg-feza-card px-4 py-4">
                 <p className={`font-mono text-[10px] tracking-widest uppercase ${item.accent}`}>

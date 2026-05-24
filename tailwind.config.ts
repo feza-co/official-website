@@ -10,12 +10,17 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        orbitron: ["var(--font-archivo)", "sans-serif"],
-        outfit:   ["var(--font-space-grotesk)", "sans-serif"],
-        archivo:  ["var(--font-archivo)", "sans-serif"],
-        grotesk:  ["var(--font-space-grotesk)", "sans-serif"],
-        rajdhani: ["var(--font-space-grotesk)", "sans-serif"],
-        mono:     ["var(--font-space-mono)", "monospace"],
+        // NOTE: alias names are intentional legacy tokens kept for backward
+        // compatibility with existing className usage across the codebase.
+        // Actual fonts loaded: Archivo (display), Space Grotesk (UI), Space Mono (code/labels).
+        // Do NOT add `font-orbitron` expecting the geometric Orbitron typeface —
+        // use `font-archivo` or `font-grotesk` for clarity in new code.
+        orbitron: ["var(--font-archivo)", "sans-serif"],   // → Archivo (display / brand headings)
+        outfit:   ["var(--font-space-grotesk)", "sans-serif"], // → Space Grotesk (body / UI)
+        archivo:  ["var(--font-archivo)", "sans-serif"],   // canonical alias
+        grotesk:  ["var(--font-space-grotesk)", "sans-serif"], // canonical alias
+        rajdhani: ["var(--font-space-grotesk)", "sans-serif"], // legacy alias → Space Grotesk
+        mono:     ["var(--font-space-mono)", "monospace"], // → Space Mono (labels / code)
       },
       colors: {
         feza: {
