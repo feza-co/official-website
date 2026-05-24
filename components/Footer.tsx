@@ -14,8 +14,8 @@ export default function Footer() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-10 py-10 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-6">
 
           {/* ── Brand Block ── */}
           <div className="space-y-4">
@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
 
         {/* ── Bottom Bar ── */}
-        <div className="mt-10 pt-6 border-t border-feza-border flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="mt-8 sm:mt-10 pt-6 border-t border-feza-border flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <p className="font-mono text-[11px] text-feza-muted">
             © {year} Feza-Co Kolektifi. Tüm hakları saklıdır.
           </p>

@@ -41,7 +41,7 @@ export default async function MemberPage({
   const memberProjects = getProjectsForMember(member.slug);
 
   return (
-    <div className="min-h-screen bg-feza-bg pt-24 pb-20">
+    <div className="min-h-screen bg-feza-bg pt-24 pb-16 sm:pb-20">
       {/* Very subtle indigo tint at top */}
       <div
         className="fixed inset-0 pointer-events-none"
@@ -52,7 +52,7 @@ export default async function MemberPage({
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10">
+      <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 md:px-10">
 
         {/* ── Back navigation ── */}
         <Link
@@ -80,7 +80,7 @@ export default async function MemberPage({
         {/* ══════════════════════════════════════════════════════════
             PROFILE HEADER
         ══════════════════════════════════════════════════════════ */}
-        <div className="grid grid-cols-1 md:grid-cols-[auto,1fr] gap-10 md:gap-16 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-[auto,1fr] gap-8 sm:gap-10 md:gap-16 mb-12 sm:mb-16">
 
           {/* ── Left: Avatar + social links ── */}
           <div className="flex flex-col items-center md:items-start gap-5">
@@ -134,7 +134,7 @@ export default async function MemberPage({
                              focus-visible:ring-2 focus-visible:ring-blue-500/30"
                 >
                   <LinkedInIcon />
-                  <span>LinkedIn</span>
+                  <span lang="en">LinkedIn</span>
                 </a>
               )}
               {member.github && (
@@ -151,7 +151,7 @@ export default async function MemberPage({
                              focus-visible:ring-2 focus-visible:ring-blue-500/30"
                 >
                   <GitHubIcon />
-                  <span>GitHub</span>
+                  <span lang="en">GitHub</span>
                 </a>
               )}
             </div>
@@ -166,8 +166,8 @@ export default async function MemberPage({
             </div>
 
             <h1
-              className="font-orbitron font-bold text-feza-text leading-tight"
-              style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)" }}
+              className="font-orbitron font-bold text-feza-text leading-tight break-words"
+              style={{ fontSize: "clamp(1.6rem, 5vw, 3rem)" }}
             >
               {member.name}
             </h1>
@@ -199,7 +199,7 @@ export default async function MemberPage({
               {memberProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="relative flex items-start gap-5 px-6 py-5 rounded-lg
+                  className="relative flex items-start gap-4 sm:gap-5 px-4 sm:px-6 py-5 rounded-lg
                              transition-all duration-200
                              border border-feza-border bg-feza-card
                              hover:border-cyan-200 dark:hover:border-cyan-900 hover:shadow-sm"
@@ -267,7 +267,7 @@ export default async function MemberPage({
         )}
 
         {/* ── Other founders ── */}
-        <div className="mt-16 pt-12 border-t border-feza-border">
+        <div className="mt-12 sm:mt-16 pt-10 sm:pt-12 border-t border-feza-border">
           <p className="font-mono text-[10px] tracking-widest uppercase text-feza-muted mb-6">
             Diğer Kurucu Ortaklar
           </p>
