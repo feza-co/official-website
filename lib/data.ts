@@ -78,7 +78,7 @@ export const members: Member[] = [
       "Real-time Data Pipelines",
     ],
     projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan", "iso-testing-world"],
-    hackathons: ["IEEE Hackathon 2024", "TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
+    hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
     quote:
       "Fiziksel dünyayı sayısallaştırmak, geleceğin mühendisliğinin kapılarını açar.",
   },
@@ -121,7 +121,7 @@ export const members: Member[] = [
       "Product Thinking",
     ],
     projects: ["astro-hackathon", "hayat-agi", "healthai-co-creation", "iso-29119-4-gamified"],
-    hackathons: ["Design Jam 2024", "TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
+    hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
     quote: "En iyi arayüz, kullanıcının varlığını bile hissetmediği arayüzdür.",
   },
   {
@@ -142,7 +142,7 @@ export const members: Member[] = [
       "Data Visualization",
     ],
     projects: ["raw2value", "astro-hackathon", "meydan", "iso-testing-world"],
-    hackathons: ["Datathon ITU 2024", "TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
+    hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
     quote: "Veri, doğru sorular sorulduğunda konuşmaya başlar.",
   },
 ];

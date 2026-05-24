@@ -72,7 +72,7 @@ export default function Navbar() {
       >
         Ana içeriğe geç
       </a>
-      <nav className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between gap-3">
 
         {/* ── Logo ── */}
         <Link
@@ -195,7 +195,7 @@ export default function Navbar() {
                     transition-[max-height,opacity] duration-300 ease-out
                     ${isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
       >
-        <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
+        <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 sm:px-6 py-4">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
