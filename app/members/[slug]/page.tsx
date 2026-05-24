@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -87,14 +88,25 @@ export default async function MemberPage({
             {/* Avatar */}
             <div className="relative">
               <div
-                className={`relative w-36 h-36 md:w-44 md:h-44 rounded-full
+                className={`relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden
                             bg-gradient-to-br ${member.avatarGradient}
                             flex items-center justify-center
                             shadow-xl shadow-black/20`}
               >
-                <span className="font-orbitron font-black text-white text-3xl md:text-4xl tracking-wide drop-shadow-lg">
-                  {member.initials}
-                </span>
+                {member.avatar ? (
+                  <Image
+                    src={member.avatar}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 144px, 176px"
+                    priority
+                  />
+                ) : (
+                  <span className="font-orbitron font-black text-white text-3xl md:text-4xl tracking-wide drop-shadow-lg">
+                    {member.initials}
+                  </span>
+                )}
               </div>
               <div
                 className="absolute -inset-2 rounded-full border border-indigo-200/60 dark:border-indigo-700/40 pointer-events-none"
@@ -275,12 +287,22 @@ export default async function MemberPage({
                              focus-visible:ring-2 focus-visible:ring-blue-500/30"
                 >
                   <div
-                    className={`w-5 h-5 rounded-full bg-gradient-to-br ${m.avatarGradient}
+                    className={`relative w-5 h-5 rounded-full overflow-hidden bg-gradient-to-br ${m.avatarGradient}
                                 flex items-center justify-center shrink-0`}
                   >
-                    <span className="font-orbitron font-bold text-white text-[8px]">
-                      {m.initials[0]}
-                    </span>
+                    {m.avatar ? (
+                      <Image
+                        src={m.avatar}
+                        alt={m.name}
+                        fill
+                        className="object-cover"
+                        sizes="20px"
+                      />
+                    ) : (
+                      <span className="font-orbitron font-bold text-white text-[8px]">
+                        {m.initials[0]}
+                      </span>
+                    )}
                   </div>
                   <span>{m.name}</span>
                 </Link>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Member } from "@/lib/data";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui";
@@ -56,13 +57,24 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
 
           {/* Avatar circle */}
           <div
-            className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${member.avatarGradient}
+            className={`relative w-20 h-20 rounded-full overflow-hidden
+                        bg-gradient-to-br ${member.avatarGradient}
                         flex items-center justify-center
                         shadow-md group-hover:shadow-lg transition-shadow duration-300`}
           >
-            <span className="font-orbitron font-bold text-white text-base tracking-wide drop-shadow">
-              {member.initials}
-            </span>
+            {member.avatar ? (
+              <Image
+                src={member.avatar}
+                alt={member.name}
+                fill
+                className="object-cover"
+                sizes="80px"
+              />
+            ) : (
+              <span className="font-orbitron font-bold text-white text-base tracking-wide drop-shadow">
+                {member.initials}
+              </span>
+            )}
           </div>
 
           {/* Indigo ring on hover */}
