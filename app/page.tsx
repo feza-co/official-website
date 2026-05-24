@@ -4,6 +4,7 @@ import ProjectCard from "@/components/ProjectCard";
 import MouseGlow from "@/components/MouseGlow";
 import CountUp from "@/components/CountUp";
 import Marquee from "@/components/Marquee";
+import CopyEmail from "@/components/CopyEmail";
 import { members, projects } from "@/lib/data";
 
 // ─── Derived data for stats & ticker ──────────────────────────────────────────
@@ -113,14 +114,14 @@ function HeroSection() {
               Aktif Kolektif
             </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-feza-border bg-feza-card/60 backdrop-blur-sm px-3 py-1 font-mono text-[10px] tracking-widest uppercase text-feza-muted-xs">
-              <span className="text-indigo-500">{"//"}</span>
+              <span className="text-[#2563eb] dark:text-indigo-400">{"//"}</span>
               {members.length} kurucu · {projects.length} proje
             </div>
           </div>
 
           {/* ── Eyebrow line ── */}
           <div
-            className="mb-4 flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase text-indigo-500
+            className="mb-4 flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase text-[#2563eb] dark:text-indigo-400
                        animate-fade-in opacity-0 [animation-delay:180ms] [animation-fill-mode:forwards]"
           >
             <span className="h-px w-10 bg-indigo-400" aria-hidden />
@@ -156,11 +157,12 @@ function HeroSection() {
                   }}
                 />
               </div>
+              {/* F11: —CO (boşluksuz) — Navbar/Footer ile tutarlı */}
               <span
                 className="font-orbitron font-bold text-indigo-600 dark:text-indigo-400 tracking-widest"
                 style={{ fontSize: "clamp(1.5rem, 4vw, 3.5rem)" }}
               >
-                — CO
+                —CO
               </span>
             </div>
           </div>
@@ -197,7 +199,7 @@ function HeroSection() {
                          font-mono text-sm tracking-widest uppercase transition-all duration-300
                          bg-feza-text text-feza-bg border border-feza-text
                          hover:-translate-y-0.5 hover:shadow-xl hover:shadow-indigo-500/20
-                         focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/35"
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
             >
               <span className="relative z-10">Projeleri Gör</span>
               <svg
@@ -220,7 +222,7 @@ function HeroSection() {
                          text-feza-secondary border border-feza-border bg-feza-card/80 backdrop-blur-md
                          hover:border-indigo-300 hover:text-indigo-700 dark:hover:text-indigo-400
                          hover:-translate-y-0.5 focus:outline-none
-                         focus-visible:ring-2 focus-visible:ring-indigo-500/35"
+                         focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
             >
               <span>Ekibi Tanı</span>
             </Link>
@@ -229,10 +231,10 @@ function HeroSection() {
               href="#contact"
               className="hidden sm:inline-flex min-h-[44px] cursor-pointer items-center gap-2 px-3 ml-1 rounded-md font-mono text-xs tracking-widest uppercase text-feza-muted-xs
                          transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400
-                         focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/30"
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
             >
               <span>İletişime geç</span>
-              <span className="text-indigo-500">↗</span>
+              <span className="text-[#2563eb] dark:text-indigo-400">↗</span>
             </a>
           </div>
 
@@ -242,23 +244,25 @@ function HeroSection() {
                        animate-fade-in opacity-0 [animation-delay:920ms] [animation-fill-mode:forwards]"
           >
             <div className="h-px mb-6 bg-gradient-to-r from-indigo-200/60 via-feza-border to-transparent" />
-            <div className="grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4 sm:gap-x-10 md:gap-x-14">
+            {/* H6a fix: dl/dt/dd semantik yapısı — 1.3.1 Info & Relationships */}
+            <dl className="grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4 sm:gap-x-10 md:gap-x-14">
               {[
                 { value: members.length,      label: "Kurucu Ortak", suffix: "" },
                 { value: projects.length,     label: "Toplam Proje", suffix: "" },
                 { value: uniqueHackathons.length, label: "Hackathon & Yarışma", suffix: "" },
                 { value: 2026,                label: "Kuruluş Yılı", suffix: "" },
               ].map(({ value, label, suffix }) => (
+                // F08: dt önce (etiket), dd sonra (değer) — ekran okuyucu "Kurucu Ortak: 5" sırasında okur
                 <div key={label} className="space-y-1.5">
-                  <p className="font-orbitron font-bold text-2xl md:text-3xl text-indigo-600 dark:text-indigo-400">
-                    <CountUp end={value} suffix={suffix} />
-                  </p>
-                  <p className="font-mono text-[11px] tracking-widest uppercase text-feza-muted">
+                  <dt className="font-mono text-[11px] tracking-widest uppercase text-feza-muted">
                     {label}
-                  </p>
+                  </dt>
+                  <dd className="font-orbitron font-bold text-2xl md:text-3xl text-indigo-600 dark:text-indigo-400 m-0">
+                    <CountUp end={value} suffix={suffix} />
+                  </dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
         </div>
       </div>
@@ -291,7 +295,10 @@ function TickerSection() {
       aria-label="Hackathon & yarışma seridi"
     >
       <div className="max-w-[100vw] overflow-hidden">
-        <Marquee items={tickerItems} />
+        {/* F07: öğeler tıklanamaz — aria-hidden ile ekran okuyucudan gizlendi */}
+        <div aria-hidden="true">
+          <Marquee items={tickerItems} />
+        </div>
       </div>
     </section>
   );
@@ -312,7 +319,7 @@ function SectionHeader({
     <div className="mb-12 md:mb-16 space-y-4">
       <div className="flex items-center gap-3">
         <div className="h-px w-10 bg-indigo-400" aria-hidden />
-        <span className="font-mono text-[11px] tracking-widest uppercase text-indigo-500">
+        <span className="font-mono text-[11px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
           {label}
         </span>
         <div className="h-px w-10 bg-indigo-200 dark:bg-indigo-800" aria-hidden />
@@ -381,17 +388,17 @@ export default function HomePage() {
               }}
               aria-hidden
             />
-            <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500 shrink-0 sm:mt-1 pl-2 sm:pl-3">
+            <span className="font-mono text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400 shrink-0 sm:mt-1 pl-2 sm:pl-3">
               Manifesto
             </span>
             <p className="font-mono text-xs text-feza-muted-xs leading-[1.9] pl-2 sm:pl-0">
-              <span className="text-indigo-500">{"//"}</span>{" "}
+              <span className="text-[#2563eb] dark:text-indigo-400">{"//"}</span>{" "}
               {'Bu kolektifte hiç kimse "Lead", "Senior" veya "Manager" değildir.'}
               <br />
-              <span className="text-indigo-500">{"//"}</span>{" "}
+              <span className="text-[#2563eb] dark:text-indigo-400">{"//"}</span>{" "}
               {"Her üye eşit düzeyde Kurucu Ortak'tır."}
               <br />
-              <span className="text-indigo-500">{"//"}</span>{" "}
+              <span className="text-[#2563eb] dark:text-indigo-400">{"//"}</span>{" "}
               {"Fikirler, unvandan değil — üretimden değer kazanır."}
             </p>
           </div>
@@ -453,7 +460,7 @@ export default function HomePage() {
             />
             <div className="relative flex items-center gap-2 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
-              <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
+              <span className="font-mono text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
                 Yakında
               </span>
             </div>
@@ -517,7 +524,7 @@ export default function HomePage() {
               <div className="space-y-5">
                 <div className="flex items-center gap-3">
                   <div className="h-px w-10 bg-indigo-400" aria-hidden />
-                  <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
+                  <span className="font-mono text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
                     {"// İletişim"}
                   </span>
                 </div>
@@ -544,7 +551,7 @@ export default function HomePage() {
                              bg-feza-text text-feza-bg
                              transition-all duration-300
                              hover:-translate-y-0.5 hover:shadow-xl hover:shadow-indigo-500/20
-                             focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/35"
+                             focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-feza-bg/15">
@@ -562,6 +569,11 @@ export default function HomePage() {
                   </span>
                 </a>
 
+                {/* F12: mail client olmayan kullanıcılar için kopyala butonu */}
+                <div className="flex items-center justify-end px-1">
+                  <CopyEmail email="fezahackathon@gmail.com" />
+                </div>
+
                 <a
                   href="https://github.com/feza-co"
                   target="_blank"
@@ -570,7 +582,7 @@ export default function HomePage() {
                              border border-feza-border bg-feza-card/80 backdrop-blur-sm text-feza-text
                              transition-all duration-300
                              hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-md
-                             focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/35"
+                             focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-feza-surface-2 text-feza-secondary">
@@ -588,6 +600,12 @@ export default function HomePage() {
                   </span>
                 </a>
               </div>
+
+              {/* H10a fix: yanıt süresi bilgilendirmesi */}
+              <p className="font-mono text-[10px] tracking-widest uppercase text-feza-muted-xs pt-1">
+                <span className="text-indigo-400">{"//"}</span>{" "}
+                E-postalarınızı genellikle 2 iş günü içinde yanıtlıyoruz
+              </p>
             </div>
           </div>
         </div>

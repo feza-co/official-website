@@ -11,8 +11,10 @@ interface MemberCardProps {
 export default function MemberCard({ member, index = 0 }: MemberCardProps) {
   return (
     <div className="group/card block">
+      {/* F02: cursor-pointer article'dan kaldırıldı — overlay Link zaten cursor'u yönetiyor.
+              Sosyal ikonlar z-20 ile overlay'in üstünde; hedef belirsizliği azaltıldı. */}
       <article
-        className="lift-on-hover relative flex h-full cursor-pointer flex-col items-center gap-5 p-6
+        className="lift-on-hover relative flex h-full flex-col items-center gap-5 p-6
                    rounded-xl overflow-hidden select-none bg-feza-card border border-feza-border
                    shadow-[0_1px_2px_rgba(0,0,0,0.04)]
                    hover:border-indigo-200 dark:hover:border-indigo-800
@@ -22,8 +24,8 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
         <Link
           href={`/members/${member.slug}`}
           className="absolute inset-0 z-10 rounded-xl focus:outline-none
-                     focus-visible:ring-2 focus-visible:ring-indigo-500/60
-                     focus-visible:ring-offset-2 focus-visible:ring-offset-feza-bg"
+                     focus-visible:ring-2 focus-visible:ring-[#2563eb]
+                     focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
           aria-label={`${member.name} profiline git`}
         >
           <span className="sr-only">{member.name} profiline git</span>
@@ -115,7 +117,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
           >
             {member.name}
           </h3>
-          <p className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
+          <p className="font-mono text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
             {member.role}
           </p>
         </div>
@@ -129,8 +131,9 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
               rel="noopener noreferrer"
               className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-md text-feza-muted transition-colors duration-200
                          hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/30 focus:outline-none
-                         focus-visible:ring-2 focus-visible:ring-blue-500/30"
-              aria-label={`${member.name} - LinkedIn`}
+                         focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
+              aria-label={`${member.name} LinkedIn profilini aç`}
+              title={`${member.name} — LinkedIn`}
             >
               <LinkedInIcon />
             </a>
@@ -142,19 +145,20 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
               rel="noopener noreferrer"
               className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-md text-feza-muted transition-colors duration-200
                          hover:text-feza-text hover:bg-feza-surface-2 focus:outline-none
-                         focus-visible:ring-2 focus-visible:ring-blue-500/30"
-              aria-label={`${member.name} - GitHub`}
+                         focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
+              aria-label={`${member.name} GitHub profilini aç`}
+              title={`${member.name} — GitHub`}
             >
               <GitHubIcon />
             </a>
           )}
         </div>
 
-        {/* ── View profile CTA — slides in on hover ── */}
+        {/* ── View profile CTA — always visible (H6b fix: affordance) ── */}
         <div
           className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest
-                     text-indigo-600 dark:text-indigo-400 opacity-0 group-hover/card:opacity-100 -mt-1
-                     translate-y-1 group-hover/card:translate-y-0
+                     text-indigo-400/60 dark:text-indigo-500/50 group-hover/card:text-indigo-600 dark:group-hover/card:text-indigo-400
+                     -mt-1 translate-y-0 group-hover/card:-translate-y-0.5
                      transition-all duration-300"
         >
           <span>PROFİLİ GÖR</span>

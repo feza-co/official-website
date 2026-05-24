@@ -26,7 +26,7 @@ export default function Footer() {
                 <div className="w-1.5 h-1.5 rounded-full bg-indigo-600" />
               </div>
               <span className="font-orbitron font-bold text-sm tracking-widest text-feza-text">
-                FEZA<span className="text-cyan-600">—CO</span>
+                FEZA<span className="text-cyan-700 dark:text-cyan-400">—CO</span>
               </span>
             </div>
             <p className="font-outfit text-sm text-feza-muted leading-relaxed max-w-sm">
@@ -42,7 +42,7 @@ export default function Footer() {
                            border border-feza-border bg-feza-surface-2 text-feza-secondary
                            transition-colors duration-200 hover:text-indigo-600 hover:border-indigo-200
                            dark:hover:border-indigo-800 dark:hover:text-indigo-400
-                           focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/30"
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
                 aria-label="E-posta gönder"
               >
                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -56,7 +56,7 @@ export default function Footer() {
                 className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-md
                            border border-feza-border bg-feza-surface-2 text-feza-secondary
                            transition-colors duration-200 hover:text-feza-text hover:border-feza-border-md
-                           focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/30"
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
                 aria-label="GitHub organizasyonu"
               >
                 <GitHubIcon size={15} />
@@ -79,7 +79,7 @@ export default function Footer() {
                 href={href}
                 className="block cursor-pointer rounded-sm font-outfit text-sm text-feza-secondary
                            transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400
-                           focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/30"
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
               >
                 {label}
               </Link>
@@ -94,7 +94,8 @@ export default function Footer() {
             <a
               href="mailto:fezahackathon@gmail.com"
               className="block cursor-pointer font-outfit text-sm text-feza-secondary
-                         transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400 break-all"
+                         transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400 break-all
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b] rounded-sm"
             >
               fezahackathon@gmail.com
             </a>
@@ -103,7 +104,8 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="block cursor-pointer font-outfit text-sm text-feza-secondary
-                         transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400"
+                         transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b] rounded-sm"
             >
               <span lang="en">github.com/feza-co</span>
             </a>

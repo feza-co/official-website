@@ -1,14 +1,27 @@
+"use client";
+
 interface MarqueeProps {
   items: string[];
   variant?: "default" | "muted";
+  /** Erişilebilirlik etiketi — ekran okuyucular için bölümü tanımlar */
+  label?: string;
 }
 
-export default function Marquee({ items, variant = "default" }: MarqueeProps) {
+export default function Marquee({ items, variant = "default", label }: MarqueeProps) {
   const duplicated = [...items, ...items];
 
   return (
-    <div className="marquee-mask overflow-hidden">
-      <div className="flex w-max animate-marquee gap-3 will-change-transform">
+    // H1a fix: hover + prefers-reduced-motion ile animasyonu duraklat
+    <div
+      className="marquee-mask overflow-hidden group/marquee"
+      aria-label={label}
+      role={label ? "region" : undefined}
+    >
+      <div
+        className="flex w-max animate-marquee gap-3 will-change-transform
+                   group-hover/marquee:[animation-play-state:paused]
+                   motion-reduce:animate-none"
+      >
         {duplicated.map((item, i) => (
           <span
             key={`${item}-${i}`}

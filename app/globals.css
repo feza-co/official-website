@@ -174,12 +174,13 @@ body {
 
   /* ── Gradient text — premium headline treatment ── */
   .text-gradient-brand {
+    /* F8 fix: --cyan (#06b6d4, 2.33:1) → --cyan-strong (#0e7490, 5.13:1) — WCAG large text 3:1 gerekli */
     background: linear-gradient(
       120deg,
       var(--text) 0%,
       var(--text) 35%,
       var(--indigo) 55%,
-      var(--cyan) 75%,
+      var(--cyan-strong) 75%,
       var(--text) 100%
     );
     background-size: 220% 100%;

@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 
 const navLinks = [
-  { href: "/#founders", label: "Ekip" },
-  { href: "/#projects", label: "Projeler" },
-  { href: "/#contact", label: "İletişim" },
+  { href: "/#founders", label: "Ekip",      sectionId: "founders" },
+  { href: "/#projects", label: "Projeler",  sectionId: "projects" },
+  { href: "/#contact",  label: "İletişim",  sectionId: "contact"  },
 ];
 
 function SunIcon() {
@@ -45,16 +45,50 @@ function ThemeToggle() {
                  border border-feza-border bg-feza-card text-feza-muted-xs
                  transition-colors duration-200
                  hover:border-feza-border-md hover:text-feza-text
-                 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
+                 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
     >
-      {/* Render placeholder on server to avoid hydration mismatch */}
-      {mounted ? (isDark ? <SunIcon /> : <MoonIcon />) : <MoonIcon />}
+      {/* H5b fix: SSR/CSR uyumsuzluğunu önle — mounted olmadan hiç ikon render etme */}
+      {mounted ? (isDark ? <SunIcon /> : <MoonIcon />) : null}
     </button>
   );
 }
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // F04: aktif bölümü IntersectionObserver ile takip et
+  const [activeSection, setActiveSection] = useState<string>("");
+
+  // H3a fix: Escape tuşuyla mobil menüyü kapat
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape" && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isMenuOpen]);
+
+  // F04: IntersectionObserver — bölümlerin görünürlüğünü izle
+  useEffect(() => {
+    const sectionIds = navLinks.map((l) => l.sectionId);
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
 
   return (
     <header
@@ -68,7 +102,7 @@ export default function Navbar() {
                    focus:z-[60] focus:rounded-lg focus:bg-feza-card focus:px-4 focus:py-2
                    focus:font-mono focus:text-xs focus:uppercase focus:tracking-widest
                    focus:text-blue-700 focus:shadow-lg focus:outline-none
-                   focus:ring-2 focus:ring-blue-500/35"
+                   focus:ring-2 focus:ring-[#2563eb] focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#0a0a0b]"
       >
         Ana içeriğe geç
       </a>
@@ -78,7 +112,7 @@ export default function Navbar() {
         <Link
           href="/"
           className="group flex cursor-pointer items-center gap-2.5 rounded-lg
-                     focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/35"
+                     focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
         >
           <div
             className="relative w-7 h-7 flex items-center justify-center"
@@ -100,28 +134,36 @@ export default function Navbar() {
                        group-hover:text-feza-secondary transition-colors duration-300"
           >
             FEZA
-            <span className="text-cyan-600">—CO</span>
+            <span className="text-cyan-700 dark:text-cyan-400">—CO</span>
           </span>
         </Link>
 
         {/* ── Nav Links (desktop) ── */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="group relative cursor-pointer rounded-sm font-mono text-xs uppercase
-                         tracking-widest text-feza-muted-xs transition-colors duration-200
-                         hover:text-feza-text focus:outline-none
-                         focus-visible:ring-2 focus-visible:ring-blue-500/30"
-            >
-              {label}
-              <span
-                className="absolute -bottom-1 left-0 h-px w-0 bg-blue-600
-                           group-hover:w-full transition-all duration-300"
-              />
-            </Link>
-          ))}
+          {navLinks.map(({ href, label, sectionId }) => {
+            const isActive = activeSection === sectionId;
+            return (
+              <Link
+                key={href}
+                href={href}
+                aria-current={isActive ? "true" : undefined}
+                className={`group relative cursor-pointer rounded-sm font-mono text-xs uppercase
+                           tracking-widest transition-colors duration-200 focus:outline-none
+                           focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]
+                           ${isActive
+                             ? "text-feza-text"
+                             : "text-feza-muted-xs hover:text-feza-text"
+                           }`}
+              >
+                {label}
+                {/* Aktif göstergesi: kalıcı çizgi */}
+                <span
+                  className={`absolute -bottom-1 left-0 h-px bg-indigo-600 transition-all duration-300
+                              ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                />
+              </Link>
+            );
+          })}
         </div>
 
         {/* ── Right: badge + theme toggle ── */}
@@ -154,7 +196,7 @@ export default function Navbar() {
                        border border-feza-border bg-feza-card text-feza-muted-xs
                        cursor-pointer transition-colors duration-200
                        hover:border-blue-200 hover:text-blue-600
-                       focus:outline-none focus:ring-2 focus:ring-blue-500/30"
+                       focus:outline-none focus:ring-2 focus:ring-[#2563eb] focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#0a0a0b]"
             aria-label={isMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
@@ -196,32 +238,38 @@ export default function Navbar() {
                     ${isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
       >
         <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 sm:px-6 py-4">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="flex items-center justify-between rounded-lg px-3 py-3.5 min-h-[44px]
-                         font-mono text-xs tracking-widest text-feza-secondary uppercase
-                         cursor-pointer transition-colors duration-200
-                         hover:bg-blue-50 hover:text-blue-700
-                         dark:hover:bg-blue-950/40 dark:hover:text-blue-400
-                         focus:outline-none focus:ring-2 focus:ring-blue-500/30"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <span>{label}</span>
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                aria-hidden
+          {navLinks.map(({ href, label, sectionId }) => {
+            const isActive = activeSection === sectionId;
+            return (
+              <Link
+                key={href}
+                href={href}
+                aria-current={isActive ? "true" : undefined}
+                className={`flex items-center justify-between rounded-lg px-3 py-3.5 min-h-[44px]
+                           font-mono text-xs tracking-widest uppercase
+                           cursor-pointer transition-colors duration-200
+                           focus:outline-none focus:ring-2 focus:ring-[#2563eb] focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#0a0a0b]
+                           ${isActive
+                             ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400"
+                             : "text-feza-secondary hover:bg-blue-50 hover:text-blue-700 dark:hover:bg-blue-950/40 dark:hover:text-blue-400"
+                           }`}
+                onClick={() => setIsMenuOpen(false)}
               >
-                <path d="M2 6h8M7 3l3 3-3 3" />
-              </svg>
-            </Link>
-          ))}
+                <span>{label}</span>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  aria-hidden
+                >
+                  <path d="M2 6h8M7 3l3 3-3 3" />
+                </svg>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </header>

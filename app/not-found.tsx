@@ -35,7 +35,7 @@ export default function NotFound() {
       <div className="relative z-10 max-w-2xl text-center space-y-8">
         {/* ── Error code ── */}
         <div className="space-y-3">
-          <div className="flex items-center justify-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase text-indigo-500">
+          <div className="flex items-center justify-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase text-[#2563eb] dark:text-indigo-400">
             <span className="h-px w-10 bg-indigo-400" aria-hidden />
             Sistem Yanıtı
             <span className="h-px w-10 bg-indigo-400" aria-hidden />
@@ -71,7 +71,7 @@ export default function NotFound() {
                        font-mono text-sm tracking-widest uppercase transition-all duration-300
                        bg-feza-text text-feza-bg
                        hover:-translate-y-0.5 hover:shadow-xl hover:shadow-indigo-500/20
-                       focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/35"
+                       focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
           >
             <svg
               width="13"
@@ -94,15 +94,16 @@ export default function NotFound() {
                        text-feza-secondary border border-feza-border bg-feza-card/80 backdrop-blur-md
                        hover:border-indigo-300 hover:text-indigo-700 dark:hover:text-indigo-400
                        hover:-translate-y-0.5 focus:outline-none
-                       focus-visible:ring-2 focus-visible:ring-indigo-500/35"
+                       focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
           >
             <span>Projeleri Gör</span>
           </Link>
         </div>
 
-        {/* ── Decorative meta ── */}
-        <div className="pt-6 font-mono text-[10px] tracking-[0.3em] uppercase text-feza-faint">
-          <span className="text-rose-500">{"//"}</span> Status: 404 Not Found
+        {/* ── H9a fix: kullanıcı dostu kurtarma ipucu ── */}
+        <div className="pt-6 font-mono text-[10px] tracking-[0.2em] uppercase text-feza-faint">
+          <span className="text-rose-400">{"//"}</span>{" "}
+          URL hatalı olabilir veya sayfa kaldırılmış — yukarıdaki bağlantıları deneyin
         </div>
       </div>
     </div>

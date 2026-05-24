@@ -114,7 +114,7 @@ export default function ProjectCard({
                            transition-all duration-200
                            text-feza-muted-xs border border-feza-border bg-feza-card
                            hover:text-feza-text hover:border-feza-border-md hover:bg-feza-surface-2
-                           focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/30"
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
               >
                 <GitHubIcon size={13} />
                 <span>Repo</span>
@@ -130,7 +130,7 @@ export default function ProjectCard({
                            transition-all duration-200
                            text-white border bg-indigo-600 border-indigo-600
                            hover:bg-indigo-700 hover:border-indigo-700 hover:shadow-md hover:shadow-indigo-500/20
-                           focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/35"
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
               >
                 <span>Demo</span>
                 <ExternalLinkIcon />
@@ -147,7 +147,7 @@ export default function ProjectCard({
                         dark:bg-indigo-950/50 dark:border-indigo-900/60"
             style={{ borderLeft: "3px solid #6366f1" }}
           >
-            <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500 mt-0.5 shrink-0">
+            <span className="font-mono text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400 mt-0.5 shrink-0">
               {"//"}
             </span>
             <p className="font-mono text-xs text-feza-secondary leading-[1.75]">
@@ -165,8 +165,8 @@ export default function ProjectCard({
         {project.caseStudy && (
           <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-feza-border bg-feza-border sm:grid-cols-3">
             {[
-              { label: "Problem",  value: project.caseStudy.problem,  accent: "text-rose-500"   },
-              { label: "Yaklaşım", value: project.caseStudy.approach, accent: "text-indigo-500" },
+              { label: "Problem",  value: project.caseStudy.problem,  accent: "text-rose-700 dark:text-rose-400"   },
+              { label: "Yaklaşım", value: project.caseStudy.approach, accent: "text-[#2563eb] dark:text-indigo-400" },
               { label: "Çıktı",    value: project.caseStudy.outcome,  accent: "text-emerald-500"},
             ].map((item) => (
               <div key={item.label} className="bg-feza-card px-4 py-4">
@@ -223,7 +223,7 @@ export default function ProjectCard({
           className="group/d inline-flex cursor-pointer items-center gap-1.5 pt-1
                      font-mono text-[11px] tracking-widest uppercase text-indigo-600 dark:text-indigo-400
                      transition-colors duration-200 hover:text-indigo-700 dark:hover:text-indigo-300
-                     focus:outline-none focus-visible:rounded focus-visible:ring-2 focus-visible:ring-indigo-500/30"
+                     focus:outline-none focus-visible:rounded focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
         >
           <span>Detayları Gör</span>
           <svg

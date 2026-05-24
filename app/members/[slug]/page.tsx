@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getMemberBySlug, getProjectsForMember, members } from "@/lib/data";
 import { GitHubIcon, LinkedInIcon, SectionLabel, StatusDot } from "@/components/ui";
+import BackButton from "@/components/BackButton";
 
 // ─── Static Params ─────────────────────────────────────────────────────────────
 
@@ -54,28 +55,8 @@ export default async function MemberPage({
 
       <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 md:px-10">
 
-        {/* ── Back navigation ── */}
-        <Link
-          href="/#founders"
-          className="group mb-12 inline-flex cursor-pointer items-center gap-2 rounded-sm
-                     font-mono text-xs uppercase tracking-widest text-feza-muted-xs
-                     transition-colors duration-200 hover:text-blue-600
-                     focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/30"
-        >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 14 14"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path d="M10.5 7H3.5M3.5 7L7 3.5M3.5 7L7 10.5" />
-          </svg>
-          <span className="group-hover:-translate-x-0.5 transition-transform duration-200 inline-block">
-            Kolektife Dön
-          </span>
-        </Link>
+        {/* F09+F10: history.back() + hover rengi indigo ile hizalandı */}
+        <BackButton fallbackHref="/#founders" label="Kolektife Dön" />
 
         {/* ══════════════════════════════════════════════════════════
             PROFILE HEADER
@@ -131,7 +112,7 @@ export default async function MemberPage({
                              hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
                              dark:hover:text-cyan-400 dark:hover:border-cyan-900 dark:hover:bg-cyan-950/30
                              hover:shadow-sm focus:outline-none
-                             focus-visible:ring-2 focus-visible:ring-blue-500/30"
+                             focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
                 >
                   <LinkedInIcon />
                   <span lang="en">LinkedIn</span>
@@ -148,7 +129,7 @@ export default async function MemberPage({
                              hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
                              dark:hover:text-cyan-400 dark:hover:border-cyan-900 dark:hover:bg-cyan-950/30
                              hover:shadow-sm focus:outline-none
-                             focus-visible:ring-2 focus-visible:ring-blue-500/30"
+                             focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
                 >
                   <GitHubIcon />
                   <span lang="en">GitHub</span>
@@ -160,7 +141,7 @@ export default async function MemberPage({
           {/* ── Right: Name, bio, quote ── */}
           <div className="space-y-6 md:pt-2">
             <div>
-              <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
+              <span className="font-mono text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
                 {member.role}
               </span>
             </div>
@@ -226,12 +207,13 @@ export default async function MemberPage({
                              transition-all duration-200
                              border border-feza-border bg-feza-card
                              hover:border-indigo-200 dark:hover:border-indigo-800 hover:shadow-sm
-                             focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/30"
+                             focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
                 >
                   {/* Status dot */}
                   <div className="mt-1.5 shrink-0">
-                    <StatusDot
-                      tone={project.status === "active" ? "active" : "completed"}
+                    {/* F05: planning dahil tüm durumlar doğru tone ile iletiliyor */}
+                  <StatusDot
+                      tone={project.status}
                       pulse={project.status === "active"}
                     />
                   </div>
@@ -308,7 +290,7 @@ export default async function MemberPage({
                              hover:border-cyan-200 hover:text-cyan-700 hover:bg-cyan-50
                              dark:hover:border-cyan-900 dark:hover:text-cyan-400 dark:hover:bg-cyan-950/30
                              hover:shadow-sm focus:outline-none
-                             focus-visible:ring-2 focus-visible:ring-blue-500/30"
+                             focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
                 >
                   <div
                     className={`relative w-5 h-5 rounded-full overflow-hidden bg-gradient-to-br ${m.avatarGradient}

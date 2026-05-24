@@ -6,7 +6,7 @@ type IconProps = {
 export function SectionLabel({ label }: { label: string }) {
   return (
     <div className="flex items-center gap-4">
-      <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
+      <span className="font-mono text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
         {label}
       </span>
       <div className="flex-1 h-px bg-feza-border" />
