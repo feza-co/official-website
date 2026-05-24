@@ -239,3 +239,8 @@ graphify-out/
 
 # Temp / build artifacts
 .graphify_*
+
+design-system/
+.next/
+node_modules/
+.codex/
