@@ -1,0 +1,21 @@
+{
+  "name": "Feza-Co Teknoloji Kolektifi",
+  "short_name": "Feza-Co",
+  "description": "Beş kurucu ortağın teknoloji kolektifi.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
