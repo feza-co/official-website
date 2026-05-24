@@ -235,8 +235,7 @@ export default function Navbar() {
       <div
         id="mobile-navigation"
         aria-hidden={!isMenuOpen}
-        // @ts-expect-error — inert is a valid HTML attribute but not yet in React's TS types
-        inert={!isMenuOpen ? "" : undefined}
+        inert={!isMenuOpen}
         className={`md:hidden overflow-hidden rounded-b-lg border-t border-feza-border/80 bg-feza-card/95
                     transition-[max-height,opacity] duration-300 ease-out
                     ${isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
