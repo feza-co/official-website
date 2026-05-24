@@ -6,6 +6,7 @@ export interface Member {
   role: string;
   initials: string;
   avatarGradient: string; // Tailwind gradient classes for placeholder
+  avatar?: string;         // Optional real photo path under /public
   linkedin?: string;
   github?: string;
   bio: string;
@@ -43,6 +44,7 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "AK",
     avatarGradient: "from-cyan-500 via-blue-600 to-indigo-700",
+    avatar: "/avatars/ahmet-karakoyun.png",
     linkedin: "https://www.linkedin.com/in/ahmetkrkyn0/",
     github: "https://github.com/ahmetkrkyn0",
     bio: "Yazılım geliştirme ve yapay zeka sistemleri üzerine odaklanan bir kurucu ortak. Ölçeklenebilir mimari tasarımı ve modern web teknolojileri konusunda derin teknik deneyim sahibi. Feza-Co'nun vizyon ve teknik yönünün şekillenmesinde aktif rol alıyor.",
@@ -55,7 +57,7 @@ export const members: Member[] = [
       "System Architecture",
     ],
     projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan", "hayat-agi", "healthai-co-creation", "iso-29119-4-gamified"],
-    hackathons: ["Teknofest 2024", "HackITU 2024", "ASTRO Hackathon 2026"],
+    hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
     quote: "Kod yazmak bir sanat, sistem tasarlamak bir mühendislik disiplinidir.",
   },
   {
@@ -76,7 +78,7 @@ export const members: Member[] = [
       "Real-time Data Pipelines",
     ],
     projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan", "iso-testing-world"],
-    hackathons: ["Teknofest 2024", "IEEE Hackathon 2024", "ASTRO Hackathon 2026"],
+    hackathons: ["IEEE Hackathon 2024", "TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
     quote:
       "Fiziksel dünyayı sayısallaştırmak, geleceğin mühendisliğinin kapılarını açar.",
   },
@@ -98,7 +100,7 @@ export const members: Member[] = [
       "Database Design",
     ],
     projects: ["astro-hackathon", "uyum-platform", "iso-testing-world"],
-    hackathons: ["Teknofest 2024", "ASTRO Hackathon 2026", "ODTÜ Spor Tech Hackathon 2026"],
+    hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
     quote: "Doğru mimari, ölçeklenebilirliği sorun olmaktan çıkarır.",
   },
   {
@@ -119,7 +121,7 @@ export const members: Member[] = [
       "Product Thinking",
     ],
     projects: ["astro-hackathon", "hayat-agi", "healthai-co-creation", "iso-29119-4-gamified"],
-    hackathons: ["HackITU 2024", "Design Jam 2024", "ASTRO Hackathon 2026"],
+    hackathons: ["Design Jam 2024", "TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
     quote: "En iyi arayüz, kullanıcının varlığını bile hissetmediği arayüzdür.",
   },
   {
@@ -140,7 +142,7 @@ export const members: Member[] = [
       "Data Visualization",
     ],
     projects: ["raw2value", "astro-hackathon", "meydan", "iso-testing-world"],
-    hackathons: ["Datathon ITU 2024", "Teknofest 2024", "ASTRO Hackathon 2026"],
+    hackathons: ["Datathon ITU 2024", "TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
     quote: "Veri, doğru sorular sorulduğunda konuşmaya başlar.",
   },
 ];
@@ -212,9 +214,9 @@ export const projects: Project[] = [
     description:
       "Ay yüzeyi üzerinde çok kriterli güzergah planlama sistemi. DEM analizinden elde edilen eğim, enerji tüketimi, gölge ve termal risk katmanlarıyla optimal rover rotaları üretir.",
     longDescription:
-      "ASTRO Hackathon 2026 için geliştirilen LunaPath, ay yüzeyindeki rover'lar için çok kriterli güzergah optimizasyonu sunar. DEM verilerinden eğim, enerji, gölge proxy ve termal risk grid katmanları üretilir; A* pathfinding algoritmasıyla misyon ağırlıklarına göre en verimli rota hesaplanır. Farklı rover profilleri, REST API ve interaktif web arayüzüyle kapsamlı bir uzay keşif simülasyonu sunar.",
+      "TUA ASTRO Hackathon 2026 için geliştirilen LunaPath, ay yüzeyindeki rover'lar için çok kriterli güzergah optimizasyonu sunar. DEM verilerinden eğim, enerji, gölge proxy ve termal risk grid katmanları üretilir; A* pathfinding algoritmasıyla misyon ağırlıklarına göre en verimli rota hesaplanır. Farklı rover profilleri, REST API ve interaktif web arayüzüyle kapsamlı bir uzay keşif simülasyonu sunar.",
     highlight:
-      "ASTRO Hackathon 2026 — Ay yüzeyinde A* tabanlı çok kriterli rover güzergah optimizasyonu",
+      "TUA ASTRO Hackathon 2026 — Ay yüzeyinde A* tabanlı çok kriterli rover güzergah optimizasyonu",
     tags: [
       "Python",
       "FastAPI",
