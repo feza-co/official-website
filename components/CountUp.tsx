@@ -15,7 +15,8 @@ export default function CountUp({
   suffix = "",
   prefix = "",
 }: CountUpProps) {
-  const [value, setValue] = useState(0);
+  // SSR/no-JS: render the final value. Only reset and animate after hydration when intersecting.
+  const [value, setValue] = useState(end);
   const ref = useRef<HTMLSpanElement>(null);
   const triggered = useRef(false);
 
@@ -34,6 +35,7 @@ export default function CountUp({
         entries.forEach((entry) => {
           if (entry.isIntersecting && !triggered.current) {
             triggered.current = true;
+            setValue(0);
             const start = performance.now();
             const tick = (now: number) => {
               const elapsed = now - start;

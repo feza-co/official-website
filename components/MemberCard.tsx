@@ -59,15 +59,6 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
           {String(index + 1).padStart(2, "0")}
         </span>
 
-        {/* ── Status indicator dot ── */}
-        <span
-          className="absolute top-3.5 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 opacity-60"
-          style={{
-            boxShadow: "0 0 0 3px rgba(16,185,129,0.12)",
-          }}
-          aria-hidden
-        />
-
         {/* ── Avatar ── */}
         <div className="relative mt-3">
           {/* Outer glow halo */}
@@ -128,15 +119,6 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
             {member.role}
           </p>
         </div>
-
-        {/* ── Primary skill chip ── */}
-        {member.skills[0] && (
-          <div className="relative z-[1] flex justify-center -mt-1">
-            <span lang="en" className="font-mono text-[9px] tracking-wider uppercase text-feza-muted-xs">
-              {member.skills[0]}
-            </span>
-          </div>
-        )}
 
         {/* ── Social links ── */}
         <div className="relative z-20 flex items-center gap-3 mt-auto pt-1">

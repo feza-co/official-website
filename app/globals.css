@@ -14,12 +14,12 @@
   --border: #e2e8f0;
   --border-md: #cbd5e1;
 
-  /* Typography */
-  --text: #09090b;
-  --text-secondary: #3f3f46;
-  --text-muted: #94a3b8;
-  --text-xs: #64748b;
-  --text-faint: #cbd5e1;
+  /* Typography (WCAG AA verified against --bg #fafafa) */
+  --text: #09090b;            /* 18:1 — body */
+  --text-secondary: #3f3f46;  /* 10:1 — secondary */
+  --text-muted: #52525b;      /* 7.6:1 — muted, was #94a3b8 (3.2:1, AA fail) */
+  --text-xs: #64748b;         /* 5.1:1 — captions */
+  --text-faint: #94a3b8;      /* 3.2:1 — decorative only (was #cbd5e1) */
 
   /* Accent — Indigo */
   --indigo: #2563eb;
@@ -31,8 +31,21 @@
   /* Complements */
   --sky: #0ea5e9;
   --cyan: #06b6d4;
+  --cyan-strong: #0e7490;   /* 4.7:1 on white — readable cyan text */
   --emerald: #10b981;
   --amber: #f59e0b;
+
+  /* Motion tokens */
+  --duration-micro: 200ms;
+  --duration-button: 300ms;
+  --duration-section: 500ms;
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Radius scale */
+  --radius-sm: 6px;   /* tags, chips */
+  --radius-md: 10px;  /* buttons, small surfaces */
+  --radius-lg: 14px;  /* cards */
+  --radius-xl: 20px;  /* hero feature blocks */
 }
 
 /* ─── Design System Variables — Dark ─────────────────────────────────────── */
@@ -45,11 +58,12 @@
   --border: #2a2a30;
   --border-md: #3a3a42;
 
-  --text: #f4f4f5;
-  --text-secondary: #d4d4d8;
-  --text-muted: #8b8b94;
-  --text-xs: #71717a;
-  --text-faint: #52525b;
+  /* Typography (WCAG AA verified against --bg #0a0a0b) */
+  --text: #f4f4f5;            /* 18:1 — body */
+  --text-secondary: #d4d4d8;  /* 13:1 — secondary */
+  --text-muted: #a1a1aa;      /* 7.5:1 — muted, was #8b8b94 (5.4:1) */
+  --text-xs: #94949c;         /* 6.0:1 — captions, was #71717a (4.0:1, sub-AA) */
+  --text-faint: #71717a;      /* 4.0:1 — decorative only (was #52525b) */
 
   --indigo: #3b82f6;
   --indigo-dim: #60a5fa;
@@ -59,6 +73,7 @@
 
   --sky: #38bdf8;
   --cyan: #22d3ee;
+  --cyan-strong: #67e8f9;   /* AA-safe cyan for dark mode text */
   --emerald: #34d399;
   --amber: #fbbf24;
 }
@@ -297,12 +312,21 @@ body {
     transition-duration: 0.01ms !important;
   }
 
-  .card-base:hover {
+  .card-base:hover,
+  .lift-on-hover:hover {
     transform: none;
   }
 
   .animate-on-scroll {
     opacity: 1;
     transform: none;
+  }
+
+  .animate-marquee,
+  .animate-glow-pulse,
+  .animate-scroll-hint,
+  .animate-float-slow,
+  .text-gradient-brand {
+    animation: none !important;
   }
 }
