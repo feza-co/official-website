@@ -54,7 +54,7 @@ export const members: Member[] = [
       "TypeScript",
       "System Architecture",
     ],
-    projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan"],
+    projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan", "hayat-agi", "healthai-co-creation", "iso-29119-4-gamified"],
     hackathons: ["Teknofest 2024", "HackITU 2024", "ASTRO Hackathon 2026"],
     quote: "Kod yazmak bir sanat, sistem tasarlamak bir mühendislik disiplinidir.",
   },
@@ -118,7 +118,7 @@ export const members: Member[] = [
       "Flutter",
       "Product Thinking",
     ],
-    projects: ["astro-hackathon"],
+    projects: ["astro-hackathon", "hayat-agi", "healthai-co-creation", "iso-29119-4-gamified"],
     hackathons: ["HackITU 2024", "Design Jam 2024", "ASTRO Hackathon 2026"],
     quote: "En iyi arayüz, kullanıcının varlığını bile hissetmediği arayüzdür.",
   },
@@ -320,6 +320,94 @@ export const projects: Project[] = [
       problem: "ISO test kavramları informal tanımlarla karıştırılıyor; öğrenci doğru terminolojiyi içselleştiremiyor.",
       approach: "Her yanlış cevabı atlanamayan verbatim ISO madde tanımıyla eşleştiren beş bölgeli oyunlaştırma.",
       outcome: "Standart-kesin terminolojiyi pekiştiren, ofis simülasyonuyla bağlamlandırılmış öğrenme akışı.",
+    },
+  },
+  {
+    id: "hayat-agi",
+    title: "Hayat Ağı Command Center",
+    description:
+      "Afet senaryolarında mesh ağ altyapısını yönetmek için geliştirilmiş gerçek zamanlı komuta merkezi. Ağ topolojisi haritalaması, cihaz durum izleme ve kurtarma öncelik skoru hesaplama içerir.",
+    longDescription:
+      "Hayat Ağı Command Center, geleneksel iletişim altyapısının çöktüğü afet senaryolarında mesh ağ üzerinden koordinasyonu sağlayan web tabanlı bir yönetim platformudur. Yönetici arayüzü; gateway cihazlarını listeler, filtreler ve CRUD işlemleri yapar, Leaflet haritasında aktif cihaz konumlarını ve ağ topolojisini canlı görselleştirir, batarya seviyesi ve sinyal gücünü gerçek zamanlı izler. Vatandaş arayüzü ise hane profili (çocuk sayısı, yaşlı ve kronik hasta varlığı) üzerinden kurtarma triaj öncelik skoru üretir. Rol tabanlı erişim kontrolü ile yönetici ve vatandaş deneyimleri birbirinden ayrıştırılmıştır.",
+    highlight:
+      "Afet iletişim ağı — Mesh topoloji haritası & triaj öncelik skoru hesaplayan komuta merkezi",
+    tags: [
+      "React",
+      "Vite",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Leaflet",
+      "Material-UI",
+    ],
+    status: "completed",
+    members: ["ahmet-karakoyun", "izzettin-berke-kus"],
+    github: "https://github.com/alinkisakurek/hayat-agi-command-center",
+    year: 2026,
+    caseStudy: {
+      problem: "Afet anında geleneksel iletişim çöker; kurtarma ekipleri hanehalkı önceliğini göremez.",
+      approach: "Mesh gateway yönetimi, canlı harita topolojisi ve triaj skoru algoritmasını tek platformda birleştirme.",
+      outcome: "Kurtarma ekiplerine gerçek zamanlı ağ görünürlüğü ve öncelikli müdahale listesi.",
+    },
+  },
+  {
+    id: "healthai-co-creation",
+    title: "HealthAI Co-Creation Platform",
+    description:
+      "Sağlık profesyonellerini AI mühendisleriyle buluşturan, GDPR uyumlu, NDA destekli toplantı yönetimi ve özel mesajlaşma kanallarıyla güvenli işbirliği ortamı.",
+    longDescription:
+      "HealthAI Co-Creation Platform, tıbbi AI projelerinde sağlık uzmanları ve mühendisleri arasındaki işbirliği boşluğunu kapatmak için tasarlanmış güvenli bir buluşma ortamıdır. Üç kullanıcı rolü (sağlık profesyoneli, mühendis, yönetici) üzerinde kurulu sistem; filtrelenmiş fırsat gönderilerini, uzmanlık eşleşme sinyallerini ve yapılandırılmış başvuru akışını içerir. İlgi bildirimleri NDA kabul akışını tetikler; onaylanan toplantılar otomatik olarak özel mesajlaşma kanalı açar. GDPR uyumluluğu (veri dışa aktarma, hesap silme), denetim kaydı, karanlık mod, semantik diyaloglar ve kapsamlı birim/entegrasyon testleriyle üretim kalitesinde bir platform sunar.",
+    highlight:
+      "GDPR uyumlu sağlık × AI işbirliği platformu — NDA destekli toplantı & özel mesajlaşma akışı",
+    tags: [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Zustand",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Docker",
+    ],
+    status: "completed",
+    members: ["ahmet-karakoyun", "izzettin-berke-kus"],
+    github: "https://github.com/berkekus/healthai-co-creation-platform",
+    demo: "https://healthai-co-creation-platform.vercel.app/",
+    year: 2026,
+    caseStudy: {
+      problem: "Tıbbi AI projeleri için doğru sağlık-mühendis eşleşmesi karmaşık ve güvensiz kanallardan geçiyor.",
+      approach: "NDA akışlı toplantı yönetimi, özel kanal açma ve GDPR uyumlu kullanıcı doğrulama.",
+      outcome: "Güvenli, denetlenebilir ve erişilebilir bir sağlık × AI işbirliği ekosistemi.",
+    },
+  },
+  {
+    id: "iso-29119-4-gamified",
+    title: "Test Courthouse",
+    description:
+      "ISO/IEC/IEEE 29119-4 yazılım test tekniklerini mahkeme temalı, tarayıcı tabanlı eğitim oyunuyla öğreten platform. 15 kampanya davası, çok oyunculu Speed Trial modu ve ISO referans kütüphanesi içerir.",
+    longDescription:
+      "Test Courthouse, ISO/IEC/IEEE 29119-4 kapsamındaki yapısal ve kombinatoryal test tekniklerini (ifade kapsama, dal kapsama, karar kapsama, MC/DC) mahkeme senaryosuna dönüştüren interaktif bir eğitim platformudur. Oyuncu, seeded fault'lar barındıran 15 kampanya davasında test kanıtı sunar ve kapsama motoru davayı karara bağlar. Yanlış sunumlar; misconception-aware geri bildirimle açıklanır, Law Library aracılığıyla ISO referans kartları kilidini açar. Socket.IO tabanlı Speed Trial modu sınıf ortamında canlı rekabet ve zamanlama ile çok oyunculu deneyim sağlar. Tüm kapsama doğrulama ve hüküm hesaplama mantığı bağımsız bir motorla çalışarak UI'dan ayrıştırılmıştır.",
+    highlight:
+      "IT & ISQS Learner-as-Designer — ISO/IEC/IEEE 29119-4 test tekniklerini mahkeme oyunuyla öğreten platform",
+    tags: [
+      "TypeScript",
+      "React",
+      "Vite",
+      "Node.js",
+      "Express",
+      "Socket.IO",
+      "Vitest",
+    ],
+    status: "completed",
+    members: ["ahmet-karakoyun", "izzettin-berke-kus"],
+    github: "https://github.com/berkekus/iso-29119-4-gamified-activity",
+    demo: "https://iso-29119-4-gamified-activity-six.vercel.app/",
+    year: 2026,
+    caseStudy: {
+      problem: "ISO 29119-4 test teknikleri soyut; öğrenciler MC/DC gibi kavramları bağlam içinde içselleştiremiyor.",
+      approach: "Her davayı seeded fault + mahkeme kararı + ISO madde geri bildirimiyle eşleştiren 15 bölümlü oyunlaştırma.",
+      outcome: "Kapsama mantığını uygulamalı ve rekabetçi bir ortamda pekiştiren çok oyunculu eğitim deneyimi.",
     },
   },
 ];
