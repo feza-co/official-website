@@ -95,9 +95,7 @@ cython_debug/
 .windsurfrules
 .mcp.json
 .opencode.json
-AGENTS.md
-CLAUDE.md
-GEMINI.md
+
 
 # ─── Graphify knowledge graph output ─────────────────────────────────────────
 graphify-out/
