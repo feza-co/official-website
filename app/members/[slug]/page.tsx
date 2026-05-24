@@ -190,6 +190,28 @@ export default async function MemberPage({
         </div>
 
         {/* ══════════════════════════════════════════════════════════
+            SKILLS
+        ══════════════════════════════════════════════════════════ */}
+        {member.skills.length > 0 && (
+          <section className="mb-14" aria-label="Uzmanlık Alanları">
+            <SectionLabel label="// Uzmanlık Alanları" />
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              {member.skills.map((skill) => (
+                <span
+                  key={skill}
+                  lang="en"
+                  className="inline-flex items-center gap-2 rounded-lg border border-feza-border bg-feza-card px-4 py-2
+                             font-mono text-xs tracking-wider text-feza-secondary"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" aria-hidden />
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ══════════════════════════════════════════════════════════
             PROJECTS
         ══════════════════════════════════════════════════════════ */}
         {memberProjects.length > 0 && (
@@ -197,12 +219,14 @@ export default async function MemberPage({
             <SectionLabel label="// Katıldığı Projeler" />
             <div className="mt-6 space-y-4">
               {memberProjects.map((project) => (
-                <div
+                <Link
                   key={project.id}
-                  className="relative flex items-start gap-4 sm:gap-5 px-4 sm:px-6 py-5 rounded-lg
+                  href={`/projects/${project.id}`}
+                  className="group relative flex items-start gap-4 sm:gap-5 px-4 sm:px-6 py-5 rounded-lg
                              transition-all duration-200
                              border border-feza-border bg-feza-card
-                             hover:border-cyan-200 dark:hover:border-cyan-900 hover:shadow-sm"
+                             hover:border-indigo-200 dark:hover:border-indigo-800 hover:shadow-sm
+                             focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/30"
                 >
                   {/* Status dot */}
                   <div className="mt-1.5 shrink-0">
@@ -212,12 +236,12 @@ export default async function MemberPage({
                     />
                   </div>
 
-                  <div className="space-y-2 flex-1">
+                  <div className="space-y-2 flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-4">
-                      <h3 className="font-orbitron font-bold text-feza-text text-base md:text-lg">
+                      <h3 className="font-orbitron font-bold text-feza-text text-base md:text-lg group-hover:text-indigo-700 dark:group-hover:text-indigo-400 transition-colors duration-200">
                         {project.title}
                       </h3>
-                      <span className="shrink-0 font-mono text-[10px] tracking-wider uppercase text-feza-muted">
+                      <span className="shrink-0 font-mono text-[10px] tracking-wider uppercase text-feza-muted-xs">
                         {project.year}
                       </span>
                     </div>
@@ -226,13 +250,13 @@ export default async function MemberPage({
                     </p>
                     <div className="flex flex-wrap gap-1.5 mt-2">
                       {project.tags.slice(0, 5).map((tag) => (
-                        <span key={tag} className="tag-light">
+                        <span key={tag} lang="en" className="tag-light">
                           {tag}
                         </span>
                       ))}
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </section>

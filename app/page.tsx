@@ -227,8 +227,9 @@ function HeroSection() {
 
             <a
               href="#contact"
-              className="hidden sm:inline-flex cursor-pointer items-center gap-2 px-1 ml-1 font-mono text-xs tracking-widest uppercase text-feza-muted-xs
-                         transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400"
+              className="hidden sm:inline-flex min-h-[44px] cursor-pointer items-center gap-2 px-3 ml-1 rounded-md font-mono text-xs tracking-widest uppercase text-feza-muted-xs
+                         transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/30"
             >
               <span>İletişime geç</span>
               <span className="text-indigo-500">↗</span>
@@ -248,11 +249,11 @@ function HeroSection() {
                 { value: uniqueHackathons.length, label: "Hackathon & Yarışma", suffix: "" },
                 { value: 2026,                label: "Kuruluş Yılı", suffix: "" },
               ].map(({ value, label, suffix }) => (
-                <div key={label} className="space-y-1">
+                <div key={label} className="space-y-1.5">
                   <p className="font-orbitron font-bold text-2xl md:text-3xl text-indigo-600 dark:text-indigo-400">
                     <CountUp end={value} suffix={suffix} />
                   </p>
-                  <p className="font-mono text-[10px] tracking-widest uppercase text-feza-muted">
+                  <p className="font-mono text-[11px] tracking-widest uppercase text-feza-muted">
                     {label}
                   </p>
                 </div>
@@ -302,23 +303,16 @@ function SectionHeader({
   label,
   title,
   subtitle,
-  align = "left",
 }: {
   label: string;
   title: string;
   subtitle?: string;
-  align?: "left" | "center";
 }) {
-  const isCenter = align === "center";
   return (
-    <div
-      className={`mb-12 md:mb-16 space-y-4 ${isCenter ? "text-center" : ""}`}
-    >
-      <div
-        className={`flex items-center gap-3 ${isCenter ? "justify-center" : ""}`}
-      >
+    <div className="mb-12 md:mb-16 space-y-4">
+      <div className="flex items-center gap-3">
         <div className="h-px w-10 bg-indigo-400" aria-hidden />
-        <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500">
+        <span className="font-mono text-[11px] tracking-widest uppercase text-indigo-500">
           {label}
         </span>
         <div className="h-px w-10 bg-indigo-200 dark:bg-indigo-800" aria-hidden />
@@ -330,11 +324,7 @@ function SectionHeader({
         {title}
       </h2>
       {subtitle && (
-        <p
-          className={`font-outfit text-base text-feza-secondary leading-relaxed text-balance ${
-            isCenter ? "mx-auto max-w-2xl" : "max-w-2xl"
-          }`}
-        >
+        <p className="font-outfit text-base text-feza-secondary leading-relaxed text-balance max-w-2xl">
           {subtitle}
         </p>
       )}

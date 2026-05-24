@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Project } from "@/lib/data";
 import { getMembersForProject } from "@/lib/data";
 import { ExternalLinkIcon, GitHubIcon, StatusDot } from "@/components/ui";
@@ -142,8 +143,8 @@ export default function ProjectCard({
         {project.highlight && (
           <div
             className="relative flex items-start gap-3 px-4 py-3 rounded-lg overflow-hidden
-                        bg-indigo-50/60 border border-indigo-100
-                        dark:bg-indigo-950/30 dark:border-indigo-900/50"
+                        bg-indigo-50/80 border border-indigo-100
+                        dark:bg-indigo-950/50 dark:border-indigo-900/60"
             style={{ borderLeft: "3px solid #6366f1" }}
           >
             <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500 mt-0.5 shrink-0">
@@ -210,11 +211,33 @@ export default function ProjectCard({
         {/* ── Tags ── */}
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <span key={tag} className="tag-light">
+            <span key={tag} className="tag-light" lang="en">
               {tag}
             </span>
           ))}
         </div>
+
+        {/* ── Detail link ── */}
+        <Link
+          href={`/projects/${project.id}`}
+          className="group/d inline-flex cursor-pointer items-center gap-1.5 pt-1
+                     font-mono text-[11px] tracking-widest uppercase text-indigo-600 dark:text-indigo-400
+                     transition-colors duration-200 hover:text-indigo-700 dark:hover:text-indigo-300
+                     focus:outline-none focus-visible:rounded focus-visible:ring-2 focus-visible:ring-indigo-500/30"
+        >
+          <span>Detayları Gör</span>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="group-hover/d:translate-x-0.5 transition-transform duration-200"
+          >
+            <path d="M2 9L9 2M9 2H4M9 2V7" />
+          </svg>
+        </Link>
       </div>
 
       {/* ── Bottom shimmer line on hover ── */}
