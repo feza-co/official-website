@@ -66,6 +66,7 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "TD",
     avatarGradient: "from-violet-500 via-purple-600 to-cyan-500",
+    avatar: "/avatars/tuna-deniz.jpeg",
     linkedin: "https://www.linkedin.com/in/tuna-deniz1304/",
     github: "https://github.com/tunadeniz1304",
     bio: "Dijital ikiz sistemleri ve 3D modelleme alanında akademik düzeyde altyapılar geliştiren mühendis. IoT sensör entegrasyonu ve gerçek zamanlı veri akışı konularındaki araştırmaları Feza-Co'nun teknik portföyünün temel taşını oluşturuyor.",
