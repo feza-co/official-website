@@ -29,7 +29,7 @@ export default function TerminalRoster() {
         <div className="w-[7px] h-[7px] rounded-full bg-[#ef4444]" />
         <div className="w-[7px] h-[7px] rounded-full bg-[#f59e0b]" />
         <div className="w-[7px] h-[7px] rounded-full bg-[#22c55e]" />
-        <span className="ml-3 font-mono text-[8px] tracking-[2px] uppercase text-feza-faint">
+        <span className="ml-3 font-mono text-[8px] tracking-[2px] uppercase text-[#52525b]">
           feza-co — roster.sh
         </span>
       </div>
