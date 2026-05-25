@@ -72,7 +72,6 @@ export default function TerminalRoster() {
                              focus-visible:ring-offset-1 focus-visible:ring-offset-[#0d0d10]"
                   aria-label={`${member.name} profiline git`}
                 >
-                  <span className="sr-only">{member.name} profiline git</span>
                 </Link>
 
                 <div
@@ -124,7 +123,7 @@ export default function TerminalRoster() {
                   </span>
 
                   {/* Social icons — z-20 stays above the overlay link */}
-                  <div className="relative z-20 flex items-center gap-1 opacity-0 group-hover/row:opacity-100 transition-opacity duration-200">
+                  <div className="relative z-20 flex items-center gap-1 opacity-0 group-hover/row:opacity-100 focus-within:opacity-100 transition-opacity duration-200">
                     {member.linkedin && (
                       <a
                         href={member.linkedin}
