@@ -238,6 +238,54 @@ body {
       transparent 100%
     );
   }
+
+  /* ── Sinematik yatay çizgi dokusu (Hero arka plan) ── */
+  .horizontal-lines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(99, 102, 241, 0.04) 40px
+    );
+  }
+
+  /* ── Sinematik merkez glow (Hero radial atmosfer) ── */
+  .cinematic-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(
+      ellipse,
+      rgba(99, 102, 241, 0.15) 0%,
+      transparent 65%
+    );
+    filter: blur(20px);
+    pointer-events: none;
+  }
+
+  /* ── Terminal pencere — ortak kap ── */
+  .terminal-window {
+    background: #0d0d10;
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .terminal-header {
+    background: #161618;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .terminal-body {
+    padding: 16px 18px;
+  }
 }
 
 /* ─── Keyframes ───────────────────────────────────────────────────────────── */

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feza-Co · Pro Max Tasarım Özeti</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #080810;
+    color: #f4f4f5;
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 40px 24px;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .eyebrow {
+    font-family: monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #6366f1;
+    margin-bottom: 16px;
+  }
+  .title {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    background: linear-gradient(120deg, #f4f4f5 30%, #6366f1 60%, #22d3ee 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+  .subtitle {
+    font-size: 14px;
+    color: #71717a;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3) 30%, rgba(6,182,212,0.3) 70%, transparent);
+    margin: 32px 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .decision-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(99,102,241,0.15);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .decision-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #6366f1 40%, #22d3ee 60%, transparent);
+  }
+
+  .decision-number {
+    font-family: monospace;
+    font-size: 11px;
+    color: rgba(99,102,241,0.5);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .decision-label {
+    font-family: monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #52525b;
+    margin-bottom: 6px;
+  }
+  .decision-choice {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f4f4f5;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+  .decision-desc {
+    font-size: 12px;
+    color: #71717a;
+    line-height: 1.6;
+  }
+  .decision-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6366f1;
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.15);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .principle-section {
+    max-width: 960px;
+    margin: 40px auto 0;
+  }
+  .principle-title {
+    font-family: monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #52525b;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .principle-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(99,102,241,0.15);
+  }
+
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .principle {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .principle-icon {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .principle-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #d4d4d8;
+    margin-bottom: 4px;
+  }
+  .principle-detail {
+    font-size: 11px;
+    color: #52525b;
+    line-height: 1.5;
+  }
+
+  .scope-section {
+    max-width: 960px;
+    margin: 40px auto 0;
+    background: rgba(99,102,241,0.04);
+    border: 1px solid rgba(99,102,241,0.12);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .scope-title {
+    font-family: monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #6366f1;
+    margin-bottom: 16px;
+  }
+  .scope-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .scope-col h4 {
+    font-size: 11px;
+    font-weight: 600;
+    color: #a1a1aa;
+    margin-bottom: 10px;
+  }
+  .scope-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .scope-col ul li {
+    font-size: 12px;
+    color: #71717a;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+  }
+  .scope-col ul li::before {
+    content: '//';
+    color: #6366f1;
+    font-family: monospace;
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .scope-col.out ul li::before {
+    content: '✕';
+    color: #ef4444;
+    font-size: 9px;
+  }
+
+  .approve-bar {
+    max-width: 960px;
+    margin: 40px auto 0;
+    background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(6,182,212,0.05));
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .approve-text {
+    font-size: 13px;
+    color: #a1a1aa;
+    max-width: 600px;
+  }
+  .approve-text strong { color: #f4f4f5; }
+  .approve-label {
+    font-family: monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #6366f1;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="eyebrow">// Tasarım Özeti · Feza-Co Pro Max</div>
+  <div class="title">Kararlaştırılan Vizyon</div>
+  <p class="subtitle">Seçimlerinize göre şekillenen tasarım yönü. Bu özeti onaylarsanız implementasyon planı hazırlanacak.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="grid">
+
+  <div class="decision-card">
+    <div class="decision-number">01</div>
+    <div class="decision-label">Hero Section</div>
+    <div class="decision-choice">Sinematik Merkez</div>
+    <div class="decision-desc">Merkez hizalı, yatay çizgi dokusu, stroke efektli büyük FEZA yazısı. Film jeneriği estetiği. Tek güçlü CTA, minimal bilgi yoğunluğu.</div>
+    <span class="decision-tag">Seçim: C</span>
+  </div>
+
+  <div class="decision-card">
+    <div class="decision-number">02</div>
+    <div class="decision-label">Proje Showcase</div>
+    <div class="decision-choice">Dergi Grid (Numaralı Satırlar)</div>
+    <div class="decision-desc">Büyük numara + proje adı + meta bilgi. Linear/Notion tarzı editorial liste. Öne çıkan → küçükler hiyerarşisi. Temiz, sıralı, kurumsal.</div>
+    <span class="decision-tag">Seçim: C</span>
+  </div>
+
+  <div class="decision-card">
+    <div class="decision-number">03</div>
+    <div class="decision-label">Team Section</div>
+    <div class="decision-choice">Terminal Roster</div>
+    <div class="decision-desc">Terminal penceresi estetiği, roster.sh teması. Her üye bir satır: avatar + isim + skill slug + aktif badge. Yazılım kolektifi kimliğini en net yansıtan format.</div>
+    <span class="decision-tag">Seçim: B</span>
+  </div>
+
+  <div class="decision-card">
+    <div class="decision-number">04</div>
+    <div class="decision-label">Animasyon</div>
+    <div class="decision-choice">Framer Motion — Seçici</div>
+    <div class="decision-desc">Sadece 3 kritik noktada: Hero text stagger, Dergi Grid whileInView kartları, Terminal Roster satır sekansı. Geri kalan her şey CSS kalır.</div>
+    <span class="decision-tag">Seçim: B</span>
+  </div>
+
+</div>
+
+<div class="principle-section">
+  <div class="principle-title">// Tasarım İlkeleri</div>
+  <div class="principles">
+    <div class="principle">
+      <div class="principle-icon">◎</div>
+      <div class="principle-name">Derinlik > Parlaklık</div>
+      <div class="principle-detail">Radial glow'lar ve grid pattern'ler zemine işlenmiş — element olarak değil, atmosfer olarak kullanılır.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-icon">⟶</div>
+      <div class="principle-name">Hiyerarşi Net</div>
+      <div class="principle-detail">Her section'da tek bir dominant element. Kullanıcının gözü kaybolmaz, önce büyüğü görür.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-icon">◈</div>
+      <div class="principle-name">Kimlik Tutarlı</div>
+      <div class="principle-detail">Terminal dili (monospace, //, satır numaraları) hero'dan footer'a tutarlı şekilde akar.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-icon">⚡</div>
+      <div class="principle-name">Performans Önce</div>
+      <div class="principle-detail">Framer Motion sadece kritik 3 noktada. Geri kalan CSS. prefers-reduced-motion korunur.</div>
+    </div>
+  </div>
+</div>
+
+<div class="scope-section">
+  <div class="scope-title">// Kapsam</div>
+  <div class="scope-grid">
+    <div class="scope-col">
+      <h4>✓ Yapılacaklar</h4>
+      <ul>
+        <li>Hero Section — Sinematik yeniden yazım</li>
+        <li>Proje Section — Dergi grid layout</li>
+        <li>Team Section — Terminal roster bileşeni</li>
+        <li>Framer Motion kurulumu + 3 kritik animasyon</li>
+        <li>Scroll reveal (IntersectionObserver)</li>
+        <li>Mikro-etkileşimler (hover glow, border anim)</li>
+        <li>globals.css animasyon genişletmesi</li>
+        <li>Mevcut a11y / WCAG korunur</li>
+      </ul>
+    </div>
+    <div class="scope-col out">
+      <h4>✕ Kapsam Dışı</h4>
+      <ul>
+        <li>Yeni sayfa eklenmez (members/[slug], projects/[id])</li>
+        <li>lib/data.ts değişmez</li>
+        <li>Navbar ve Footer dokunulmaz</li>
+        <li>Tema sistemi (light/dark token) değişmez</li>
+        <li>Tailwind config büyük değişiklik yok</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="approve-bar">
+  <div class="approve-text">
+    <strong>Bu tasarım yönünü onaylıyor musunuz?</strong><br>
+    Onay sonrası implementasyon planı yazılacak: dosya bazlı görev listesi, bağımlılık sırası ve kod örnekleri hazırlanacak.
+  </div>
+  <div class="approve-label">Terminal'de "evet" yazın →</div>
+</div>
+
+</body>
+</html>
