@@ -1,6 +1,6 @@
 // app/page.tsx
 import HeroCinematic from "@/components/HeroCinematic";
-import TerminalRoster from "@/components/TerminalRoster";
+import MemberCard from "@/components/MemberCard";
 import MagazineProjectGrid from "@/components/MagazineProjectGrid";
 import Marquee from "@/components/Marquee";
 import CountUp from "@/components/CountUp";
@@ -125,7 +125,11 @@ export default function HomePage() {
             subtitle="Bağımsız zihinler, ortak bir çatı altında. Her ortak eşit düzeyde kurucu; hiyerarşi yok, sadece vizyon ve yetkinlik."
           />
 
-          <TerminalRoster />
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
+            {members.map((member, i) => (
+              <MemberCard key={member.slug} member={member} index={i} />
+            ))}
+          </div>
 
           {/* Manifesto */}
           <div
