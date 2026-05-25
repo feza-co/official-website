@@ -163,8 +163,8 @@ export default function TerminalRoster() {
 
         {/* Footer comment */}
         <p className="font-mono text-[10px] text-feza-faint mt-5" aria-hidden>
-          <span className="text-indigo-400">//</span>{" "}
-          5 kurucu ortak · hiyerarşisiz · est. 2026
+          <span className="text-indigo-400">{"// "}</span>
+          <span>5 kurucu ortak · hiyerarşisiz · est. 2026</span>
         </p>
       </div>
     </div>
