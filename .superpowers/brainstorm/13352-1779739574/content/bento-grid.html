@@ -1,0 +1,157 @@
+<h2>Bento Grid — Proje kartları nasıl dizilmeli?</h2>
+<p class="subtitle">Şu an projeler 2-kolon eşit grid'de. Bento Grid'e geçince hangi layout dili daha iyi hissettiriyor?</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="editorial" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0b;padding:14px;border-radius:8px;min-height:230px;">
+      <!-- Editorial: 1 big + 2 small + 1 wide -->
+      <div style="display:grid;grid-template-columns:2fr 1fr;grid-template-rows:auto auto;gap:6px;height:100%;">
+
+        <!-- Big feature card -->
+        <div style="grid-column:1;grid-row:1/3;background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(6,182,212,0.06));border:1px solid rgba(99,102,241,0.2);border-radius:8px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#6366f1,#22d3ee);"></div>
+          <div>
+            <div style="font-family:monospace;font-size:7px;letter-spacing:2px;color:#22d3ee;text-transform:uppercase;margin-bottom:6px;">// Aktif · 2026</div>
+            <div style="font-size:16px;font-weight:800;color:#f4f4f5;font-family:serif;letter-spacing:-0.5px;line-height:1.1;">Raw2Value<br>AI</div>
+            <div style="width:24px;height:1px;background:#6366f1;margin:8px 0;"></div>
+            <div style="font-size:9px;color:#71717a;font-family:sans-serif;line-height:1.5;">ML tabanlı hammadde değer<br>optimizasyon platformu</div>
+          </div>
+          <div>
+            <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px;">
+              <span style="font-size:7px;font-family:monospace;color:#6366f1;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);padding:2px 6px;border-radius:3px;">Python</span>
+              <span style="font-size:7px;font-family:monospace;color:#6366f1;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);padding:2px 6px;border-radius:3px;">FastAPI</span>
+              <span style="font-size:7px;font-family:monospace;color:#6366f1;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);padding:2px 6px;border-radius:3px;">XGBoost</span>
+            </div>
+            <div style="font-size:7px;font-family:monospace;color:#4f46e5;letter-spacing:2px;text-transform:uppercase;">Detayları Gör ↗</div>
+          </div>
+        </div>
+
+        <!-- Small top right -->
+        <div style="grid-column:2;grid-row:1;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.15);border-radius:8px;padding:10px;">
+          <div style="font-size:7px;font-family:monospace;color:#34d399;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">// Tamamlandı</div>
+          <div style="font-size:12px;font-weight:700;color:#f4f4f5;font-family:serif;line-height:1.1;">Luna<br>Path</div>
+          <div style="font-size:8px;color:#52525b;margin-top:4px;font-family:sans-serif;">Ay güzergah</div>
+        </div>
+
+        <!-- Small bottom right -->
+        <div style="grid-column:2;grid-row:2;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.12);border-radius:8px;padding:10px;">
+          <div style="font-size:7px;font-family:monospace;color:#fbbf24;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">// Aktif</div>
+          <div style="font-size:12px;font-weight:700;color:#f4f4f5;font-family:serif;line-height:1.1;">Digital<br>Twin Kit</div>
+          <div style="font-size:8px;color:#52525b;margin-top:4px;font-family:sans-serif;">IoT altyapı</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Editorial (1 büyük + 2 küçük)</h3>
+      <p>Bir öne çıkan proje büyük (feature card), diğerleri küçük. Hiyerarşi net, en önemli proje dikkat çekiyor. New York Times / Vercel tarzı.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="mosaic" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0b;padding:14px;border-radius:8px;min-height:230px;">
+      <!-- Mosaic: üst geniş + alt 3lü + wide bottom -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 0.7fr;gap:6px;height:100%;">
+
+        <!-- Wide top -->
+        <div style="grid-column:1/3;grid-row:1;background:linear-gradient(120deg,rgba(99,102,241,0.1),rgba(6,182,212,0.06));border:1px solid rgba(99,102,241,0.18);border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;">
+          <div style="position:absolute;right:-10px;top:-10px;width:80px;height:80px;background:radial-gradient(circle,rgba(99,102,241,0.3),transparent 70%);filter:blur(12px);"></div>
+          <div>
+            <div style="font-size:7px;font-family:monospace;color:#818cf8;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;">// Öne Çıkan</div>
+            <div style="font-size:18px;font-weight:800;color:#f4f4f5;font-family:serif;letter-spacing:-0.5px;">Meydan</div>
+            <div style="font-size:8px;color:#71717a;font-family:sans-serif;margin-top:3px;">AI destekli spor eşleştirme ekosistemi</div>
+          </div>
+          <div style="margin-left:auto;font-size:7px;font-family:monospace;color:#6366f1;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;">Aktif ●</div>
+        </div>
+
+        <!-- Tall right -->
+        <div style="grid-column:3;grid-row:1/3;background:rgba(6,182,212,0.07);border:1px solid rgba(6,182,212,0.14);border-radius:8px;padding:10px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div style="font-size:7px;font-family:monospace;color:#22d3ee;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">// Twin</div>
+            <div style="font-size:13px;font-weight:700;color:#f4f4f5;font-family:serif;line-height:1.1;">Digital<br>Twin Kit</div>
+          </div>
+          <div style="font-size:8px;color:#52525b;font-family:sans-serif;line-height:1.4;">IoT & WebGL<br>3D altyapı</div>
+          <div style="width:20px;height:1px;background:#22d3ee;"></div>
+        </div>
+
+        <!-- Bottom 2 squares -->
+        <div style="grid-column:1;grid-row:2;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.14);border-radius:8px;padding:10px;">
+          <div style="font-size:7px;color:#34d399;font-family:monospace;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Tamamlandı</div>
+          <div style="font-size:12px;font-weight:700;color:#f4f4f5;font-family:serif;">LunaPath</div>
+        </div>
+
+        <div style="grid-column:2;grid-row:2;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.12);border-radius:8px;padding:10px;">
+          <div style="font-size:7px;color:#fbbf24;font-family:monospace;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Tamamlandı</div>
+          <div style="font-size:12px;font-weight:700;color:#f4f4f5;font-family:serif;">UYUM</div>
+        </div>
+
+        <!-- Wide bottom footer bar -->
+        <div style="grid-column:1/4;grid-row:3;background:rgba(99,102,241,0.05);border:1px solid rgba(99,102,241,0.1);border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:8px;">
+          <span style="font-size:8px;color:#52525b;font-family:monospace;text-transform:uppercase;letter-spacing:2px;">+5 proje daha →</span>
+          <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(99,102,241,0.2),transparent);"></div>
+          <span style="font-size:8px;color:#4f46e5;font-family:monospace;letter-spacing:2px;text-transform:uppercase;">Tümünü Gör</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Mozaik (Asimetrik 3-kolon)</h3>
+      <p>Üst geniş featured + sağda tall kart + alt iki küçük + footer bar. Apple "What's New" tarzı asimetrik mozaik. Her proje farklı ağırlık taşıyor, göz doğal geziniyor.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="magazine" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0b;padding:14px;border-radius:8px;min-height:230px;">
+      <!-- Magazine: tam genişlik row'lar, numaralı -->
+      <div style="display:flex;flex-direction:column;gap:6px;height:100%;">
+
+        <!-- Row 1: featured wide -->
+        <div style="flex:1.5;background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(6,182,212,0.04));border:1px solid rgba(99,102,241,0.2);border-radius:8px;padding:12px;display:flex;align-items:center;gap:14px;position:relative;overflow:hidden;">
+          <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#6366f1,#22d3ee);border-radius:2px 0 0 2px;"></div>
+          <div style="font-family:serif;font-size:32px;font-weight:900;color:rgba(99,102,241,0.25);line-height:1;padding-left:8px;">01</div>
+          <div style="flex:1;">
+            <div style="font-size:7px;font-family:monospace;color:#818cf8;text-transform:uppercase;letter-spacing:2px;margin-bottom:3px;">Raw2Value AI · 2026 · Aktif</div>
+            <div style="font-size:15px;font-weight:800;color:#f4f4f5;font-family:serif;letter-spacing:-0.3px;">Kapadokya Hackathon kazananı</div>
+            <div style="font-size:8px;color:#71717a;margin-top:3px;font-family:sans-serif;">ML tabanlı hammadde değer optimizasyonu</div>
+          </div>
+          <div style="font-size:18px;color:#6366f1;opacity:0.5;">↗</div>
+        </div>
+
+        <!-- Row 2: 2 medium -->
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.14);border-radius:8px;padding:10px;display:flex;align-items:center;gap:10px;">
+            <div style="font-family:serif;font-size:22px;font-weight:900;color:rgba(16,185,129,0.2);line-height:1;">02</div>
+            <div>
+              <div style="font-size:7px;color:#34d399;font-family:monospace;text-transform:uppercase;letter-spacing:1px;">LunaPath</div>
+              <div style="font-size:9px;color:#a1a1aa;font-family:sans-serif;margin-top:2px;">TUA ASTRO 2026</div>
+            </div>
+          </div>
+          <div style="background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.14);border-radius:8px;padding:10px;display:flex;align-items:center;gap:10px;">
+            <div style="font-family:serif;font-size:22px;font-weight:900;color:rgba(6,182,212,0.2);line-height:1;">03</div>
+            <div>
+              <div style="font-size:7px;color:#22d3ee;font-family:monospace;text-transform:uppercase;letter-spacing:1px;">Digital Twin</div>
+              <div style="font-size:9px;color:#a1a1aa;font-family:sans-serif;margin-top:2px;">IoT altyapı</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: stat bar -->
+        <div style="background:rgba(99,102,241,0.05);border:1px solid rgba(99,102,241,0.1);border-radius:8px;padding:8px 14px;display:flex;gap:20px;align-items:center;">
+          <span style="font-size:8px;color:#52525b;font-family:monospace;text-transform:uppercase;letter-spacing:2px;">9 proje toplam</span>
+          <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(99,102,241,0.15),transparent);"></div>
+          <span style="font-size:8px;color:#34d399;font-family:monospace;letter-spacing:1px;">● 4 aktif</span>
+          <span style="font-size:8px;color:#4f46e5;font-family:monospace;letter-spacing:1px;">↗ 5 tamamlandı</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Dergi (Numaralı tam genişlik satırlar)</h3>
+      <p>Büyük numara + proje adı + meta bilgi sıralaması. Linear/Notion tarzı editorial liste. Temiz, okunabilir, sıra hiyerarşisi net. Bento'dan çok "curated portfolio" hissi.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:20px;padding:14px;background:rgba(99,102,241,0.05);border:1px solid rgba(99,102,241,0.12);border-radius:8px;">
+  <p class="label">Not</p>
+  <p style="margin-top:6px;">9 projeniz var — hepsini tek sayfada göstermek yerine "öne çıkanlar" + "tümünü gör" stratejisi de benimseyebiliriz. Hangi düzende karar verirsek onu baz alacağız.</p>
+</div>

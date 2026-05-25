@@ -1,0 +1,47 @@
+<h2>Animasyon Felsefesi — Nasıl hareket etmeli?</h2>
+<p class="subtitle">Mevcut sitede CSS keyframe animasyonları var (fadeInUp, glow-pulse, scroll-hint). "Pro Max" seviyeye taşımak için hangi hareket dili doğru?</p>
+
+<div class="options">
+
+  <div class="option" data-choice="subtle-refined" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Subtle & Refined — "Neredeyse fark edilmez ama hissedilir"</h3>
+      <p>Mevcut CSS animasyonlarını ince ayarla. Scroll reveal için <code>IntersectionObserver</code> ekle, buton hover'larında <code>cubic-bezier(0.16,1,0.3,1)</code> spring easing. Framer Motion <strong>yok</strong> — bundle boyutu küçük kalır. Sayfa hızlı, animasyonlar %10 daha iyi hissettiren "ghost" dokunuşlar.</p>
+      <div class="pros-cons" style="margin-top:12px;">
+        <div class="pros"><h4>Artılar</h4><ul><li>Sıfır yeni bağımlılık</li><li>Hızlı yükleme</li><li>prefers-reduced-motion zaten var</li><li>2-3 saat iş</li></ul></div>
+        <div class="cons"><h4>Eksiler</h4><ul><li>Karmaşık sekanslar zor</li><li>"Wow" anı yok</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="framer-selective" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Framer Motion — Sadece kritik noktalarda</h3>
+      <p>Framer Motion eklenir ama <strong>seçici</strong> kullanılır: Hero text stagger, Bento Grid kartları için <code>whileInView</code>, Team Section için <code>layout</code> animasyonu. Geri kalan her şey CSS kalır. ~31KB gzip ek yük — Next.js code splitting ile sadece ihtiyaç anında yüklenir.</p>
+      <div class="pros-cons" style="margin-top:12px;">
+        <div class="pros"><h4>Artılar</h4><ul><li>Spring physics — gerçekçi hareket</li><li>Stagger sekansları kolaylaşır</li><li>Gesture desteği (hover, drag)</li><li>Orta maliyet</li></ul></div>
+        <div class="cons"><h4>Eksiler</h4><ul><li>31KB ek bundle</li><li>Dikkatli kullanım gerekir</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="css-view-transitions" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>CSS Only + View Transitions API — Sıfır bağımlılık, maksimum modern</h3>
+      <p>Framer Motion yok. Bunun yerine: CSS <code>@keyframes</code> genişletilir, <code>animation-timeline: scroll()</code> ile scroll-driven animasyonlar, Next.js 15'in desteklediği View Transitions API ile sayfa geçişleri. En modern yaklaşım — ama tarayıcı desteği henüz %78.</p>
+      <div class="pros-cons" style="margin-top:12px;">
+        <div class="pros"><h4>Artılar</h4><ul><li>Sıfır JS yükü</li><li>Cutting-edge his</li><li>GPU hızlandırmalı</li></ul></div>
+        <div class="cons"><h4>Eksiler</h4><ul><li>Safari'de kısmi destek</li><li>Karmaşık sekanslar sınırlı</li><li>Daha az kontrol</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:20px;padding:14px;background:rgba(99,102,241,0.05);border:1px solid rgba(99,102,241,0.12);border-radius:8px;">
+  <p class="label">Önerim</p>
+  <p style="margin-top:6px;"><strong>B — Framer Motion seçici kullanım.</strong> Sinematik Hero + Terminal Roster + Dergi Grid seçtiniz — bu üçünde de stagger ve spring animasyonlar Framer Motion olmadan doğal hissetmez. CSS ile yapılabilir ama 3× daha fazla kod gerekir ve sonuç mekanik görünür. Next.js dynamic import ile sadece ihtiyaç duyulan component'larda yüklenir.</p>
+</div>
