@@ -89,6 +89,7 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "NGT",
     avatarGradient: "from-emerald-500 via-teal-500 to-cyan-600",
+    avatar: "/avatars/goktug-tabak.jpg",
     linkedin: "https://www.linkedin.com/in/goktug-tabak/",
     github: "https://github.com/goktugtabak",
     bio: "Sistem mimarisi ve backend geliştirme konularında uzmanlaşmış, ölçeklenebilir ve yüksek-performanslı altyapılar tasarlayan mühendis. DevOps ve konteyner orkestrasyonu alanındaki deneyimiyle kolektifin teknik omurgasını güçlendiriyor.",
