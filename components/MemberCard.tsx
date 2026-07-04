@@ -54,7 +54,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
 
         {/* ── Sequence number ── */}
         <span
-          className="absolute top-3.5 left-4 font-mono text-[10px] tracking-widest text-feza-faint
+          className="absolute top-3.5 left-4 font-outfit text-[10px] tracking-widest text-feza-faint
                      group-hover/card:text-indigo-400 transition-colors duration-300"
           aria-hidden
         >
@@ -117,7 +117,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
           >
             {member.name}
           </h3>
-          <p className="font-mono text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
+          <p className="font-outfit text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
             {member.role}
           </p>
         </div>
@@ -157,7 +157,7 @@ export default function MemberCard({ member, index = 0 }: MemberCardProps) {
         {/* ── View profile CTA — always visible (H6b fix: affordance) ── */}
         {/* text-feza-muted-xs: ~5.1:1 on white — passes AA; brightens to indigo on hover */}
         <div
-          className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest
+          className="flex items-center gap-1.5 font-outfit text-[10px] tracking-widest
                      text-feza-muted-xs group-hover/card:text-indigo-600 dark:group-hover/card:text-indigo-400
                      -mt-1 translate-y-0 group-hover/card:-translate-y-0.5
                      transition-all duration-300"

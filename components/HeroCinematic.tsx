@@ -71,7 +71,7 @@ export default function HeroCinematic() {
         {/* Eyebrow */}
         <motion.p
           variants={inUp}
-          className="font-mono text-[9px] tracking-[5px] uppercase text-indigo-400 mb-8 sm:mb-10"
+          className="font-outfit text-[9px] tracking-[5px] uppercase text-indigo-400 mb-8 sm:mb-10"
         >
           Yazılım Kolektifi · Est. 2026
         </motion.p>
@@ -126,7 +126,7 @@ export default function HeroCinematic() {
         {/* —CO */}
         <motion.p
           variants={inUp}
-          className="font-mono font-bold tracking-[8px] text-indigo-400 mb-6"
+          className="font-outfit font-bold tracking-[8px] text-indigo-400 mb-6"
           style={{ fontSize: "clamp(1rem, 3vw, 1.75rem)" }}
         >
           —CO
@@ -135,7 +135,7 @@ export default function HeroCinematic() {
         {/* Alt yazı */}
         <motion.p
           variants={inFade}
-          className="font-mono text-[10px] tracking-[2px] uppercase text-feza-faint mb-10"
+          className="font-outfit text-[10px] tracking-[2px] uppercase text-feza-faint mb-10"
         >
           Beş kurucu · Sınırsız vizyon
         </motion.p>
@@ -145,7 +145,7 @@ export default function HeroCinematic() {
           <Link
             href="#projects"
             className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-sm
-                       font-mono text-xs tracking-[3px] uppercase text-indigo-300
+                       font-outfit text-xs tracking-[3px] uppercase text-indigo-300
                        border border-indigo-500/30
                        transition-all duration-300
                        hover:border-indigo-400 hover:text-feza-text hover:bg-indigo-500/5
@@ -161,7 +161,7 @@ export default function HeroCinematic() {
           <Link
             href="#founders"
             className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-sm
-                       font-mono text-xs tracking-[3px] uppercase text-feza-faint
+                       font-outfit text-xs tracking-[3px] uppercase text-feza-faint
                        border border-feza-border
                        transition-all duration-300
                        hover:border-feza-border-md hover:text-feza-secondary
@@ -178,7 +178,7 @@ export default function HeroCinematic() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         aria-hidden
       >
-        <span className="font-mono text-[8px] tracking-[3px] uppercase text-feza-faint">
+        <span className="font-outfit text-[8px] tracking-[3px] uppercase text-feza-faint">
           Aşağı kaydır
         </span>
         <div className="relative h-9 w-5 rounded-full border border-feza-border">

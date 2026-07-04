@@ -72,7 +72,7 @@ export default function TeamPopover({ members, label, value }: TeamPopoverProps)
         aria-haspopup="dialog"
         aria-label={`${label}: ${value} — ekip üyelerini görmek için tıklayın`}
       >
-        <p className="font-mono text-[9px] tracking-widest uppercase text-feza-muted">
+        <p className="font-outfit text-[9px] tracking-widest uppercase text-feza-muted">
           {label}
         </p>
         <p className={`mt-1 truncate font-outfit text-sm font-semibold underline decoration-feza-border underline-offset-2 transition-colors duration-200 ${open ? 'text-cyan-700 dark:text-cyan-400' : 'text-feza-secondary'}`}>
@@ -93,7 +93,7 @@ export default function TeamPopover({ members, label, value }: TeamPopoverProps)
         `}
       >
         <div className="px-3 py-2 border-b border-feza-border">
-          <p className="font-mono text-[9px] tracking-widest uppercase text-feza-muted">
+          <p className="font-outfit text-[9px] tracking-widest uppercase text-feza-muted">
             Ekip üyeleri
           </p>
         </div>

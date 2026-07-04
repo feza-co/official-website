@@ -25,7 +25,7 @@ export default function BackButton({ fallbackHref, label }: BackButtonProps) {
       href={fallbackHref}
       onClick={handleClick}
       className="group mb-10 inline-flex cursor-pointer items-center gap-2 rounded-sm
-                 font-mono text-xs uppercase tracking-widest text-feza-muted-xs
+                 font-outfit text-xs uppercase tracking-widest text-feza-muted-xs
                  transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400
                  focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
     >

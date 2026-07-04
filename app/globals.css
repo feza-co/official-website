@@ -5,16 +5,16 @@
 /* ─── Design System Variables — Light ────────────────────────────────────── */
 :root {
   /* Surfaces */
-  --bg: #fafafa;
+  --bg: #eceff3;
   --surface: #ffffff;
   --card: #ffffff;
-  --surface-2: #f8fafc;
+  --surface-2: #e6eaf0;
 
   /* Borders */
-  --border: #e2e8f0;
-  --border-md: #cbd5e1;
+  --border: #cbd5e1;
+  --border-md: #94a3b8;
 
-  /* Typography (WCAG AA verified against --bg #fafafa) */
+  /* Typography (WCAG AA verified against --bg #eceff3) */
   --text: #09090b;            /* 18:1 — body */
   --text-secondary: #3f3f46;  /* 10:1 — secondary */
   --text-muted: #52525b;      /* 7.6:1 — muted, was #94a3b8 (3.2:1, AA fail) */
@@ -161,7 +161,7 @@ body {
 
   /* Tag / chip — indigo tinted */
   .tag-light {
-    font-family: var(--font-space-mono), monospace;
+    font-family: var(--font-inter), sans-serif;
     font-size: 0.63rem;
     letter-spacing: 0.04em;
     color: var(--indigo);

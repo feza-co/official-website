@@ -26,7 +26,7 @@ export default function CopyEmail({ email }: CopyEmailProps) {
       onClick={handleCopy}
       aria-label={copied ? "E-posta kopyalandı" : `${email} adresini kopyala`}
       title={copied ? "Kopyalandı!" : "Adresi kopyala"}
-      className="flex items-center gap-1.5 font-mono text-[10px] tracking-widest uppercase
+      className="flex items-center gap-1.5 font-outfit text-[10px] tracking-widest uppercase
                  text-feza-muted-xs transition-colors duration-200
                  hover:text-indigo-600 dark:hover:text-indigo-400
                  focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb]

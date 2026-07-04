@@ -50,7 +50,7 @@ function StatBar() {
           { value: 2026,                    label: "Kuruluş Yılı" },
         ].map(({ value, label }) => (
           <div key={label} className="space-y-1">
-            <dt className="font-mono text-[9px] tracking-[3px] uppercase text-feza-faint">
+            <dt className="font-outfit text-[9px] tracking-[3px] uppercase text-feza-faint">
               {label}
             </dt>
             <dd className="font-orbitron font-bold text-xl sm:text-2xl text-indigo-500 dark:text-indigo-400 m-0">
@@ -78,7 +78,7 @@ function SectionHeader({
     <div className="mb-12 md:mb-16 space-y-4">
       <div className="flex items-center gap-3">
         <div className="h-px w-10 bg-indigo-400" aria-hidden />
-        <span className="font-mono text-[11px] tracking-widest uppercase text-indigo-500 dark:text-indigo-400">
+        <span className="font-outfit text-[11px] tracking-widest uppercase text-indigo-500 dark:text-indigo-400">
           {label}
         </span>
         <div className="h-px w-10 bg-indigo-200 dark:bg-indigo-800" aria-hidden />
@@ -142,10 +142,10 @@ export default function HomePage() {
               style={{ background: "linear-gradient(180deg, #6366f1 0%, #06b6d4 100%)" }}
               aria-hidden
             />
-            <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500 dark:text-indigo-400 shrink-0 sm:mt-1 pl-2 sm:pl-3">
+            <span className="font-outfit text-[10px] tracking-widest uppercase text-indigo-500 dark:text-indigo-400 shrink-0 sm:mt-1 pl-2 sm:pl-3">
               Manifesto
             </span>
-            <p className="font-mono text-xs text-feza-muted leading-[1.9] pl-2 sm:pl-0">
+            <p className="font-outfit text-xs text-feza-muted leading-[1.9] pl-2 sm:pl-0">
               <span className="text-indigo-500 dark:text-indigo-400">{"//"}</span>{" "}
               {'Bu kolektifte hiç kimse "Lead", "Senior" veya "Manager" değildir.'}
               <br />
@@ -172,7 +172,7 @@ export default function HomePage() {
               title="Üretilenler"
               subtitle="Kolektif olarak geliştirdiğimiz, geliştirmeye devam ettiğimiz çalışmalar."
             />
-            <div className="flex shrink-0 items-center gap-4 font-mono text-[10px] tracking-widest uppercase mb-2 sm:mb-6">
+            <div className="flex shrink-0 items-center gap-4 font-outfit text-[10px] tracking-widest uppercase mb-2 sm:mb-6">
               <span className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" aria-hidden />
                 {activeProjectCount} Aktif
@@ -212,7 +212,7 @@ export default function HomePage() {
               <div className="space-y-5">
                 <div className="flex items-center gap-3">
                   <div className="h-px w-10 bg-indigo-400" aria-hidden />
-                  <span className="font-mono text-[10px] tracking-widest uppercase text-indigo-500 dark:text-indigo-400">
+                  <span className="font-outfit text-[10px] tracking-widest uppercase text-indigo-500 dark:text-indigo-400">
                     {"// İletişim"}
                   </span>
                 </div>
@@ -247,7 +247,7 @@ export default function HomePage() {
                       </svg>
                     </div>
                     <div className="min-w-0">
-                      <p className="font-mono text-[10px] tracking-widest uppercase opacity-70">E-posta</p>
+                      <p className="font-outfit text-[10px] tracking-widest uppercase opacity-70">E-posta</p>
                       <p className="font-outfit text-sm font-medium truncate">fezahackathon@gmail.com</p>
                     </div>
                   </div>
@@ -274,7 +274,7 @@ export default function HomePage() {
                       </svg>
                     </div>
                     <div className="min-w-0">
-                      <p lang="en" className="font-mono text-[10px] tracking-widest uppercase text-feza-muted">GitHub</p>
+                      <p lang="en" className="font-outfit text-[10px] tracking-widest uppercase text-feza-muted">GitHub</p>
                       <p className="font-outfit text-sm font-medium truncate">@feza-co</p>
                     </div>
                   </div>
@@ -283,7 +283,7 @@ export default function HomePage() {
                   </span>
                 </a>
 
-                <p className="font-mono text-[10px] tracking-widest uppercase text-feza-muted pt-1">
+                <p className="font-outfit text-[10px] tracking-widest uppercase text-feza-muted pt-1">
                   <span className="text-indigo-400">{"//"}</span>{" "}
                   E-postalarınızı genellikle 2 iş günü içinde yanıtlıyoruz
                 </p>

@@ -28,7 +28,7 @@ export default function Marquee({ items, variant = "default", label }: MarqueePr
             lang="en"
             className={`
               inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-1.5
-              font-mono text-[10px] tracking-widest uppercase
+              font-outfit text-[10px] tracking-widest uppercase
               ${
                 variant === "muted"
                   ? "border border-feza-border bg-feza-card text-feza-muted-xs"

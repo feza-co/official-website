@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* ── Navigation ── */}
           <div className="space-y-3 md:col-span-3">
-            <p className="font-mono text-[10px] tracking-widest text-feza-muted-xs uppercase mb-4">
+            <p className="font-outfit text-[10px] tracking-widest text-feza-muted-xs uppercase mb-4">
               Navigasyon
             </p>
             {[
@@ -88,7 +88,7 @@ export default function Footer() {
 
           {/* ── Contact & Manifesto ── */}
           <div className="space-y-3 md:col-span-4">
-            <p className="font-mono text-[10px] tracking-widest text-feza-muted-xs uppercase mb-4">
+            <p className="font-outfit text-[10px] tracking-widest text-feza-muted-xs uppercase mb-4">
               İletişim
             </p>
             <a
@@ -114,10 +114,10 @@ export default function Footer() {
 
         {/* ── Bottom Bar ── */}
         <div className="mt-10 pt-6 border-t border-feza-border flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <p className="font-mono text-[11px] text-feza-muted-xs">
+          <p className="font-outfit text-[11px] text-feza-muted-xs">
             © {year} Feza-Co Kolektifi. Tüm hakları saklıdır.
           </p>
-          <p className="font-mono text-[11px] text-feza-muted-xs">
+          <p className="font-outfit text-[11px] text-feza-muted-xs">
             <span className="text-cyan-700 dark:text-cyan-400">5</span> ortak ·{" "}
             <span className="text-emerald-600 dark:text-emerald-400">1</span> aktif proje ·{" "}
             <span className="text-indigo-600 dark:text-indigo-400">∞</span> vizyon

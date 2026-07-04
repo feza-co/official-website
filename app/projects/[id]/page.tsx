@@ -81,7 +81,7 @@ export default async function ProjectPage({
             HEADER
         ══════════════════════════════════════════════════════════ */}
         <header className="space-y-6 mb-12 sm:mb-16">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[11px] tracking-widest uppercase">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 font-outfit text-[11px] tracking-widest uppercase">
             <span className="text-[#2563eb] dark:text-indigo-400">{"// Proje"}</span>
             <span
               className="flex items-center gap-2 text-feza-muted-xs"
@@ -103,7 +103,7 @@ export default async function ProjectPage({
           <div className="h-px max-w-md bg-gradient-to-r from-indigo-400 via-cyan-300 to-transparent" />
 
           {project.highlight && (
-            <p className="font-mono text-sm text-indigo-700 dark:text-indigo-300 leading-relaxed max-w-2xl">
+            <p className="font-outfit text-sm text-indigo-700 dark:text-indigo-300 leading-relaxed max-w-2xl">
               <span className="text-[#2563eb] dark:text-indigo-400 mr-2">{"//"}</span>
               {project.highlight}
             </p>
@@ -122,7 +122,7 @@ export default async function ProjectPage({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex cursor-pointer items-center gap-2 px-5 py-3 rounded-lg
-                             font-mono text-xs tracking-widest uppercase transition-all duration-300
+                             font-outfit text-xs tracking-widest uppercase transition-all duration-300
                              text-feza-text border border-feza-border bg-feza-card
                              hover:border-feza-border-md hover:bg-feza-surface-2 hover:-translate-y-0.5
                              focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
@@ -137,7 +137,7 @@ export default async function ProjectPage({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex cursor-pointer items-center gap-2 px-5 py-3 rounded-lg
-                             font-mono text-xs tracking-widest uppercase transition-all duration-300
+                             font-outfit text-xs tracking-widest uppercase transition-all duration-300
                              text-white bg-indigo-600 border border-indigo-600
                              hover:bg-indigo-700 hover:border-indigo-700 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25
                              focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
@@ -163,7 +163,7 @@ export default async function ProjectPage({
                 { label: "Çıktı",    value: project.caseStudy.outcome,  accent: "text-emerald-700 dark:text-emerald-400" },
               ].map((item) => (
                 <div key={item.label} className="bg-feza-card px-5 py-5">
-                  <p className={`font-mono text-[10px] tracking-widest uppercase ${item.accent}`}>
+                  <p className={`font-outfit text-[10px] tracking-widest uppercase ${item.accent}`}>
                     {item.label}
                   </p>
                   <p className="mt-2 font-outfit text-sm leading-relaxed text-feza-secondary">
@@ -222,7 +222,7 @@ export default async function ProjectPage({
                     <p className="font-outfit text-sm font-medium text-feza-text truncate group-hover:text-indigo-700 dark:group-hover:text-indigo-400 transition-colors duration-200">
                       {m.name}
                     </p>
-                    <p className="font-mono text-[10px] tracking-widest uppercase text-feza-muted-xs truncate">
+                    <p className="font-outfit text-[10px] tracking-widest uppercase text-feza-muted-xs truncate">
                       {m.role}
                     </p>
                   </div>
@@ -236,7 +236,7 @@ export default async function ProjectPage({
             OTHER PROJECTS
         ══════════════════════════════════════════════════════════ */}
         <div className="mt-16 pt-12 border-t border-feza-border">
-          <p className="font-mono text-[10px] tracking-widest uppercase text-feza-muted-xs mb-6">
+          <p className="font-outfit text-[10px] tracking-widest uppercase text-feza-muted-xs mb-6">
             Diğer Projeler
           </p>
           <div className="flex flex-wrap gap-2.5">
@@ -253,7 +253,7 @@ export default async function ProjectPage({
                              hover:shadow-sm focus:outline-none
                              focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
                 >
-                  <span className="font-mono text-[10px] text-feza-faint">
+                  <span className="font-outfit text-[10px] text-feza-faint">
                     {String(projects.findIndex((x) => x.id === p.id) + 1).padStart(2, "0")}
                   </span>
                   <span>{p.title}</span>

@@ -81,7 +81,7 @@ function FeaturedRow({ project, index }: { project: (typeof projects)[0]; index:
         <div className="flex-1 min-w-0 space-y-3">
           {/* Meta row */}
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span className="font-mono text-[9px] tracking-[2px] uppercase text-feza-faint sm:hidden">
+            <span className="font-outfit text-[9px] tracking-[2px] uppercase text-feza-faint sm:hidden">
               {num}
             </span>
             {/* Status dot */}
@@ -92,12 +92,12 @@ function FeaturedRow({ project, index }: { project: (typeof projects)[0]; index:
               }`}
               aria-hidden
             />
-            <span className="font-mono text-[9px] tracking-[2px] uppercase text-feza-muted">
+            <span className="font-outfit text-[9px] tracking-[2px] uppercase text-feza-muted">
               {config.label}
             </span>
-            <span className="font-mono text-[9px] text-feza-faint">{project.year}</span>
+            <span className="font-outfit text-[9px] text-feza-faint">{project.year}</span>
             {project.highlight && (
-              <span className="font-mono text-[9px] tracking-[1px] uppercase text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 rounded line-clamp-1 max-w-xs">
+              <span className="font-outfit text-[9px] tracking-[1px] uppercase text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 rounded line-clamp-1 max-w-xs">
                 {project.highlight}
               </span>
             )}
@@ -114,7 +114,7 @@ function FeaturedRow({ project, index }: { project: (typeof projects)[0]; index:
           </h3>
 
           {/* Description/highlight */}
-          <p className="font-mono text-xs text-feza-secondary leading-relaxed line-clamp-2">
+          <p className="font-outfit text-xs text-feza-secondary leading-relaxed line-clamp-2">
             {project.description}
           </p>
 
@@ -136,7 +136,7 @@ function FeaturedRow({ project, index }: { project: (typeof projects)[0]; index:
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg
-                         font-mono text-[10px] tracking-widest uppercase
+                         font-outfit text-[10px] tracking-widest uppercase
                          text-feza-muted border border-feza-border bg-feza-card
                          hover:text-feza-text hover:border-feza-border-md hover:bg-feza-surface-2
                          transition-all duration-200
@@ -155,7 +155,7 @@ function FeaturedRow({ project, index }: { project: (typeof projects)[0]; index:
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg
-                         font-mono text-[10px] tracking-widest uppercase
+                         font-outfit text-[10px] tracking-widest uppercase
                          text-white bg-indigo-600 border border-indigo-600
                          hover:bg-indigo-700 hover:border-indigo-700
                          transition-all duration-200
@@ -170,7 +170,7 @@ function FeaturedRow({ project, index }: { project: (typeof projects)[0]; index:
           )}
           <Link
             href={`/projects/${project.id}`}
-            className="flex items-center gap-1 font-mono text-[10px] tracking-widest uppercase
+            className="flex items-center gap-1 font-outfit text-[10px] tracking-widest uppercase
                        text-indigo-500 hover:text-indigo-400 transition-colors duration-150
                        focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
           >
@@ -231,10 +231,10 @@ function NormalCard({ project, index }: { project: (typeof projects)[0]; index: 
             }`}
             aria-hidden
           />
-          <span className="font-mono text-[9px] tracking-[2px] uppercase text-feza-muted">
+          <span className="font-outfit text-[9px] tracking-[2px] uppercase text-feza-muted">
             {config.label}
           </span>
-          <span className="font-mono text-[9px] text-feza-faint">{project.year}</span>
+          <span className="font-outfit text-[9px] text-feza-faint">{project.year}</span>
         </div>
 
         <h3
@@ -245,7 +245,7 @@ function NormalCard({ project, index }: { project: (typeof projects)[0]; index: 
           {project.title}
         </h3>
 
-        <p className="font-mono text-xs text-feza-secondary leading-relaxed line-clamp-2">
+        <p className="font-outfit text-xs text-feza-secondary leading-relaxed line-clamp-2">
           {project.description}
         </p>
 
@@ -266,7 +266,7 @@ function NormalCard({ project, index }: { project: (typeof projects)[0]; index: 
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 px-2.5 py-1 rounded
-                         font-mono text-[9px] tracking-widest uppercase
+                         font-outfit text-[9px] tracking-widest uppercase
                          text-feza-muted border border-feza-border bg-feza-card
                          hover:text-feza-text hover:border-feza-border-md
                          transition-all duration-150
@@ -285,7 +285,7 @@ function NormalCard({ project, index }: { project: (typeof projects)[0]; index: 
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 px-2.5 py-1 rounded
-                         font-mono text-[9px] tracking-widest uppercase
+                         font-outfit text-[9px] tracking-widest uppercase
                          text-white bg-indigo-600 border border-indigo-600
                          hover:bg-indigo-700 transition-all duration-150
                          focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
@@ -346,11 +346,11 @@ export default function MagazineProjectGrid() {
           }}
         />
         <div className="relative flex flex-col items-center gap-2 text-center">
-          <span className="flex items-center gap-2 font-mono text-[9px] tracking-[3px] uppercase text-indigo-400">
+          <span className="flex items-center gap-2 font-outfit text-[9px] tracking-[3px] uppercase text-indigo-400">
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" aria-hidden />
             Yakında
           </span>
-          <p className="font-mono text-sm text-feza-faint max-w-xs">
+          <p className="font-outfit text-sm text-feza-faint max-w-xs">
             Yeni projeler hazırlanıyor. Kolektifin bir sonraki adımı geliyor.
           </p>
         </div>

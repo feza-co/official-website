@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Space_Grotesk, Space_Mono } from "next/font/google";
+import { Archivo, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,18 +14,10 @@ const archivo = Archivo({
 });
 
 // ─── Primary UI font ───────────────────────────────────────────────────────
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-inter",
   weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-// ─── Monospace / tag font ──────────────────────────────────────────────────
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  variable: "--font-space-mono",
-  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -86,7 +78,7 @@ export default function RootLayout({
     <html
       lang="tr"
       suppressHydrationWarning
-      className={`${archivo.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`}
+      className={`${archivo.variable} ${inter.variable}`}
     >
       <body className="font-outfit antialiased min-h-screen flex flex-col bg-feza-bg text-feza-text">
         <ThemeProvider

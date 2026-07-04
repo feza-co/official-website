@@ -107,7 +107,7 @@ export default async function MemberPage({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex cursor-pointer items-center gap-2.5 px-4 py-2.5 rounded-lg
-                             font-mono text-[10px] tracking-widest uppercase transition-all duration-200
+                             font-outfit text-[10px] tracking-widest uppercase transition-all duration-200
                              text-feza-muted-xs border border-feza-border bg-feza-card
                              hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
                              dark:hover:text-cyan-400 dark:hover:border-cyan-900 dark:hover:bg-cyan-950/30
@@ -124,7 +124,7 @@ export default async function MemberPage({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex cursor-pointer items-center gap-2.5 px-4 py-2.5 rounded-lg
-                             font-mono text-[10px] tracking-widest uppercase transition-all duration-200
+                             font-outfit text-[10px] tracking-widest uppercase transition-all duration-200
                              text-feza-muted-xs border border-feza-border bg-feza-card
                              hover:text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50
                              dark:hover:text-cyan-400 dark:hover:border-cyan-900 dark:hover:bg-cyan-950/30
@@ -141,7 +141,7 @@ export default async function MemberPage({
           {/* ── Right: Name, bio, quote ── */}
           <div className="space-y-6 md:pt-2">
             <div>
-              <span className="font-mono text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
+              <span className="font-outfit text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
                 {member.role}
               </span>
             </div>
@@ -162,7 +162,7 @@ export default async function MemberPage({
 
             {member.quote && (
               <blockquote className="relative pl-5 py-1 border-l-2 border-indigo-400">
-                <p className="font-mono text-sm italic text-feza-muted-xs leading-relaxed">
+                <p className="font-outfit text-sm italic text-feza-muted-xs leading-relaxed">
                   &ldquo;{member.quote}&rdquo;
                 </p>
               </blockquote>
@@ -182,7 +182,7 @@ export default async function MemberPage({
                   key={skill}
                   lang="en"
                   className="inline-flex items-center gap-2 rounded-lg border border-feza-border bg-feza-card px-4 py-2
-                             font-mono text-xs tracking-wider text-feza-secondary"
+                             font-outfit text-xs tracking-wider text-feza-secondary"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" aria-hidden />
                   {skill}
@@ -223,7 +223,7 @@ export default async function MemberPage({
                       <h3 className="font-orbitron font-bold text-feza-text text-base md:text-lg group-hover:text-indigo-700 dark:group-hover:text-indigo-400 transition-colors duration-200">
                         {project.title}
                       </h3>
-                      <span className="shrink-0 font-mono text-[10px] tracking-wider uppercase text-feza-muted-xs">
+                      <span className="shrink-0 font-outfit text-[10px] tracking-wider uppercase text-feza-muted-xs">
                         {project.year}
                       </span>
                     </div>
@@ -258,7 +258,7 @@ export default async function MemberPage({
                              border border-feza-border bg-feza-card"
                 >
                   <span
-                    className="font-mono text-[10px] text-feza-faint"
+                    className="font-outfit text-[10px] text-feza-faint"
                     aria-hidden
                   >
                     {String(i + 1).padStart(2, "0")}
@@ -274,7 +274,7 @@ export default async function MemberPage({
 
         {/* ── Other founders ── */}
         <div className="mt-12 sm:mt-16 pt-10 sm:pt-12 border-t border-feza-border">
-          <p className="font-mono text-[10px] tracking-widest uppercase text-feza-muted mb-6">
+          <p className="font-outfit text-[10px] tracking-widest uppercase text-feza-muted mb-6">
             Diğer Kurucu Ortaklar
           </p>
           <div className="flex flex-wrap gap-3">

@@ -29,7 +29,7 @@ export default function TerminalRoster() {
         <div className="w-[7px] h-[7px] rounded-full bg-[#ef4444]" />
         <div className="w-[7px] h-[7px] rounded-full bg-[#f59e0b]" />
         <div className="w-[7px] h-[7px] rounded-full bg-[#22c55e]" />
-        <span className="ml-3 font-mono text-[8px] tracking-[2px] uppercase text-[#52525b]">
+        <span className="ml-3 font-outfit text-[8px] tracking-[2px] uppercase text-[#52525b]">
           feza-co — roster.sh
         </span>
       </div>
@@ -37,7 +37,7 @@ export default function TerminalRoster() {
       {/* ── Terminal body ── */}
       <div className="terminal-body">
         {/* Prompt line */}
-        <p className="font-mono text-[10px] text-feza-faint mb-5" aria-hidden>
+        <p className="font-outfit text-[10px] text-feza-faint mb-5" aria-hidden>
           <span className="text-emerald-400">$</span>{" "}
           cat collective/members.json
         </p>
@@ -97,7 +97,7 @@ export default function TerminalRoster() {
                         sizes="32px"
                       />
                     ) : (
-                      <span className="w-full h-full flex items-center justify-center font-mono text-[9px] font-bold text-white">
+                      <span className="w-full h-full flex items-center justify-center font-outfit text-[9px] font-bold text-white">
                         {member.initials}
                       </span>
                     )}
@@ -108,14 +108,14 @@ export default function TerminalRoster() {
                     <p className="font-grotesk text-[13px] font-semibold text-feza-text leading-none mb-1">
                       {member.name}
                     </p>
-                    <p className={`font-mono text-[10px] truncate ${accentClass}`}>
+                    <p className={`font-outfit text-[10px] truncate ${accentClass}`}>
                       {skillSlugs.join(" · ")}
                     </p>
                   </div>
 
                   {/* Active badge */}
                   <span
-                    className="flex-shrink-0 flex items-center gap-1.5 font-mono text-[9px] tracking-[1px] uppercase text-emerald-400"
+                    className="flex-shrink-0 flex items-center gap-1.5 font-outfit text-[9px] tracking-[1px] uppercase text-emerald-400"
                     aria-label="aktif"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden />
@@ -162,7 +162,7 @@ export default function TerminalRoster() {
         </motion.ul>
 
         {/* Footer comment */}
-        <p className="font-mono text-[10px] text-feza-faint mt-5" aria-hidden>
+        <p className="font-outfit text-[10px] text-feza-faint mt-5" aria-hidden>
           <span className="text-indigo-400">{"// "}</span>
           <span>5 kurucu ortak · hiyerarşisiz · est. 2026</span>
         </p>

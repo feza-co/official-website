@@ -85,20 +85,20 @@ export default function ProjectCard({
           <div className="space-y-2.5 min-w-0">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
               <span
-                className="font-mono text-[10px] tracking-widest text-feza-faint
+                className="font-outfit text-[10px] tracking-widest text-feza-faint
                            group-hover/p:text-indigo-400 transition-colors duration-300"
                 aria-hidden
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span
-                className="font-mono text-[10px] tracking-wider uppercase
+                className="font-outfit text-[10px] tracking-wider uppercase
                            flex items-center gap-2 text-feza-muted-xs"
               >
                 <StatusDot tone={status.tone} pulse={project.status === "active"} className="h-1.5 w-1.5" />
                 {status.label}
               </span>
-              <span className="font-mono text-[10px] tracking-widest text-feza-faint">
+              <span className="font-outfit text-[10px] tracking-widest text-feza-faint">
                 {project.year}
               </span>
             </div>
@@ -120,7 +120,7 @@ export default function ProjectCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex cursor-pointer items-center gap-1.5 px-3 py-1.5 rounded-lg
-                           font-mono text-[10px] tracking-widest uppercase
+                           font-outfit text-[10px] tracking-widest uppercase
                            transition-all duration-200
                            text-feza-muted-xs border border-feza-border bg-feza-card
                            hover:text-feza-text hover:border-feza-border-md hover:bg-feza-surface-2
@@ -136,7 +136,7 @@ export default function ProjectCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex cursor-pointer items-center gap-1.5 px-3 py-1.5 rounded-lg
-                           font-mono text-[10px] tracking-widest uppercase
+                           font-outfit text-[10px] tracking-widest uppercase
                            transition-all duration-200
                            text-white border bg-indigo-600 border-indigo-600
                            hover:bg-indigo-700 hover:border-indigo-700 hover:shadow-md hover:shadow-indigo-500/20
@@ -157,10 +157,10 @@ export default function ProjectCard({
                         dark:bg-indigo-950/50 dark:border-indigo-900/60"
             style={{ borderLeft: "3px solid #6366f1" }}
           >
-            <span className="font-mono text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400 mt-0.5 shrink-0">
+            <span className="font-outfit text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400 mt-0.5 shrink-0">
               {"//"}
             </span>
-            <p className="font-mono text-xs text-feza-secondary leading-[1.75]">
+            <p className="font-outfit text-xs text-feza-secondary leading-[1.75]">
               {project.highlight}
             </p>
           </div>
@@ -180,7 +180,7 @@ export default function ProjectCard({
               { label: "Çıktı",    value: project.caseStudy.outcome,  accent: "text-emerald-700 dark:text-emerald-400"},
             ].map((item) => (
               <div key={item.label} className="bg-feza-card px-4 py-4">
-                <p className={`font-mono text-[10px] tracking-widest uppercase ${item.accent}`}>
+                <p className={`font-outfit text-[10px] tracking-widest uppercase ${item.accent}`}>
                   {item.label}
                 </p>
                 <p className="mt-2 font-outfit text-sm leading-relaxed text-feza-secondary">
@@ -194,7 +194,7 @@ export default function ProjectCard({
         {/* ── Meta strip ── */}
         <div className="grid grid-cols-1 gap-px rounded-lg border border-feza-border bg-feza-border sm:grid-cols-3">
           <div className="bg-feza-surface-2 px-4 py-3 rounded-tl-lg rounded-bl-lg sm:rounded-bl-none sm:rounded-tr-none">
-            <p className="font-mono text-[9px] tracking-widest uppercase text-feza-muted">
+            <p className="font-outfit text-[9px] tracking-widest uppercase text-feza-muted">
               Odak
             </p>
             <p className="mt-1 truncate font-outfit text-sm font-semibold text-feza-secondary">
@@ -209,7 +209,7 @@ export default function ProjectCard({
           />
 
           <div className="bg-feza-surface-2 px-4 py-3 rounded-br-lg rounded-tr-lg sm:rounded-tl-none sm:rounded-bl-none">
-            <p className="font-mono text-[9px] tracking-widest uppercase text-feza-muted">
+            <p className="font-outfit text-[9px] tracking-widest uppercase text-feza-muted">
               Yıl
             </p>
             <p className="mt-1 truncate font-outfit text-sm font-semibold text-feza-secondary">
@@ -231,7 +231,7 @@ export default function ProjectCard({
         <Link
           href={`/projects/${project.id}`}
           className="group/d inline-flex cursor-pointer items-center gap-1.5 pt-1
-                     font-mono text-[11px] tracking-widest uppercase text-indigo-600 dark:text-indigo-400
+                     font-outfit text-[11px] tracking-widest uppercase text-indigo-600 dark:text-indigo-400
                      transition-colors duration-200 hover:text-indigo-700 dark:hover:text-indigo-300
                      focus:outline-none focus-visible:rounded focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
         >

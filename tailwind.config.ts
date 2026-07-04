@@ -12,15 +12,15 @@ const config: Config = {
       fontFamily: {
         // NOTE: alias names are intentional legacy tokens kept for backward
         // compatibility with existing className usage across the codebase.
-        // Actual fonts loaded: Archivo (display), Space Grotesk (UI), Space Mono (code/labels).
+        // Actual fonts loaded: Archivo (display), Inter (UI/body).
         // Do NOT add `font-orbitron` expecting the geometric Orbitron typeface —
         // use `font-archivo` or `font-grotesk` for clarity in new code.
         orbitron: ["var(--font-archivo)", "sans-serif"],   // → Archivo (display / brand headings)
-        outfit:   ["var(--font-space-grotesk)", "sans-serif"], // → Space Grotesk (body / UI)
+        outfit:   ["var(--font-inter)", "sans-serif"], // → Inter (body / UI)
         archivo:  ["var(--font-archivo)", "sans-serif"],   // canonical alias
-        grotesk:  ["var(--font-space-grotesk)", "sans-serif"], // canonical alias
-        rajdhani: ["var(--font-space-grotesk)", "sans-serif"], // legacy alias → Space Grotesk
-        mono:     ["var(--font-space-mono)", "monospace"], // → Space Mono (labels / code)
+        grotesk:  ["var(--font-inter)", "sans-serif"], // canonical alias → Inter
+        rajdhani: ["var(--font-inter)", "sans-serif"], // legacy alias → Inter
+        mono:     ["var(--font-inter)", "sans-serif"], // legacy alias → Inter (Space Mono retired)
       },
       colors: {
         feza: {

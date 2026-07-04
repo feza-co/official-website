@@ -100,7 +100,7 @@ export default function Navbar() {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4
                    focus:z-[60] focus:rounded-lg focus:bg-feza-card focus:px-4 focus:py-2
-                   focus:font-mono focus:text-xs focus:uppercase focus:tracking-widest
+                   focus:font-outfit focus:text-xs focus:uppercase focus:tracking-widest
                    focus:text-blue-700 focus:shadow-lg focus:outline-none
                    focus:ring-2 focus:ring-[#2563eb] focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#0a0a0b]"
       >
@@ -147,7 +147,7 @@ export default function Navbar() {
                 key={href}
                 href={href}
                 aria-current={isActive ? "page" : undefined}
-                className={`group relative cursor-pointer rounded-sm font-mono text-xs uppercase
+                className={`group relative cursor-pointer rounded-sm font-outfit text-xs uppercase
                            tracking-widest transition-colors duration-200 focus:outline-none
                            focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]
                            ${isActive
@@ -180,7 +180,7 @@ export default function Navbar() {
                 boxShadow: "0 0 0 2px rgba(34,197,94,0.2)",
               }}
             />
-            <span className="font-mono text-[10px] tracking-widest text-emerald-700 dark:text-emerald-400 uppercase">
+            <span className="font-outfit text-[10px] tracking-widest text-emerald-700 dark:text-emerald-400 uppercase">
               Aktif Kolektif
             </span>
           </div>
@@ -250,7 +250,7 @@ export default function Navbar() {
                 aria-current={isActive ? "page" : undefined}
                 tabIndex={isMenuOpen ? 0 : -1}
                 className={`flex items-center justify-between rounded-lg px-3 py-3.5 min-h-[44px]
-                           font-mono text-xs tracking-widest uppercase
+                           font-outfit text-xs tracking-widest uppercase
                            cursor-pointer transition-colors duration-200
                            focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]
                            ${isActive
