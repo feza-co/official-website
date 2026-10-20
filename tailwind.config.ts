@@ -10,69 +10,63 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // NOTE: alias names are intentional legacy tokens kept for backward
-        // compatibility with existing className usage across the codebase.
-        // Actual fonts loaded: Archivo (display), Space Grotesk (UI), Space Mono (code/labels).
-        // Do NOT add `font-orbitron` expecting the geometric Orbitron typeface —
-        // use `font-archivo` or `font-grotesk` for clarity in new code.
-        orbitron: ["var(--font-archivo)", "sans-serif"],   // → Archivo (display / brand headings)
-        outfit:   ["var(--font-space-grotesk)", "sans-serif"], // → Space Grotesk (body / UI)
-        archivo:  ["var(--font-archivo)", "sans-serif"],   // canonical alias
-        grotesk:  ["var(--font-space-grotesk)", "sans-serif"], // canonical alias
-        rajdhani: ["var(--font-space-grotesk)", "sans-serif"], // legacy alias → Space Grotesk
-        mono:     ["var(--font-space-mono)", "monospace"], // → Space Mono (labels / code)
+        // Three faces, three jobs.
+        sans:    ["var(--font-manrope)", "system-ui", "sans-serif"], // body + UI
+        display: ["var(--font-display)", "system-ui", "sans-serif"],    // headlines
+        mono:    ["var(--font-mono-feza)", "ui-monospace", "monospace"], // data
+
+        // Legacy aliases kept so the detail pages keep rendering while they
+        // migrate. orbitron → display, outfit → body.
+        orbitron: ["var(--font-display)", "system-ui", "sans-serif"],
+        outfit:   ["var(--font-manrope)", "system-ui", "sans-serif"],
+        archivo:  ["var(--font-display)", "system-ui", "sans-serif"],
+        grotesk:  ["var(--font-manrope)", "system-ui", "sans-serif"],
+        rajdhani: ["var(--font-manrope)", "system-ui", "sans-serif"],
       },
       colors: {
         feza: {
-          bg:            "var(--bg)",
-          surface:       "var(--surface)",
-          card:          "var(--card)",
-          "surface-2":   "var(--surface-2)",
-          border:        "var(--border)",
-          "border-md":   "var(--border-md)",
-          text:          "var(--text)",
-          secondary:     "var(--text-secondary)",
-          muted:         "var(--text-muted)",
-          "muted-xs":    "var(--text-xs)",
-          faint:         "var(--text-faint)",
-          // Accent — fixed brand colors
-          indigo:        "#2563eb",
-          "indigo-dim":  "#3b82f6",
-          "indigo-light":"#818cf8",
-          cyan:          "#06b6d4",
-          emerald:       "#10b981",
-          amber:         "#f59e0b",
+          bg:          "var(--bg)",
+          surface:     "var(--surface)",
+          card:        "var(--card)",
+          "surface-2": "var(--card-2)",
+          "card-2":    "var(--card-2)",
+          border:      "var(--border)",
+          "border-md": "var(--border-strong)",
+
+          text:       "var(--ink)",
+          secondary:  "var(--ink-2)",
+          muted:      "var(--ink-3)",
+          "muted-xs": "var(--ink-3)",
+          faint:      "var(--ink-4)",
+
+          // Accents resolve per theme — never hardcode these in components.
+          accent:          "var(--accent)",
+          "accent-strong": "var(--accent-strong)",
+          "accent-ink":    "var(--accent-ink)",
+          signal:          "var(--signal)",
+          ok:              "var(--ok)",
+
+          // Legacy accent names
+          indigo:         "var(--accent)",
+          "indigo-dim":   "var(--accent-strong)",
+          "indigo-light": "var(--accent)",
+          cyan:           "var(--accent)",
+          emerald:        "var(--ok)",
+          amber:          "var(--signal)",
         },
       },
-      animation: {
-        "fade-in-up":     "fadeInUp 0.65s ease-out forwards",
-        "fade-in":        "fadeIn 0.5s ease-out forwards",
-        "float-slow":     "floatSlow 7s ease-in-out infinite",
-        "blink":          "blink 1.2s step-end infinite",
-      },
-      keyframes: {
-        fadeInUp: {
-          from: { opacity: "0", transform: "translateY(24px)" },
-          to:   { opacity: "1", transform: "translateY(0)" },
-        },
-        fadeIn: {
-          from: { opacity: "0" },
-          to:   { opacity: "1" },
-        },
-        floatSlow: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%":      { transform: "translateY(-8px)" },
-        },
-        blink: {
-          "0%, 100%": { opacity: "1" },
-          "50%":      { opacity: "0" },
-        },
+      borderRadius: {
+        sm: "var(--r-sm)",
+        md: "var(--r-md)",
+        lg: "var(--r-lg)",
+        xl: "var(--r-xl)",
       },
       boxShadow: {
-        "card":          "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",
-        "card-hover":    "0 10px 36px rgba(79,70,229,0.11), 0 2px 8px rgba(0,0,0,0.05)",
-        "indigo-ring":   "0 0 0 3px rgba(99,102,241,0.12)",
-        "indigo-lift":   "0 8px 32px rgba(79,70,229,0.15), 0 2px 8px rgba(0,0,0,0.04)",
+        card: "var(--shadow-card)",
+        lift: "var(--shadow-lift)",
+      },
+      transitionTimingFunction: {
+        feza: "cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },
