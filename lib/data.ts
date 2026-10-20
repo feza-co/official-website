@@ -1,4 +1,4 @@
-// ─── Feza-Co Collective · Data Layer ────────────────────────────────────────
+// ─── FEZA Collective · Data Layer ────────────────────────────────────────
 
 export interface Member {
   name: string;
@@ -13,7 +13,6 @@ export interface Member {
   skills: string[];
   projects: string[]; // project IDs
   hackathons?: string[];
-  quote?: string;
 }
 
 export interface Project {
@@ -51,7 +50,7 @@ export const members: Member[] = [
     avatar: "/avatars/ahmet-karakoyun.png",
     linkedin: "https://www.linkedin.com/in/ahmetkrkyn0/",
     github: "https://github.com/ahmetkrkyn0",
-    bio: "Yazılım geliştirme ve yapay zeka sistemleri üzerine odaklanan bir kurucu ortak. Ölçeklenebilir mimari tasarımı ve modern web teknolojileri konusunda derin teknik deneyim sahibi. Feza-Co'nun vizyon ve teknik yönünün şekillenmesinde aktif rol alıyor.",
+    bio: "Yazılım geliştirme ve yapay zeka sistemleri üzerine odaklanan bir kurucu ortak. Ölçeklenebilir mimari tasarımı ve modern web teknolojileri konusunda derin teknik deneyim sahibi. FEZA'nın vizyon ve teknik yönünün şekillenmesinde aktif rol alıyor.",
     skills: [
       "Full Stack Development",
       "Artificial Intelligence",
@@ -62,7 +61,6 @@ export const members: Member[] = [
     ],
     projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan", "hayat-agi", "healthai-co-creation", "iso-29119-4-gamified"],
     hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
-    quote: "Kod yazmak bir sanat, sistem tasarlamak bir mühendislik disiplinidir.",
   },
   {
     name: "Tuna Deniz",
@@ -73,7 +71,7 @@ export const members: Member[] = [
     avatar: "/avatars/tuna-deniz.jpeg",
     linkedin: "https://www.linkedin.com/in/tuna-deniz1304/",
     github: "https://github.com/tunadeniz1304",
-    bio: "Dijital ikiz sistemleri ve 3D modelleme alanında akademik düzeyde altyapılar geliştiren mühendis. IoT sensör entegrasyonu ve gerçek zamanlı veri akışı konularındaki araştırmaları Feza-Co'nun teknik portföyünün temel taşını oluşturuyor.",
+    bio: "Dijital ikiz sistemleri ve 3D modelleme alanında akademik düzeyde altyapılar geliştiren mühendis. IoT sensör entegrasyonu ve gerçek zamanlı veri akışı konularındaki araştırmaları FEZA'nın teknik portföyünün temel taşını oluşturuyor.",
     skills: [
       "Digital Twin Systems",
       "3D Modelling & Simulation",
@@ -84,8 +82,6 @@ export const members: Member[] = [
     ],
     projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan", "iso-testing-world"],
     hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
-    quote:
-      "Fiziksel dünyayı sayısallaştırmak, geleceğin mühendisliğinin kapılarını açar.",
   },
   {
     name: "Nedim Göktuğ Tabak",
@@ -107,7 +103,6 @@ export const members: Member[] = [
     ],
     projects: ["astro-hackathon", "uyum-platform", "iso-testing-world"],
     hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
-    quote: "Doğru mimari, ölçeklenebilirliği sorun olmaktan çıkarır.",
   },
   {
     name: "İzzettin Berke Kuş",
@@ -129,7 +124,6 @@ export const members: Member[] = [
     ],
     projects: ["astro-hackathon", "hayat-agi", "healthai-co-creation", "iso-29119-4-gamified"],
     hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
-    quote: "En iyi arayüz, kullanıcının varlığını bile hissetmediği arayüzdür.",
   },
   {
     name: "Oğuzhan Tarhan",
@@ -151,7 +145,6 @@ export const members: Member[] = [
     ],
     projects: ["raw2value", "astro-hackathon", "meydan", "iso-testing-world"],
     hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
-    quote: "Veri, doğru sorular sorulduğunda konuşmaya başlar.",
   },
 ];
 

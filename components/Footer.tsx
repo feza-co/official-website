@@ -15,7 +15,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 md:px-10">
         <div className="grid gap-10 md:grid-cols-[1.5fr,1fr,1fr]">
           <div>
-            <p className="display text-lg text-feza-text">Feza&#8209;Co</p>
+            <p className="display text-lg text-feza-text">FEZA</p>
             <p className="measure mt-3 text-[0.95rem] leading-relaxed text-feza-muted">
               Beş mühendisin kurduğu bağımsız yazılım kolektifi. Yaptığımız
               işlerin çoğu açık kaynak.
@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-12 border-t border-feza-border pt-6 text-sm text-feza-muted">
-          © {year} Feza-Co
+          © {year} FEZA
         </p>
       </div>
     </footer>

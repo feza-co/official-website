@@ -74,8 +74,8 @@ export default async function ProjectPage({
           </h1>
 
           {project.award && (
-            <p className="badge-award">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+            <p className="flex items-center gap-2 text-lg font-semibold text-feza-accent">
+              <svg width="17" height="17" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
                 <circle cx="7" cy="5.2" r="3.6" />
                 <path d="M4.6 8.4L3.6 13l3.4-1.8L10.4 13l-1-4.6" />
               </svg>
@@ -132,22 +132,22 @@ export default async function ProjectPage({
             <h2 id="case-study" className="display text-xl text-feza-text">
               Vaka çalışması
             </h2>
-            <div className="mt-5 grid gap-4 md:grid-cols-3">
+            <dl className="mt-5 grid gap-x-10 gap-y-6 md:grid-cols-3">
               {[
                 { label: "Problem", value: project.caseStudy.problem },
                 { label: "Yaklaşım", value: project.caseStudy.approach },
                 { label: "Çıktı", value: project.caseStudy.outcome },
               ].map((item) => (
-                <div key={item.label} className="panel p-5">
-                  <h3 className="text-sm font-semibold text-feza-accent">
+                <div key={item.label} className="border-t border-feza-border pt-4">
+                  <dt className="text-sm font-semibold text-feza-accent">
                     {item.label}
-                  </h3>
-                  <p className="mt-2 text-[0.95rem] leading-[1.7] text-feza-secondary">
+                  </dt>
+                  <dd className="mt-2 text-[0.95rem] leading-[1.7] text-feza-secondary">
                     {item.value}
-                  </p>
+                  </dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </section>
         )}
 
@@ -169,12 +169,12 @@ export default async function ProjectPage({
             <h2 id="team" className="display text-xl text-feza-text">
               Bu projede çalışanlar
             </h2>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-5 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
               {team.map((m) => (
-                <li key={m.slug}>
+                <li key={m.slug} className="border-t border-feza-border">
                   <Link
                     href={`/members/${m.slug}`}
-                    className="panel panel-interactive group flex items-center gap-3 p-4"
+                    className="group flex items-center gap-3 py-4"
                   >
                     <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-feza-border bg-feza-surface-2">
                       {m.avatar ? (

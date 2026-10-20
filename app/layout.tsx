@@ -39,12 +39,13 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://feza-co.dev"),
   title: {
-    default: "Feza-Co — Yazılım Kolektifi",
-    template: "%s · Feza-Co",
+    default: "FEZA — Yazılım Kolektifi",
+    template: "%s · FEZA",
   },
   description:
-    "Beş mühendis, dokuz ürün. Ay yüzeyinde rover rotası planlayan algoritmadan afet anında ayakta kalan iletişim ağına kadar.",
+    "Beş kurucu ortağın yürüttüğü bağımsız yazılım kolektifi. Ondört kolektif, yirmiiki kişisel proje.",
   keywords: [
+    "FEZA",
     "Feza-Co",
     "yazılım kolektifi",
     "dijital ikiz",
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     "hackathon",
     "Türkiye",
   ],
-  authors: [{ name: "Feza-Co" }],
+  authors: [{ name: "FEZA" }],
   icons: {
     icon: "/favicon.png",
     apple: "/apple-touch-icon.png",
@@ -61,25 +62,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    siteName: "Feza-Co",
-    title: "Feza-Co — Yazılım Kolektifi",
+    siteName: "FEZA",
+    title: "FEZA — Yazılım Kolektifi",
     description:
-      "Beş mühendis, dokuz ürün. Ay yüzeyinde rover rotası planlayan algoritmadan afet anında ayakta kalan iletişim ağına kadar.",
+      "Beş kurucu ortağın yürüttüğü bağımsız yazılım kolektifi. Ondört kolektif, yirmiiki kişisel proje.",
     url: "https://feza-co.dev",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Feza-Co yazılım kolektifi",
+        alt: "FEZA yazılım kolektifi",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Feza-Co — Yazılım Kolektifi",
+    title: "FEZA — Yazılım Kolektifi",
     description:
-      "Beş mühendis, dokuz ürün. Ay yüzeyinde rover rotası planlayan algoritmadan afet anında ayakta kalan iletişim ağına kadar.",
+      "Beş kurucu ortağın yürüttüğü bağımsız yazılım kolektifi. Ondört kolektif, yirmiiki kişisel proje.",
     images: ["/og-image.png"],
   },
 };

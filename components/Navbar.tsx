@@ -92,7 +92,7 @@ export default function Navbar() {
           href="/"
           className="display text-lg tracking-tight text-feza-text transition-colors duration-300 hover:text-feza-accent"
         >
-          Feza&#8209;Co
+          FEZA
         </Link>
 
         <div className="hidden items-center gap-7 md:flex">
