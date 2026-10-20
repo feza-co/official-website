@@ -272,17 +272,20 @@ h1, h2, h3 {
   /* ── Type helpers ──────────────────────────────────────────────────────── */
 
   .display {
-    font-family: var(--font-syne), system-ui, sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    /* Turkish stacks descenders (ş, ğ, ç, y) under umlauts (Ü, Ö, İ). Anything
-       below ~1.05 collides on a heading that wraps. */
-    line-height: 1.07;
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 700;
+    /* Loosened from -0.03em. Tight tracking on an already-wide face was half
+       of why the old lockup read as squashed. */
+    letter-spacing: -0.02em;
+    /* Turkish stacks descenders (ş, ğ, ç, y) under umlauts (Ü, Ö, İ), so this
+       needs real room — and generous leading is what stops a heading from
+       feeling low-ceilinged. */
+    line-height: 1.16;
   }
 
   /* Single-line lockups only — never on wrapping text */
   .display-tight {
-    line-height: 0.92;
+    line-height: 1;
   }
 
   /* The wordmark. In light mode this is a DEEP gradient; the old build filled

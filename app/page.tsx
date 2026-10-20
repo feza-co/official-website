@@ -19,7 +19,7 @@ function SectionHeader({
   id: string;
 }) {
   return (
-    <header className="mb-10 md:mb-14">
+    <header className="mb-12 md:mb-16">
       <h2
         id={id}
         className="display text-[clamp(2rem,5vw,3.25rem)] text-feza-text"
@@ -41,7 +41,7 @@ export default function HomePage() {
       {/* ── Projects — the evidence comes before the people ──────────────── */}
       <section
         id="projects"
-        className="scroll-mt-20 border-t border-feza-border bg-feza-bg py-20 md:py-28"
+        className="scroll-mt-20 border-t border-feza-border bg-feza-bg py-24 md:py-32"
         aria-labelledby="projects-title"
       >
         <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-10">
@@ -56,7 +56,7 @@ export default function HomePage() {
 
       {/* ── Where the work was made ──────────────────────────────────────── */}
       <section
-        className="border-t border-feza-border bg-feza-surface py-16 md:py-20"
+        className="border-t border-feza-border bg-feza-surface py-20 md:py-24"
         aria-labelledby="events-title"
       >
         <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-10">
@@ -82,7 +82,7 @@ export default function HomePage() {
       {/* ── Founders ─────────────────────────────────────────────────────── */}
       <section
         id="founders"
-        className="scroll-mt-20 border-t border-feza-border bg-feza-bg py-20 md:py-28"
+        className="scroll-mt-20 border-t border-feza-border bg-feza-bg py-24 md:py-32"
         aria-labelledby="founders-title"
       >
         <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-10">
@@ -94,7 +94,7 @@ export default function HomePage() {
 
           <FounderGrid />
 
-          <blockquote className="panel mt-6 p-7 sm:p-9">
+          <blockquote className="panel mt-8 p-7 sm:p-9">
             <p className="measure display text-xl leading-[1.45] text-feza-text sm:text-2xl">
               Bu kolektifte kimse &ldquo;lead&rdquo;, &ldquo;senior&rdquo; ya da
               &ldquo;manager&rdquo; değil. Fikirler unvandan değil, üretimden
@@ -107,7 +107,7 @@ export default function HomePage() {
       {/* ── Contact ──────────────────────────────────────────────────────── */}
       <section
         id="contact"
-        className="relative isolate scroll-mt-20 overflow-hidden border-t border-feza-border bg-feza-bg py-20 grain md:py-28"
+        className="relative isolate scroll-mt-20 overflow-hidden border-t border-feza-border bg-feza-bg py-24 grain md:py-32"
         aria-labelledby="contact-title"
       >
         <div className="atmosphere" aria-hidden />

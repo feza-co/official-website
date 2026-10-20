@@ -13,13 +13,13 @@ const evidence = [
 export default function Hero() {
   return (
     <section
-      className="relative isolate flex min-h-[86svh] flex-col justify-center overflow-hidden grain"
+      className="relative isolate flex min-h-[92svh] flex-col justify-center overflow-hidden grain"
       aria-labelledby="hero-title"
     >
       {/* Contour field + glow. Decorative; the content reads fine without it. */}
       <div className="atmosphere" aria-hidden />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-32 pt-24 text-center sm:px-6 md:px-10">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-36 pt-28 text-center sm:px-6 md:px-10">
         <p
           className="rise text-sm text-feza-muted sm:text-base"
           style={{ "--d": "60ms" } as React.CSSProperties}
@@ -29,14 +29,14 @@ export default function Hero() {
 
         <h1
           id="hero-title"
-          className="rise display display-tight wordmark mt-5 text-[clamp(2.75rem,11.5vw,8rem)]"
+          className="rise display display-tight wordmark mt-7 text-[clamp(3.25rem,15.5vw,11.5rem)]"
           style={{ "--d": "180ms" } as React.CSSProperties}
         >
           Feza&#8209;Co
         </h1>
 
         <p
-          className="rise measure-tight mx-auto mt-8 text-balance text-lg leading-[1.65] text-feza-secondary sm:text-xl"
+          className="rise measure-tight mx-auto mt-9 text-balance text-lg leading-[1.65] text-feza-secondary sm:text-xl"
           style={{ "--d": "340ms" } as React.CSSProperties}
         >
           Beş mühendis, dokuz ürün. Ay yüzeyinde rover rotası planlayan
@@ -44,7 +44,7 @@ export default function Hero() {
         </p>
 
         <div
-          className="rise mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          className="rise mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row"
           style={{ "--d": "480ms" } as React.CSSProperties}
         >
           <Link href="#projects" className="btn btn-primary w-full sm:w-auto">

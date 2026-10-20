@@ -1,17 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Syne, Manrope, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
 
 // ─── Display ────────────────────────────────────────────────────────────────
-// Syne is wide, slightly architectural and unmistakable at large sizes — it
-// carries the wordmark. latin-ext covers ş ğ ı İ ö ü ç.
-const syne = Syne({
+// Space Grotesk: at the same size its width/height ratio is 2.86 against
+// Syne's 5.64 — upright instead of squat, which was the whole complaint about
+// the previous lockup. Enough character to avoid feeling generic, without
+// reading as costume. latin-ext covers ş ğ ı İ ö ü ç.
+// Swapping the display face later means changing only this block.
+const display = Space_Grotesk({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-syne",
-  weight: ["600", "700", "800"],
+  variable: "--font-display",
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -96,7 +99,7 @@ export default function RootLayout({
     <html
       lang="tr"
       suppressHydrationWarning
-      className={`${syne.variable} ${manrope.variable} ${jetbrains.variable}`}
+      className={`${display.variable} ${manrope.variable} ${jetbrains.variable}`}
     >
       <body className="font-sans antialiased min-h-screen flex flex-col bg-feza-bg text-feza-text">
         <ThemeProvider

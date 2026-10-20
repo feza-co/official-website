@@ -12,14 +12,14 @@ const config: Config = {
       fontFamily: {
         // Three faces, three jobs.
         sans:    ["var(--font-manrope)", "system-ui", "sans-serif"], // body + UI
-        display: ["var(--font-syne)", "system-ui", "sans-serif"],    // headlines
+        display: ["var(--font-display)", "system-ui", "sans-serif"],    // headlines
         mono:    ["var(--font-mono-feza)", "ui-monospace", "monospace"], // data
 
         // Legacy aliases kept so the detail pages keep rendering while they
         // migrate. orbitron → display, outfit → body.
-        orbitron: ["var(--font-syne)", "system-ui", "sans-serif"],
+        orbitron: ["var(--font-display)", "system-ui", "sans-serif"],
         outfit:   ["var(--font-manrope)", "system-ui", "sans-serif"],
-        archivo:  ["var(--font-syne)", "system-ui", "sans-serif"],
+        archivo:  ["var(--font-display)", "system-ui", "sans-serif"],
         grotesk:  ["var(--font-manrope)", "system-ui", "sans-serif"],
         rajdhani: ["var(--font-manrope)", "system-ui", "sans-serif"],
       },
