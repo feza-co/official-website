@@ -93,14 +93,6 @@ export default function HomePage() {
           />
 
           <FounderGrid />
-
-          <blockquote className="mt-16 border-t border-feza-border pt-8">
-            <p className="measure display text-[1.375rem] leading-[1.45] text-feza-text sm:text-[1.75rem]">
-              Bu kolektifte kimse &ldquo;lead&rdquo;, &ldquo;senior&rdquo; ya da
-              &ldquo;manager&rdquo; değil. Fikirler unvandan değil, üretimden
-              değer kazanır.
-            </p>
-          </blockquote>
         </div>
       </section>
 
