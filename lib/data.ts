@@ -27,6 +27,10 @@ export interface Project {
   github?: string;
   demo?: string;
   year: number;
+  /** A placement or prize actually won — not participation. Rendered prominently. */
+  award?: string;
+  /** Repo exists but is private: show "kaynak kodu özel" instead of a 404 link. */
+  privateRepo?: boolean;
   highlight?: string; // bold callout text
   caseStudy?: {
     problem: string;
@@ -111,6 +115,7 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "IBK",
     avatarGradient: "from-orange-500 via-rose-500 to-pink-600",
+    avatar: "/avatars/berke-kus.jpeg",
     linkedin: "https://www.linkedin.com/in/berke-ku%C5%9F-464837272/",
     github: "https://github.com/berkekus",
     bio: "Mobil uygulama geliştirme ve kullanıcı deneyimi tasarımı alanlarında çalışan yaratıcı teknoloji kurucusu. Kullanıcı odaklı tasarım felsefesini teknik mükemmellikle birleştirerek dijital deneyimler üretiyor.",
@@ -132,6 +137,7 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "OT",
     avatarGradient: "from-sky-500 via-blue-500 to-indigo-600",
+    avatar: "/avatars/oguzhan-tarhan.jpeg",
     linkedin: "https://www.linkedin.com/in/o%C4%9Fuzhan-tarhan-6a8299357/",
     github: "https://github.com/OgzhnTarhn",
     bio: "Veri bilimi ve makine öğrenmesi alanlarında araştırma odaklı çalışmalar yapan analitik düşünürlü geliştirici. İstatistiksel modelleme ve derin öğrenme konularındaki birikimi, kolektifin veri stratejisinin temelini oluşturuyor.",
@@ -203,6 +209,7 @@ export const projects: Project[] = [
     ],
     status: "active",
     members: allMemberSlugs,
+    privateRepo: true,
     year: 2024,
     caseStudy: {
       problem: "Fiziksel sistem verilerinin 3D bağlamda izlenmesi ve yorumlanması zor.",
@@ -233,6 +240,7 @@ export const projects: Project[] = [
     members: allMemberSlugs,
     github: "https://github.com/ahmetkrkyn0/ASTROHackathon",
     year: 2026,
+    award: "TUA Astro Hackathon 2026 · Birincilik",
     caseStudy: {
       problem: "Ay yüzeyinde güvenli rota; eğim, enerji, gölge ve termal riskle birlikte çözülmeli.",
       approach: "DEM katmanlarını A* maliyet fonksiyonunda görev ağırlıklarıyla birleştirme.",
@@ -317,7 +325,6 @@ export const projects: Project[] = [
     ],
     status: "completed",
     members: ["tuna-deniz", "nedim-goktug-tabak", "oguzhan-tarhan"],
-    github: "https://github.com/tunadeniz1304/ISO-Testing-World",
     demo: "https://opus-isotestingworld.vercel.app/",
     year: 2026,
     caseStudy: {
@@ -379,6 +386,7 @@ export const projects: Project[] = [
     github: "https://github.com/berkekus/healthai-co-creation-platform",
     demo: "https://healthai-co-creation-platform.vercel.app/",
     year: 2026,
+    award: "Erasmus+ HEALTH-AI · En İyi Proje Ödülü",
     caseStudy: {
       problem: "Tıbbi AI projeleri için doğru sağlık-mühendis eşleşmesi karmaşık ve güvensiz kanallardan geçiyor.",
       approach: "NDA akışlı toplantı yönetimi, özel kanal açma ve GDPR uyumlu kullanıcı doğrulama.",
@@ -413,6 +421,77 @@ export const projects: Project[] = [
       approach: "Her davayı seeded fault + mahkeme kararı + ISO madde geri bildirimiyle eşleştiren 15 bölümlü oyunlaştırma.",
       outcome: "Kapsama mantığını uygulamalı ve rekabetçi bir ortamda pekiştiren çok oyunculu eğitim deneyimi.",
     },
+  },
+  {
+    id: "ahilonca",
+    title: "AhiLonca",
+    description:
+      "Kapadokyalı üreticilerin loncasını çok ajanlı sistemle modelleyen simülasyon. Her üreticinin bir ajanı var; ajanlar bir olay veri yolunda birbirini bulup ortak teklif kuruyor, sevkiyatı birleştiriyor ve depolama kapasitesini paylaşıyor.",
+    longDescription:
+      "AhiLonca, bugünkü ajan tabanlı ticaret çalışmalarının tersinden bakıyor. OpenAI/Stripe Agentic Commerce Protocol ya da Google Universal Commerce Protocol gibi girişimler bir alıcı ajanının satıcıdan alışveriş yapmasına odaklanırken, AhiLonca satıcıların ajanlarının kendi aralarında örgütlenmesini kuruyor: tek başına zayıf olan üretici, birlikte güçleniyor. Ajanlar ortak teklif üretiyor (Lonca), sevkiyatı birleştiriyor (Kervan), depolama kapasitesini paylaşıyor (Aşure / İmece) ve birbirini denetliyor (İnceleme, Pabuç). Belirli bir eşiğin üzerindeki her taahhüt insan onayı bekliyor. Tamamen simülasyon: para hareket etmiyor, canlı satış entegrasyonu yok.",
+    highlight:
+      "Satıcı ajanlarının kendi aralarında örgütlendiği çok ajanlı lonca simülasyonu",
+    tags: ["TypeScript", "Multi-Agent", "Event Bus", "Simulation"],
+    status: "active",
+    members: ["tuna-deniz"],
+    privateRepo: true,
+    year: 2026,
+  },
+  {
+    id: "feza-plugin",
+    title: "FezaPlugin",
+    description:
+      "Bir proje özetini veya mevcut bir kod tabanını standartlara uygun yazılım mühendisliği dokümanlarına çeviren, altı pakete dağılmış 41 ajan yeteneği.",
+    longDescription:
+      "FezaPlugin; gereksinim spesifikasyonu, proje planı, kullanıcı deneyimi değerlendirmesi ve kalite güvence planı üretir, bunlara ek olarak HCI ilkelerine göre tasarlanmış, erişilebilirliği denetlenmiş çalışan arayüzler ve hackathon jürileri için kanıta dayalı sunum desteleri çıkarır. Üretilen dokümanlar ISO/IEC/IEEE 29148, IEEE 830, ISO/IEC 25010, ISO/IEC/IEEE 12207, ISO/IEC 29110, ISO/IEC/IEEE 15939, IEEE 730, IEEE 1028, PMBOK ve WCAG 2.1 ile hizalı. Her yetenek önce deponuzdaki README, manifest ve kaynak kodu tarıyor, sonra en fazla birkaç hedefli soru soruyor ve incelemeye hazır bir Markdown dokümanı yazıyor. Çıktılar birbirini besliyor: kapsamdan WBS'e, WBS'ten tahmine.",
+    highlight:
+      "41 ajan yeteneği · ISO, IEEE ve PMBOK ile hizalı doküman üretimi",
+    tags: ["JavaScript", "Agent Skills", "ISO/IEC/IEEE", "Documentation"],
+    status: "active",
+    members: ["tuna-deniz"],
+    privateRepo: true,
+    year: 2026,
+  },
+  {
+    id: "hackathon-skills",
+    title: "HackathonSkills",
+    description:
+      "FEZA-CO hackathon ekibi için 9 aileye dağılmış 71 yetenek ve 13 orkestratör. Hackathon başlangıcından teslime kadar her fazı kapsayan Claude Code eklentisi.",
+    longDescription:
+      "HackathonSkills, bir hackathonun tüm fazlarını tek bir araç setinde toplar: düşünme çerçeveleri, fikir üretimi, strateji kurma, sunum hazırlığı, ekip koordinasyonu ve risk yönetimi. 71 yetenek dokuz aileye ayrılmış, 13 orkestratör ise bu yetenekleri sıraya dizerek uçtan uca akışlar kurar. Claude Code marketplace eklentisi olarak paketlenmiştir.",
+    highlight: "71 yetenek · 9 aile · 13 orkestratör",
+    tags: ["Claude Code", "Agent Skills", "Hackathon", "Orchestration"],
+    status: "completed",
+    members: ["nedim-goktug-tabak"],
+    privateRepo: true,
+    year: 2026,
+  },
+  {
+    id: "ui-kits",
+    title: "UI Kits",
+    description:
+      "Hackathon yarışmaları için önceden hazırlanmış, kopyala-yapıştır kullanılabilen React, TypeScript ve Tailwind CSS bileşen deposu.",
+    longDescription:
+      "Hackathon günü saat kaybetmemek için kurulmuş bir bileşen deposu. Her yarışma kendi klasöründe duruyor: bağımsız çalışan bir Vite + React projesi, isteğe bağlı React Native bileşenleri, görseller ve paylaşılan tema dosyaları (tailwind.config.js, globals.css, theme.ts). Bileşen hedef projeye doğrudan kopyalanıp bağımlılıkları eşitlenerek kullanılıyor.",
+    highlight: "Hackathon günü için hazır React + Tailwind bileşen kütüphanesi",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    status: "completed",
+    members: ["izzettin-berke-kus"],
+    privateRepo: true,
+    year: 2026,
+  },
+  {
+    id: "cave2cloud",
+    title: "CAVE2CLOUD",
+    description:
+      "Kapadokya Hackathon 2026 yarışması için FEZA takımının geliştirdiği Python tabanlı çalışma.",
+    longDescription:
+      "Kapadokya Hackathon 2026 kapsamında geliştirilen, takımın dört üyesinin birlikte katkı verdiği Python projesi. Depo yarışma süresince ortak çalışma alanı olarak kullanıldı.",
+    tags: ["Python", "Hackathon"],
+    status: "completed",
+    members: ["oguzhan-tarhan", "tuna-deniz", "ahmet-karakoyun", "nedim-goktug-tabak"],
+    privateRepo: true,
+    year: 2026,
   },
 ];
 

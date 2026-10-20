@@ -73,6 +73,16 @@ export default async function ProjectPage({
             {project.title}
           </h1>
 
+          {project.award && (
+            <p className="badge-award">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+                <circle cx="7" cy="5.2" r="3.6" />
+                <path d="M4.6 8.4L3.6 13l3.4-1.8L10.4 13l-1-4.6" />
+              </svg>
+              {project.award}
+            </p>
+          )}
+
           {project.highlight && (
             <p className="measure text-lg leading-relaxed text-feza-accent">
               {project.highlight}
@@ -82,6 +92,12 @@ export default async function ProjectPage({
           <p className="measure text-[1.0625rem] leading-[1.75] text-feza-secondary">
             {project.longDescription}
           </p>
+
+          {project.privateRepo && (
+            <p className="text-[0.95rem] text-feza-muted">
+              Bu projenin kaynak kodu özel bir depoda tutuluyor.
+            </p>
+          )}
 
           {(project.github || project.demo) && (
             <div className="flex flex-wrap items-center gap-3 pt-1">
