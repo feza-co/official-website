@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getMemberBySlug, getProjectsForMember, members } from "@/lib/data";
+import { getPersonalProjects } from "@/lib/personal-projects";
 import { GitHubIcon, LinkedInIcon, StatusDot } from "@/components/ui";
 import BackButton from "@/components/BackButton";
 
@@ -37,6 +38,7 @@ export default async function MemberPage({
   if (!member) notFound();
 
   const memberProjects = getProjectsForMember(member.slug);
+  const personal = getPersonalProjects(member.slug);
   const others = members.filter((m) => m.slug !== member.slug);
 
   return (
@@ -167,6 +169,61 @@ export default async function MemberPage({
                       {project.description}
                     </p>
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {personal.length > 0 && (
+          <section className="mt-16" aria-labelledby="personal-projects">
+            <h2 id="personal-projects" className="display text-xl text-feza-text">
+              Kişisel projeler
+            </h2>
+            <p className="measure mt-2 text-[0.95rem] text-feza-muted">
+              Kolektif dışında, kendi hesabında geliştirdiği işler.
+            </p>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {personal.map((project) => (
+                <li key={project.id}>
+                  <a
+                    href={project.demo ?? project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="panel panel-interactive group flex h-full flex-col gap-3 p-5"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm text-feza-muted">
+                        {project.demo ? "canlı" : "açık kaynak"}
+                      </span>
+                      <span className="ml-auto font-mono text-sm text-feza-muted">
+                        {project.year}
+                      </span>
+                    </div>
+
+                    <h3 className="display text-xl text-feza-text transition-colors duration-300 group-hover:text-feza-accent">
+                      {project.title}
+                    </h3>
+
+                    {project.result && (
+                      <p className="badge-award">{project.result}</p>
+                    )}
+
+                    <p className="text-[0.95rem] leading-[1.65] text-feza-secondary">
+                      {project.description}
+                    </p>
+
+                    <ul className="mt-auto flex flex-wrap gap-1.5 pt-2">
+                      {project.tags.slice(0, 4).map((tag) => (
+                        <li key={tag} className="tag" lang="en">
+                          {tag}
+                        </li>
+                      ))}
+                      {project.tags.length > 4 && (
+                        <li className="tag">+{project.tags.length - 4}</li>
+                      )}
+                    </ul>
+                  </a>
                 </li>
               ))}
             </ul>

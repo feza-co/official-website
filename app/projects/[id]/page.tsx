@@ -93,6 +93,12 @@ export default async function ProjectPage({
             {project.longDescription}
           </p>
 
+          {project.privateRepo && (
+            <p className="text-[0.95rem] text-feza-muted">
+              Bu projenin kaynak kodu özel bir depoda tutuluyor.
+            </p>
+          )}
+
           {(project.github || project.demo) && (
             <div className="flex flex-wrap items-center gap-3 pt-1">
               {project.demo && (
