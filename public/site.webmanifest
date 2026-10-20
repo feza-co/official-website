@@ -1,11 +1,11 @@
 {
-  "name": "Feza-Co Teknoloji Kolektifi",
-  "short_name": "Feza-Co",
-  "description": "Beş kurucu ortağın teknoloji kolektifi.",
+  "name": "FEZA — Yazılım Kolektifi",
+  "short_name": "FEZA",
+  "description": "Beş kurucu ortağın yürüttüğü bağımsız yazılım kolektifi.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f8fafc",
-  "theme_color": "#0f172a",
+  "background_color": "#edf0f8",
+  "theme_color": "#06080f",
   "icons": [
     {
       "src": "/favicon.png",

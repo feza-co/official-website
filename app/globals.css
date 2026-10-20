@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   FEZA-CO — Design tokens
+   FEZA — Design tokens
 
    "Feza" is the Ottoman Turkish word for outer space. The whole visual system
    is built on that: the site is a sky, and the theme toggle changes which side
@@ -247,26 +247,50 @@ h1, h2, h3 {
 
   /* ── Surfaces ──────────────────────────────────────────────────────────── */
 
-  .panel {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    box-shadow: var(--shadow-card);
-    transition:
-      border-color var(--dur) var(--ease),
-      box-shadow    var(--dur) var(--ease),
-      transform     var(--dur) var(--ease);
+  /* ═════════════════════════════════════════════════════════════════════════
+     ROWS — the structure that replaced cards
+     Boxes stack up fast: fourteen projects in fourteen bordered, shadowed,
+     rounded containers reads as a grid of equal-weight tiles and nothing
+     stands out. Rules + rhythm + type size carry the hierarchy instead, and
+     a row can be as tall as its content needs without breaking alignment.
+     ═══════════════════════════════════════════════════════════════════════ */
+
+  .rows {
+    border-top: 1px solid var(--border);
   }
 
-  .panel-interactive:hover {
-    border-color: var(--accent-line);
-    box-shadow: var(--shadow-lift);
-    transform: translateY(-3px);
+  /* No `display` here on purpose: .row sits in the same layer as Tailwind's
+     own utilities and is emitted after them, so a `display` declaration would
+     silently beat the `grid` / `flex` class next to it in the markup. Every
+     call site sets its own display. */
+  .row {
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    transition: color var(--dur) var(--ease);
   }
 
-  .hairline {
+  /* The hover affordance a card got from its shadow: the bottom rule lights
+     up and sweeps across, instead of the whole block lifting. */
+  .row::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
     height: 1px;
-    background: linear-gradient(90deg, var(--border-strong), transparent);
+    width: 0;
+    background: var(--accent);
+    transition: width 520ms var(--ease);
+  }
+
+  .row:hover::after,
+  .row:focus-visible::after {
+    width: 100%;
+  }
+
+  /* Left gutter holding year / status, so the eye has one vertical axis */
+  .row-meta {
+    color: var(--ink-3);
+    font-size: 0.875rem;
   }
 
   /* ── Type helpers ──────────────────────────────────────────────────────── */
@@ -323,46 +347,9 @@ h1, h2, h3 {
     white-space: nowrap;
   }
 
-  .tag-accent {
-    color: var(--accent);
-    background: var(--accent-soft);
-    border-color: var(--accent-line);
-  }
-
   /* An actual prize — first place, best project. The strongest claim on the
      page, so it gets a filled surface rather than another outlined chip. */
-  .badge-award {
-    display: inline-flex;
-    align-items: center;
-    /* Inside a flex column an inline-flex child still stretches to the full
-       track width — these two keep the badge hugging its text. */
-    align-self: flex-start;
-    width: fit-content;
-    gap: 0.45rem;
-    padding: 0.35rem 0.7rem;
-    border-radius: var(--r-sm);
-    background: var(--accent);
-    color: var(--accent-ink);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    line-height: 1.25;
-  }
-
   /* Legacy name used by the detail pages */
-  .tag-light {
-    display: inline-flex;
-    align-items: center;
-    font-family: var(--font-mono-feza), ui-monospace, monospace;
-    font-size: 0.6875rem;
-    line-height: 1;
-    color: var(--ink-3);
-    background: var(--card-2);
-    border: 1px solid var(--border);
-    padding: 0.33rem 0.55rem;
-    border-radius: var(--r-sm);
-    white-space: nowrap;
-  }
-
   /* ── Buttons ───────────────────────────────────────────────────────────── */
 
   .btn {
@@ -487,7 +474,6 @@ h1, h2, h3 {
     scroll-behavior: auto !important;
   }
 
-  .panel-interactive:hover,
   .btn:hover {
     transform: none;
   }

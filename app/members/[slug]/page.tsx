@@ -115,14 +115,6 @@ export default async function MemberPage({
           </div>
         </header>
 
-        {member.quote && (
-          <blockquote className="panel mt-14 p-6 sm:p-8">
-            <p className="measure display text-lg leading-[1.5] text-feza-text sm:text-xl">
-              {member.quote}
-            </p>
-          </blockquote>
-        )}
-
         {member.skills.length > 0 && (
           <section className="mt-16" aria-labelledby="skills">
             <h2 id="skills" className="display text-xl text-feza-text">
@@ -143,35 +135,34 @@ export default async function MemberPage({
             <h2 id="member-projects" className="display text-xl text-feza-text">
               Çalıştığı projeler
             </h2>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div className="rows mt-5">
               {memberProjects.map((project) => (
-                <li key={project.id}>
-                  <Link
-                    href={`/projects/${project.id}`}
-                    className="panel panel-interactive group flex h-full flex-col gap-3 p-5"
-                  >
-                    <div className="flex items-center gap-2">
+                <Link
+                  key={project.id}
+                  href={`/projects/${project.id}`}
+                  className="row group grid gap-x-8 gap-y-2 py-6 md:grid-cols-[118px,1fr]"
+                >
+                  <div className="row-meta flex flex-wrap items-center gap-x-3 md:block md:space-y-1.5">
+                    <span className="font-mono">{project.year}</span>
+                    <span className="inline-flex items-center gap-1.5 md:flex">
                       <StatusDot
                         tone={project.status}
                         pulse={project.status === "active"}
                       />
-                      <span className="text-sm text-feza-muted">
-                        {PROJECT_STATUS[project.status]}
-                      </span>
-                      <span className="ml-auto font-mono text-sm text-feza-muted">
-                        {project.year}
-                      </span>
-                    </div>
+                      {PROJECT_STATUS[project.status]}
+                    </span>
+                  </div>
+                  <div className="space-y-2">
                     <h3 className="display text-xl text-feza-text transition-colors duration-300 group-hover:text-feza-accent">
                       {project.title}
                     </h3>
-                    <p className="text-[0.95rem] leading-[1.65] text-feza-secondary">
+                    <p className="measure text-[0.95rem] leading-[1.7] text-feza-secondary">
                       {project.description}
                     </p>
-                  </Link>
-                </li>
+                  </div>
+                </Link>
               ))}
-            </ul>
+            </div>
           </section>
         )}
 
@@ -183,50 +174,52 @@ export default async function MemberPage({
             <p className="measure mt-2 text-[0.95rem] text-feza-muted">
               Kolektif dışında, kendi hesabında geliştirdiği işler.
             </p>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div className="rows mt-5">
               {personal.map((project) => (
-                <li key={project.id}>
-                  <a
-                    href={project.demo ?? project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="panel panel-interactive group flex h-full flex-col gap-3 p-5"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-sm text-feza-muted">
-                        {project.demo ? "canlı" : "açık kaynak"}
-                      </span>
-                      <span className="ml-auto font-mono text-sm text-feza-muted">
-                        {project.year}
-                      </span>
-                    </div>
+                <a
+                  key={project.id}
+                  href={project.demo ?? project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="row group grid gap-x-8 gap-y-2 py-6 md:grid-cols-[118px,1fr]"
+                >
+                  <div className="row-meta flex flex-wrap items-center gap-x-3 md:block md:space-y-1.5">
+                    <span className="font-mono">{project.year}</span>
+                    <span className="md:block">
+                      {project.demo ? "canlı" : "açık kaynak"}
+                    </span>
+                  </div>
 
+                  <div className="space-y-2">
                     <h3 className="display text-xl text-feza-text transition-colors duration-300 group-hover:text-feza-accent">
                       {project.title}
                     </h3>
 
                     {project.result && (
-                      <p className="badge-award">{project.result}</p>
+                      <p className="text-[0.9375rem] font-semibold text-feza-accent">
+                        {project.result}
+                      </p>
                     )}
 
-                    <p className="text-[0.95rem] leading-[1.65] text-feza-secondary">
+                    <p className="measure text-[0.95rem] leading-[1.7] text-feza-secondary">
                       {project.description}
                     </p>
 
-                    <ul className="mt-auto flex flex-wrap gap-1.5 pt-2">
-                      {project.tags.slice(0, 4).map((tag) => (
-                        <li key={tag} className="tag" lang="en">
+                    <ul className="flex flex-wrap gap-x-3 gap-y-1.5 pt-0.5">
+                      {project.tags.slice(0, 5).map((tag) => (
+                        <li
+                          key={tag}
+                          className="font-mono text-[0.8125rem] text-feza-muted"
+                          lang="en"
+                        >
                           {tag}
                         </li>
                       ))}
-                      {project.tags.length > 4 && (
-                        <li className="tag">+{project.tags.length - 4}</li>
-                      )}
                     </ul>
-                  </a>
-                </li>
+                  </div>
+                </a>
               ))}
-            </ul>
+            </div>
           </section>
         )}
 
