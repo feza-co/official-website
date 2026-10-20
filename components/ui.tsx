@@ -24,6 +24,13 @@ export function StatusDot({
   pulse?: boolean;
   className?: string;
 }) {
+  // `ping` fades its target to opacity 0, so putting it on the dot itself made
+  // the dot invisible for most of the cycle. .live-dot animates a ring on its
+  // ::after instead and leaves the dot solid.
+  if (tone === "active" && pulse) {
+    return <span className={`live-dot ${className}`} aria-hidden />;
+  }
+
   // Warm = live. Everything else stays quiet, so colour keeps meaning.
   const background = {
     active: "var(--signal-dot)",
@@ -34,11 +41,8 @@ export function StatusDot({
 
   return (
     <span
-      className={`inline-block h-2 w-2 shrink-0 rounded-full ${className}`}
-      style={{
-        background,
-        animation: pulse ? "ping 2.6s var(--ease) infinite" : "none",
-      }}
+      className={`inline-block h-[7px] w-[7px] shrink-0 rounded-full ${className}`}
+      style={{ background }}
       aria-hidden
     />
   );

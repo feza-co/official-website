@@ -15,7 +15,7 @@ function SectionHeader({
   id,
 }: {
   title: string;
-  lead: string;
+  lead?: string;
   id: string;
 }) {
   return (
@@ -26,9 +26,11 @@ function SectionHeader({
       >
         {title}
       </h2>
-      <p className="measure mt-4 text-lg leading-[1.65] text-feza-secondary">
-        {lead}
-      </p>
+      {lead && (
+        <p className="measure mt-4 text-lg leading-[1.65] text-feza-secondary">
+          {lead}
+        </p>
+      )}
     </header>
   );
 }
@@ -48,7 +50,7 @@ export default function HomePage() {
           <SectionHeader
             id="projects-title"
             title="Üretilenler"
-            lead={`Hackathon gecelerinde başlayıp sonrasında bırakılmayan işler. ${activeCount} tanesi hâlâ geliştiriliyor, ${demoCount} tanesi canlı demo ile yayında.`}
+            lead={`${activeCount} tanesi hâlâ geliştiriliyor, ${demoCount} tanesi canlı demo ile yayında.`}
           />
           <ProjectGrid />
         </div>
@@ -89,18 +91,9 @@ export default function HomePage() {
           <SectionHeader
             id="founders-title"
             title="Beş kurucu ortak"
-            lead="Hiyerarşi yok. Herkes eşit düzeyde kurucu ortak; işler unvana göre değil, kimin neyi üstlendiğine göre dağılır."
           />
 
           <FounderGrid />
-
-          <blockquote className="mt-16 border-t border-feza-border pt-8">
-            <p className="measure display text-[1.375rem] leading-[1.45] text-feza-text sm:text-[1.75rem]">
-              Bu kolektifte kimse &ldquo;lead&rdquo;, &ldquo;senior&rdquo; ya da
-              &ldquo;manager&rdquo; değil. Fikirler unvandan değil, üretimden
-              değer kazanır.
-            </p>
-          </blockquote>
         </div>
       </section>
 
