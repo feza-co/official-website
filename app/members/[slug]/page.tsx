@@ -25,7 +25,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const member = getMemberBySlug(slug);
   if (!member) return { title: "Üye bulunamadı" };
-  return { title: member.name, description: member.bio };
+  const collective = getProjectsForMember(member.slug).length;
+  const personal = getPersonalProjects(member.slug).length;
+  return {
+    title: member.name,
+    description: `${member.name} — FEZA kurucu ortağı. ${collective} kolektif, ${personal} kişisel proje.`,
+  };
 }
 
 export default async function MemberPage({
@@ -82,10 +87,6 @@ export default async function MemberPage({
               <p className="mt-2 text-lg text-feza-muted">{member.role}</p>
             </div>
 
-            <p className="measure text-[1.0625rem] leading-[1.75] text-feza-secondary">
-              {member.bio}
-            </p>
-
             {(member.linkedin || member.github) && (
               <div className="flex flex-wrap gap-3">
                 {member.linkedin && (
@@ -114,21 +115,6 @@ export default async function MemberPage({
             )}
           </div>
         </header>
-
-        {member.skills.length > 0 && (
-          <section className="mt-16" aria-labelledby="skills">
-            <h2 id="skills" className="display text-xl text-feza-text">
-              Uzmanlık alanları
-            </h2>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {member.skills.map((skill) => (
-                <li key={skill} className="tag" lang="en">
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
 
         {memberProjects.length > 0 && (
           <section className="mt-16" aria-labelledby="member-projects">

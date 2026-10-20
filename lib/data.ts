@@ -9,8 +9,6 @@ export interface Member {
   avatar?: string;         // Optional real photo path under /public
   linkedin?: string;
   github?: string;
-  bio: string;
-  skills: string[];
   projects: string[]; // project IDs
   hackathons?: string[];
 }
@@ -50,15 +48,6 @@ export const members: Member[] = [
     avatar: "/avatars/ahmet-karakoyun.png",
     linkedin: "https://www.linkedin.com/in/ahmetkrkyn0/",
     github: "https://github.com/ahmetkrkyn0",
-    bio: "Yazılım geliştirme ve yapay zeka sistemleri üzerine odaklanan bir kurucu ortak. Ölçeklenebilir mimari tasarımı ve modern web teknolojileri konusunda derin teknik deneyim sahibi. FEZA'nın vizyon ve teknik yönünün şekillenmesinde aktif rol alıyor.",
-    skills: [
-      "Full Stack Development",
-      "Artificial Intelligence",
-      "Next.js / React",
-      "Python",
-      "TypeScript",
-      "System Architecture",
-    ],
     projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan", "hayat-agi", "healthai-co-creation", "iso-29119-4-gamified"],
     hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
   },
@@ -71,15 +60,6 @@ export const members: Member[] = [
     avatar: "/avatars/tuna-deniz.jpeg",
     linkedin: "https://www.linkedin.com/in/tuna-deniz1304/",
     github: "https://github.com/tunadeniz1304",
-    bio: "Dijital ikiz sistemleri ve 3D modelleme alanında akademik düzeyde altyapılar geliştiren mühendis. IoT sensör entegrasyonu ve gerçek zamanlı veri akışı konularındaki araştırmaları FEZA'nın teknik portföyünün temel taşını oluşturuyor.",
-    skills: [
-      "Digital Twin Systems",
-      "3D Modelling & Simulation",
-      "IoT & Sensor Integration",
-      "Python",
-      "Unity / WebGL",
-      "Real-time Data Pipelines",
-    ],
     projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan", "iso-testing-world"],
     hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
   },
@@ -92,15 +72,6 @@ export const members: Member[] = [
     avatar: "/avatars/goktug-tabak.jpg",
     linkedin: "https://www.linkedin.com/in/goktug-tabak/",
     github: "https://github.com/goktugtabak",
-    bio: "Sistem mimarisi ve backend geliştirme konularında uzmanlaşmış, ölçeklenebilir ve yüksek-performanslı altyapılar tasarlayan mühendis. DevOps ve konteyner orkestrasyonu alanındaki deneyimiyle kolektifin teknik omurgasını güçlendiriyor.",
-    skills: [
-      "Backend Development",
-      "System Architecture",
-      "DevOps & CI/CD",
-      "Go",
-      "Kubernetes",
-      "Database Design",
-    ],
     projects: ["astro-hackathon", "uyum-platform", "iso-testing-world"],
     hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
   },
@@ -113,15 +84,6 @@ export const members: Member[] = [
     avatar: "/avatars/berke-kus.jpeg",
     linkedin: "https://www.linkedin.com/in/berke-ku%C5%9F-464837272/",
     github: "https://github.com/berkekus",
-    bio: "Mobil uygulama geliştirme ve kullanıcı deneyimi tasarımı alanlarında çalışan yaratıcı teknoloji kurucusu. Kullanıcı odaklı tasarım felsefesini teknik mükemmellikle birleştirerek dijital deneyimler üretiyor.",
-    skills: [
-      "Mobile Development",
-      "React Native",
-      "UX / UI Design",
-      "Swift",
-      "Flutter",
-      "Product Thinking",
-    ],
     projects: ["astro-hackathon", "hayat-agi", "healthai-co-creation", "iso-29119-4-gamified"],
     hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
   },
@@ -134,15 +96,6 @@ export const members: Member[] = [
     avatar: "/avatars/oguzhan-tarhan.jpeg",
     linkedin: "https://www.linkedin.com/in/o%C4%9Fuzhan-tarhan-6a8299357/",
     github: "https://github.com/OgzhnTarhn",
-    bio: "Veri bilimi ve makine öğrenmesi alanlarında araştırma odaklı çalışmalar yapan analitik düşünürlü geliştirici. İstatistiksel modelleme ve derin öğrenme konularındaki birikimi, kolektifin veri stratejisinin temelini oluşturuyor.",
-    skills: [
-      "Data Science",
-      "Machine Learning",
-      "Python",
-      "TensorFlow / PyTorch",
-      "Statistical Modelling",
-      "Data Visualization",
-    ],
     projects: ["raw2value", "astro-hackathon", "meydan", "iso-testing-world"],
     hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
   },

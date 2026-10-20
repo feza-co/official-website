@@ -34,9 +34,6 @@ export default function FounderGrid() {
               <h3 className="display text-[1.0625rem] leading-snug text-feza-text transition-colors duration-300 group-hover:text-feza-accent">
                 {member.name}
               </h3>
-              <p className="mt-1 text-sm text-feza-muted" lang="en">
-                {member.skills[0]}
-              </p>
             </div>
           </Link>
         </li>
