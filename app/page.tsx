@@ -15,7 +15,7 @@ function SectionHeader({
   id,
 }: {
   title: string;
-  lead: string;
+  lead?: string;
   id: string;
 }) {
   return (
@@ -26,9 +26,11 @@ function SectionHeader({
       >
         {title}
       </h2>
-      <p className="measure mt-4 text-lg leading-[1.65] text-feza-secondary">
-        {lead}
-      </p>
+      {lead && (
+        <p className="measure mt-4 text-lg leading-[1.65] text-feza-secondary">
+          {lead}
+        </p>
+      )}
     </header>
   );
 }
@@ -48,7 +50,7 @@ export default function HomePage() {
           <SectionHeader
             id="projects-title"
             title="Üretilenler"
-            lead={`Hackathon gecelerinde başlayıp sonrasında bırakılmayan işler. ${activeCount} tanesi hâlâ geliştiriliyor, ${demoCount} tanesi canlı demo ile yayında.`}
+            lead={`${activeCount} tanesi hâlâ geliştiriliyor, ${demoCount} tanesi canlı demo ile yayında.`}
           />
           <ProjectGrid />
         </div>
@@ -89,7 +91,6 @@ export default function HomePage() {
           <SectionHeader
             id="founders-title"
             title="Beş kurucu ortak"
-            lead="Hiyerarşi yok. Herkes eşit düzeyde kurucu ortak; işler unvana göre değil, kimin neyi üstlendiğine göre dağılır."
           />
 
           <FounderGrid />
