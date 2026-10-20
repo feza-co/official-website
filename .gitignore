@@ -108,3 +108,5 @@ node_modules/
 
 
 .codex/
+# Playwright MCP scratch output
+.playwright-mcp/

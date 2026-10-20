@@ -3,13 +3,14 @@ type IconProps = {
   size?: number;
 };
 
+/** Small section heading used on the detail pages. */
 export function SectionLabel({ label }: { label: string }) {
+  // Older callers pass a "// Başlık" code-comment style label; drop the prefix.
+  const text = label.replace(/^\s*\/\/\s*/, "");
   return (
     <div className="flex items-center gap-4">
-      <span className="font-mono text-[10px] tracking-widest uppercase text-[#2563eb] dark:text-indigo-400">
-        {label}
-      </span>
-      <div className="flex-1 h-px bg-feza-border" />
+      <h2 className="display text-lg text-feza-text">{text}</h2>
+      <div className="h-px flex-1 bg-feza-border" aria-hidden />
     </div>
   );
 }
@@ -23,17 +24,21 @@ export function StatusDot({
   pulse?: boolean;
   className?: string;
 }) {
-  const toneClass = {
-    active: "bg-emerald-500 shadow-[0_0_0_3px_rgba(16,185,129,0.15)]",
-    planning: "bg-amber-500",
-    completed: "bg-indigo-500",
-    cyan: "bg-cyan-500",
+  // Warm = live. Everything else stays quiet, so colour keeps meaning.
+  const background = {
+    active: "var(--signal-dot)",
+    planning: "var(--ink-3)",
+    completed: "var(--accent)",
+    cyan: "var(--accent)",
   }[tone];
 
   return (
     <span
-      className={`inline-block h-2 w-2 rounded-full ${toneClass} ${className}`}
-      style={{ animation: pulse ? "statusPulse 2.5s ease-in-out infinite" : "none" }}
+      className={`inline-block h-2 w-2 shrink-0 rounded-full ${className}`}
+      style={{
+        background,
+        animation: pulse ? "ping 2.6s var(--ease) infinite" : "none",
+      }}
       aria-hidden
     />
   );

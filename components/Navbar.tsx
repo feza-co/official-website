@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 
 const navLinks = [
-  { href: "/#founders", label: "Ekip",      sectionId: "founders" },
-  { href: "/#projects", label: "Projeler",  sectionId: "projects" },
-  { href: "/#contact",  label: "İletişim",  sectionId: "contact"  },
+  { href: "/#projects", label: "Projeler", sectionId: "projects" },
+  { href: "/#founders", label: "Ekip", sectionId: "founders" },
+  { href: "/#contact", label: "İletişim", sectionId: "contact" },
 ];
 
 function SunIcon() {
@@ -28,26 +28,27 @@ function MoonIcon() {
 }
 
 function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  // resolvedTheme, not theme — with defaultTheme="system" `theme` is the
+  // literal string "system", which made the old toggle show the wrong icon
+  // and need two clicks for anyone on a dark OS.
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
-  const isDark = theme === "dark";
-  const label = isDark ? "Açık moda geç" : "Koyu moda geç";
+  const isDark = resolvedTheme === "dark";
 
   return (
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={mounted ? label : "Tema değiştir"}
-      className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg
-                 border border-feza-border bg-feza-card text-feza-muted-xs
-                 transition-colors duration-200
-                 hover:border-feza-border-md hover:text-feza-text
-                 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
+      aria-label={
+        mounted ? (isDark ? "Açık temaya geç" : "Koyu temaya geç") : "Temayı değiştir"
+      }
+      className="inline-flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-md
+                 border border-feza-border bg-feza-card text-feza-muted
+                 transition-colors duration-300 hover:border-feza-border-md hover:text-feza-text"
     >
-      {/* H5b fix: SSR/CSR uyumsuzluğunu önle — mounted olmadan hiç ikon render etme */}
       {mounted ? (isDark ? <SunIcon /> : <MoonIcon />) : null}
     </button>
   );
@@ -55,163 +56,84 @@ function ThemeToggle() {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // F04: aktif bölümü IntersectionObserver ile takip et
-  const [activeSection, setActiveSection] = useState<string>("");
+  const [activeSection, setActiveSection] = useState("");
 
-  // H3a fix: Escape tuşuyla mobil menüyü kapat
   useEffect(() => {
-    function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape" && isMenuOpen) {
-        setIsMenuOpen(false);
-      }
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setIsMenuOpen(false);
     }
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isMenuOpen]);
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, []);
 
-  // F04: IntersectionObserver — bölümlerin görünürlüğünü izle
   useEffect(() => {
-    const sectionIds = navLinks.map((l) => l.sectionId);
-    const observers: IntersectionObserver[] = [];
-
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
+    const observers = navLinks.flatMap(({ sectionId }) => {
+      const el = document.getElementById(sectionId);
+      if (!el) return [];
       const obs = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
+          if (entry.isIntersecting) setActiveSection(sectionId);
         },
         { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
       );
       obs.observe(el);
-      observers.push(obs);
+      return [obs];
     });
-
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   return (
     <header
-      className="fixed top-3 left-3 right-3 z-50 rounded-lg
-                 border border-feza-border/80 bg-feza-card/82 shadow-[0_10px_32px_rgba(0,0,0,0.08)]
-                 backdrop-blur-xl supports-[backdrop-filter]:bg-feza-card/72"
+      className="fixed inset-x-0 top-0 z-50 border-b border-feza-border/70
+                 bg-feza-bg/70 backdrop-blur-xl"
     >
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4
-                   focus:z-[60] focus:rounded-lg focus:bg-feza-card focus:px-4 focus:py-2
-                   focus:font-mono focus:text-xs focus:uppercase focus:tracking-widest
-                   focus:text-blue-700 focus:shadow-lg focus:outline-none
-                   focus:ring-2 focus:ring-[#2563eb] focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#0a0a0b]"
-      >
-        Ana içeriğe geç
-      </a>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between gap-3">
-
-        {/* ── Logo ── */}
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-6 md:px-10">
         <Link
           href="/"
-          className="group flex cursor-pointer items-center gap-2.5 rounded-lg
-                     focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
+          className="display text-lg tracking-tight text-feza-text transition-colors duration-300 hover:text-feza-accent"
         >
-          <div
-            className="relative w-7 h-7 flex items-center justify-center"
-            aria-hidden
-          >
-            <div
-              className="absolute inset-0 rounded-full border border-indigo-400/60
-                         group-hover:border-blue-500 transition-all duration-300
-                         group-hover:shadow-[0_0_0_3px_rgba(37,99,235,0.1)]"
-            />
-            <div
-              className="w-1.5 h-1.5 rounded-full bg-indigo-600
-                         group-hover:bg-indigo-500 transition-colors duration-300"
-            />
-          </div>
-
-          <span
-            className="font-orbitron font-bold text-sm tracking-widest text-feza-text
-                       group-hover:text-feza-secondary transition-colors duration-300"
-          >
-            FEZA
-            <span className="text-cyan-700 dark:text-cyan-400">—CO</span>
-          </span>
+          Feza&#8209;Co
         </Link>
 
-        {/* ── Nav Links (desktop) ── */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-7 md:flex">
           {navLinks.map(({ href, label, sectionId }) => {
             const isActive = activeSection === sectionId;
             return (
               <Link
                 key={href}
                 href={href}
-                aria-current={isActive ? "page" : undefined}
-                className={`group relative cursor-pointer rounded-sm font-mono text-xs uppercase
-                           tracking-widest transition-colors duration-200 focus:outline-none
-                           focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]
-                           ${isActive
-                             ? "text-feza-text"
-                             : "text-feza-muted-xs hover:text-feza-text"
-                           }`}
+                aria-current={isActive ? "true" : undefined}
+                className={`relative py-1 text-[0.9375rem] transition-colors duration-300 ${
+                  isActive
+                    ? "text-feza-text"
+                    : "text-feza-muted hover:text-feza-text"
+                }`}
               >
                 {label}
-                {/* Aktif göstergesi: kalıcı çizgi */}
                 <span
-                  className={`absolute -bottom-1 left-0 h-px bg-indigo-600 transition-all duration-300
-                              ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                  className={`absolute -bottom-0.5 left-0 h-px bg-feza-accent transition-all duration-300 ${
+                    isActive ? "w-full" : "w-0"
+                  }`}
+                  aria-hidden
                 />
               </Link>
             );
           })}
         </div>
 
-        {/* ── Right: badge + theme toggle ── */}
-        <div className="hidden md:flex items-center gap-3">
-          <div
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full
-                        bg-emerald-50 border border-emerald-100/80
-                        dark:bg-emerald-950/40 dark:border-emerald-900/60"
-          >
-            <span
-              className="w-1.5 h-1.5 rounded-full bg-green-500"
-              style={{
-                animation: "statusPulse 2.5s ease-in-out infinite",
-                boxShadow: "0 0 0 2px rgba(34,197,94,0.2)",
-              }}
-            />
-            <span className="font-mono text-[10px] tracking-widest text-emerald-700 dark:text-emerald-400 uppercase">
-              Aktif Kolektif
-            </span>
-          </div>
-          <ThemeToggle />
-        </div>
-
-        {/* ── Mobile: theme toggle + menu toggle ── */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <ThemeToggle />
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg
-                       border border-feza-border bg-feza-card text-feza-muted-xs
-                       cursor-pointer transition-colors duration-200
-                       hover:border-blue-200 hover:text-blue-600
-                       focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]"
+            className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md
+                       border border-feza-border bg-feza-card text-feza-muted
+                       transition-colors duration-300 hover:text-feza-text md:hidden"
             aria-label={isMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
             onClick={() => setIsMenuOpen((open) => !open)}
           >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              aria-hidden
-            >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden>
               {isMenuOpen ? (
                 <path d="M4.5 4.5L13.5 13.5M13.5 4.5L4.5 13.5" />
               ) : (
@@ -222,58 +144,27 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ── Thin indigo shimmer line ── */}
-      <div
-        className="h-px w-full rounded-b-lg"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, rgba(37,99,235,0.25) 30%, rgba(37,99,235,0.45) 50%, rgba(37,99,235,0.25) 80%, transparent 100%)",
-        }}
-      />
-
-      {/* WCAG 2.1 SC 2.1.2: aria-hidden + inert prevent hidden links from being keyboard-reachable */}
       <div
         id="mobile-navigation"
         aria-hidden={!isMenuOpen}
         inert={!isMenuOpen}
-        className={`md:hidden overflow-hidden rounded-b-lg border-t border-feza-border/80 bg-feza-card/95
-                    transition-[max-height,opacity] duration-300 ease-out
-                    ${isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
+        className={`overflow-hidden border-t border-feza-border bg-feza-bg/95 transition-[max-height,opacity] duration-300 md:hidden ${
+          isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
-        <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 sm:px-6 py-4">
-          {navLinks.map(({ href, label, sectionId }) => {
-            const isActive = activeSection === sectionId;
-            return (
-              <Link
-                key={href}
-                href={href}
-                aria-current={isActive ? "page" : undefined}
-                tabIndex={isMenuOpen ? 0 : -1}
-                className={`flex items-center justify-between rounded-lg px-3 py-3.5 min-h-[44px]
-                           font-mono text-xs tracking-widest uppercase
-                           cursor-pointer transition-colors duration-200
-                           focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0a0a0b]
-                           ${isActive
-                             ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400"
-                             : "text-feza-secondary hover:bg-blue-50 hover:text-blue-700 dark:hover:bg-blue-950/40 dark:hover:text-blue-400"
-                           }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span>{label}</span>
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  aria-hidden
-                >
-                  <path d="M2 6h8M7 3l3 3-3 3" />
-                </svg>
-              </Link>
-            );
-          })}
+        <div className="mx-auto flex max-w-6xl flex-col px-5 py-2 sm:px-6">
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              tabIndex={isMenuOpen ? 0 : -1}
+              onClick={() => setIsMenuOpen(false)}
+              className="flex min-h-[48px] items-center border-b border-feza-border/60 text-[0.9375rem]
+                         text-feza-secondary transition-colors duration-200 last:border-b-0 hover:text-feza-text"
+            >
+              {label}
+            </Link>
+          ))}
         </div>
       </div>
     </header>
