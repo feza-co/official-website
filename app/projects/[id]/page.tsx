@@ -73,6 +73,16 @@ export default async function ProjectPage({
             {project.title}
           </h1>
 
+          {project.award && (
+            <p className="badge-award">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+                <circle cx="7" cy="5.2" r="3.6" />
+                <path d="M4.6 8.4L3.6 13l3.4-1.8L10.4 13l-1-4.6" />
+              </svg>
+              {project.award}
+            </p>
+          )}
+
           {project.highlight && (
             <p className="measure text-lg leading-relaxed text-feza-accent">
               {project.highlight}

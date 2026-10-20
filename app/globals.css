@@ -329,6 +329,25 @@ h1, h2, h3 {
     border-color: var(--accent-line);
   }
 
+  /* An actual prize — first place, best project. The strongest claim on the
+     page, so it gets a filled surface rather than another outlined chip. */
+  .badge-award {
+    display: inline-flex;
+    align-items: center;
+    /* Inside a flex column an inline-flex child still stretches to the full
+       track width — these two keep the badge hugging its text. */
+    align-self: flex-start;
+    width: fit-content;
+    gap: 0.45rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: var(--r-sm);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
   /* Legacy name used by the detail pages */
   .tag-light {
     display: inline-flex;

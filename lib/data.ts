@@ -27,6 +27,8 @@ export interface Project {
   github?: string;
   demo?: string;
   year: number;
+  /** A placement or prize actually won — not participation. Rendered prominently. */
+  award?: string;
   highlight?: string; // bold callout text
   caseStudy?: {
     problem: string;
@@ -111,6 +113,7 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "IBK",
     avatarGradient: "from-orange-500 via-rose-500 to-pink-600",
+    avatar: "/avatars/berke-kus.jpeg",
     linkedin: "https://www.linkedin.com/in/berke-ku%C5%9F-464837272/",
     github: "https://github.com/berkekus",
     bio: "Mobil uygulama geliştirme ve kullanıcı deneyimi tasarımı alanlarında çalışan yaratıcı teknoloji kurucusu. Kullanıcı odaklı tasarım felsefesini teknik mükemmellikle birleştirerek dijital deneyimler üretiyor.",
@@ -132,6 +135,7 @@ export const members: Member[] = [
     role: "Kurucu Ortak",
     initials: "OT",
     avatarGradient: "from-sky-500 via-blue-500 to-indigo-600",
+    avatar: "/avatars/oguzhan-tarhan.jpeg",
     linkedin: "https://www.linkedin.com/in/o%C4%9Fuzhan-tarhan-6a8299357/",
     github: "https://github.com/OgzhnTarhn",
     bio: "Veri bilimi ve makine öğrenmesi alanlarında araştırma odaklı çalışmalar yapan analitik düşünürlü geliştirici. İstatistiksel modelleme ve derin öğrenme konularındaki birikimi, kolektifin veri stratejisinin temelini oluşturuyor.",
@@ -233,6 +237,7 @@ export const projects: Project[] = [
     members: allMemberSlugs,
     github: "https://github.com/ahmetkrkyn0/ASTROHackathon",
     year: 2026,
+    award: "TUA Astro Hackathon 2026 · Birincilik",
     caseStudy: {
       problem: "Ay yüzeyinde güvenli rota; eğim, enerji, gölge ve termal riskle birlikte çözülmeli.",
       approach: "DEM katmanlarını A* maliyet fonksiyonunda görev ağırlıklarıyla birleştirme.",
@@ -379,6 +384,7 @@ export const projects: Project[] = [
     github: "https://github.com/berkekus/healthai-co-creation-platform",
     demo: "https://healthai-co-creation-platform.vercel.app/",
     year: 2026,
+    award: "Erasmus+ HEALTH-AI · En İyi Proje Ödülü",
     caseStudy: {
       problem: "Tıbbi AI projeleri için doğru sağlık-mühendis eşleşmesi karmaşık ve güvensiz kanallardan geçiyor.",
       approach: "NDA akışlı toplantı yönetimi, özel kanal açma ve GDPR uyumlu kullanıcı doğrulama.",

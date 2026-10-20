@@ -42,6 +42,18 @@ function Meta({ project }: { project: Project }) {
   );
 }
 
+function Award({ award }: { award: string }) {
+  return (
+    <p className="badge-award">
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+        <circle cx="7" cy="5.2" r="3.6" />
+        <path d="M4.6 8.4L3.6 13l3.4-1.8L10.4 13l-1-4.6" />
+      </svg>
+      {award}
+    </p>
+  );
+}
+
 function Tags({ tags, limit }: { tags: string[]; limit: number }) {
   return (
     <ul className="flex flex-wrap gap-1.5">
@@ -81,6 +93,8 @@ export default function ProjectGrid() {
           {featured.title}
         </h3>
 
+        {featured.award && <Award award={featured.award} />}
+
         {featured.highlight && (
           <p className="measure text-base leading-relaxed text-feza-accent">
             {featured.highlight}
@@ -108,6 +122,8 @@ export default function ProjectGrid() {
           <h3 className="display text-2xl text-feza-text transition-colors duration-300 group-hover:text-feza-accent">
             {project.title}
           </h3>
+
+          {project.award && <Award award={project.award} />}
 
           <p className="text-[0.95rem] leading-[1.65] text-feza-secondary">
             {project.description}

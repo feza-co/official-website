@@ -110,3 +110,7 @@ node_modules/
 .codex/
 # Playwright MCP scratch output
 .playwright-mcp/
+
+# Kisisel belgeler — public repoya girmemeli
+*_CV.pdf
+*_cv.pdf
