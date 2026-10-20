@@ -49,7 +49,7 @@ export const members: Member[] = [
     linkedin: "https://www.linkedin.com/in/ahmetkrkyn0/",
     github: "https://github.com/ahmetkrkyn0",
     projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan", "hayat-agi", "healthai-co-creation", "iso-29119-4-gamified"],
-    hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
+    hackathons: ["Grid Up Hackathon 2026", "TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
   },
   {
     name: "Tuna Deniz",
@@ -61,7 +61,7 @@ export const members: Member[] = [
     linkedin: "https://www.linkedin.com/in/tuna-deniz1304/",
     github: "https://github.com/tunadeniz1304",
     projects: ["digital-twin-kit", "raw2value", "astro-hackathon", "meydan", "iso-testing-world"],
-    hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
+    hackathons: ["Grid Up Hackathon 2026", "TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
   },
   {
     name: "Nedim Göktuğ Tabak",
@@ -85,7 +85,7 @@ export const members: Member[] = [
     linkedin: "https://www.linkedin.com/in/berke-ku%C5%9F-464837272/",
     github: "https://github.com/berkekus",
     projects: ["astro-hackathon", "hayat-agi", "healthai-co-creation", "iso-29119-4-gamified"],
-    hackathons: ["TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
+    hackathons: ["Grid Up Hackathon 2026", "TUA ASTRO Hackathon 2026", "Kapadokya Hackathon 2026", "METU Hackathon 2026", "European HealthTech Co-Creation & Innovation Platform", "SPR 2026 Mammography Report Classification"],
   },
   {
     name: "Oğuzhan Tarhan",
@@ -438,6 +438,38 @@ export const projects: Project[] = [
     members: ["oguzhan-tarhan", "tuna-deniz", "ahmet-karakoyun", "nedim-goktug-tabak"],
     privateRepo: true,
     year: 2026,
+  },
+  {
+    id: "gridup-anomali",
+    title: "Pano Anomali Erken Uyarı Sistemi",
+    description:
+      "1600 kVA TEDAŞ tipi alçak gerilim dağıtım panolarına ve orta gerilim hücrelerine kablo kalabalığı eklemeden kurulabilen, panoda zaten bulunan enerji analizörünü ve ark korumasını sensör olarak kullanan fizik tabanlı kestirimci bakım platformu.",
+    longDescription:
+      "Sistem sahaya yeni sensör çekmek yerine panonun mevcut enerji analizörünü ve ark korumasını veri kaynağı olarak kullanır. Ölçümler MQTT üzerinden toplanıp TimescaleDB'de saklanır; fizik tabanlı modeller ısıl direnç artışı, yoğuşma riski ve ark hatası gibi olayları oluşmadan önce işaretler. Operasyon arayüzünde 3B ikiz ve alarm konsolu, mühendislik tarafında Grafana panoları bulunur. Çıktılar Modbus TCP ve IEC 60870-5-104 üzerinden mevcut SCADA altyapısına açılır, kritik alarmlar Telegram botuyla nöbetçi ekibe iletilir. Tüm yığın şirket içinde (on-premise) Docker Compose ile ayağa kalkar; kalan faydalı ömür tahmini geri testiyle birlikte açıkça zayıf olarak raporlanmıştır.",
+    highlight:
+      "Grid Up Hackathon 2026 — ADM Elektrik Dağıtım & GDZ Elektrik Dağıtım · Patika.dev",
+    tags: [
+      "Python",
+      "TypeScript",
+      "React",
+      "TimescaleDB",
+      "MQTT",
+      "Modbus TCP",
+      "IEC 60870-5-104",
+      "Docker",
+    ],
+    status: "completed",
+    members: ["tuna-deniz", "ahmet-karakoyun", "izzettin-berke-kus"],
+    github: "https://github.com/ahmetkrkyn0/griduphackathon",
+    year: 2026,
+    caseStudy: {
+      problem:
+        "Dağıtım panolarındaki arızalar çoğunlukla oluştuktan sonra fark ediliyor; sahaya yeni sensör eklemek ise kablo kalabalığı ve maliyet yaratıyor.",
+      approach:
+        "Panoda hâlihazırda bulunan enerji analizörü ve ark korumasını sensör olarak kullanıp ölçümleri fizik tabanlı modellerle yorumlama.",
+      outcome:
+        "Mevcut SCADA'ya Modbus ve IEC 104 üzerinden açılan, tamamen şirket içinde çalışan erken uyarı hattı.",
+    },
   },
 ];
 
